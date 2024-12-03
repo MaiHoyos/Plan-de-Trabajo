@@ -8,7 +8,7 @@
 
   <style>
 body {
-  font-family: Arial, sans-serif;
+  font-family: humanst521 bt, sans-serif;
   margin: 0;
   padding: 0;
 }
@@ -20,7 +20,7 @@ body {
 }
 
 .sidebar {
-  width: 400px;
+  width: 200px;
   background: #f6f7fb;
   color: #333;
   padding: 10px;
@@ -192,6 +192,11 @@ body {
 }
 
 table {
+            width: 100%; /* Ajusta el ancho de la tabla al contenedor */
+            border-collapse: collapse; /* Quita los espacios entre las celdas */
+        }
+
+table {
   border-collapse: collapse;
   border-radius: 10px;
   overflow: hidden;
@@ -356,534 +361,923 @@ th, td {
     display: none;
     margin-bottom: 20px; /* Espaciado entre las tablas */
 }
+  /* Estilo común para los modales */
+    .modal {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5); /* Fondo oscuro semi-transparente */
+        z-index: 9999;
+    }
+
+    .modal-content {
+        background-color: white;
+        margin: 10% auto;
+        padding: 20px;
+        width: 50%;
+        position: relative;
+        border-radius: 8px;
+        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .close {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        font-size: 30px;
+        cursor: pointer;
+        color: #000;
+    }
+
+    /* Estilo del título en el modal */
+    .modal h3 {
+        text-align: center;
+        font-size: 24px;
+        font-weight: bold;
+        margin-bottom: 20px;
+    }
+
+    /* Estilo de los botones */
+    .modal-buttons {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr); /* Tres botones por fila */
+        gap: 15px;
+        justify-items: center;
+        margin-top: 20px;
+    }
+
+    .modal-buttons button {
+    background-color: #daebff;  /* Color de fondo de los botones */
+    color: #000;  /* Color de texto */
+    border: none;
+    padding: 12px 20px;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: 100%;
+    max-width: 250px; /* Ancho máximo para los botones */
+}
+
+.modal-buttons button:hover {
+    background-color: #a9c6f2; /* Color de fondo cuando el cursor pasa sobre el botón */
+}
+
+
+    /* Opcional: Ajustar márgenes en los modales */
+    .modal-content {
+        width: 60%; /* Puedes ajustarlo para que se vean más centrados */
+    }
 
 
   </style>
 </head>
+
 <body>
   <div class="container">
-  <div class="sidebar" id="sidebar">
-    <div class="sidebar-header">
-      <button class="menu-btn" id="menu-btn" onclick="toggleSidebar()">></button>
-	<br>
-      <h3 style="font-weight: bold;">Información del profesor</h3>
+		<div class="sidebar" id="sidebar">
+				<div class="sidebar-header">
+				  <button class="menu-btn" id="menu-btn" onclick="toggleSidebar()">></button>
+					<br>
+				  <h3 style="font-weight: bold;">Información del profesor</h3>
 
-    </div>
-    <div class="table-container">
-	<br>
-    <table class="white-background">
-    <tr><td style="width: 80px; font-size: 12px; font-weight: bold;">Facultad</td><td contenteditable="true" style="font-size: 12px; width: 100px;"></td></tr>
-	</table>
-	<table class="white-background">
-		<tr><td style="width: 80px; font-size: 12px; font-weight: bold;">Escuela/Depto</td><td contenteditable="true" style="font-size: 12px;  width: 100px;"></td></tr>
-	</table>
-	<table class="white-background">
-		<tr><td style="width: 80px; font-size: 12px; font-weight: bold;">Nombre</td><td contenteditable="true" style="font-size: 12px;  width: 100px;"></td></tr>
-	</table>
-	<table class="white-background">
-		<tr><td style="width: 80px; font-size: 12px; font-weight: bold;">Identificación</td><td contenteditable="true" style="font-size: 12px;  width: 100px;"></td></tr>
-	</table>
+				</div>
+					<div class="table-container">
+						<br>
+						<table class="white-background">
+						<tr><td style="width: 80px; font-size: 12px; font-weight: bold;">Facultad</td><td contenteditable="true" style="font-size: 12px; width: 100px;"></td></tr>
+						</table>
+						<table class="white-background">
+							<tr><td style="width: 80px; font-size: 12px; font-weight: bold;">Escuela/Depto</td><td contenteditable="true" style="font-size: 12px;  width: 100px;"></td></tr>
+						</table>
+						<table class="white-background">
+							<tr><td style="width: 80px; font-size: 12px; font-weight: bold;">Nombre</td><td contenteditable="true" style="font-size: 12px;  width: 100px;"></td></tr>
+						</table>
+						<table class="white-background">
+							<tr><td style="width: 80px; font-size: 12px; font-weight: bold;">Identificación</td><td contenteditable="true" style="font-size: 12px;  width: 100px;"></td></tr>
+						</table>
 
-  </div>
-</div>
+					</div>
+		</div>
 
 
 <!-- Main Content -->
-<div class="main-content">
-  <div class="white-rectangle">
-    <h2>Plan de Trabajo Anual</h2>
-    <div class="tabs">
-  <button class="tab-btn" onclick="openTab(event, 'tab1')">
-    <img src="https://cdn.icon-icons.com/icons2/1539/PNG/512/3289566-assistant-educator-professor-showing-teacher-teaching_107089.png" alt="Docencia" class="tab-icon"> Docencia
-</button>
+	<div class="main-content" style="width: 800px; margin-left: 5px; background-color: #fff; padding: 20px;">
+	 
+		<div class="white-rectangle">
+					<h2>Plan de Trabajo Anual</h2>
+							<div class="tabs">
+								  <button class="tab-btn" onclick="openTab(event, 'tab1')">
+									<img src="https://cdn.icon-icons.com/icons2/1539/PNG/512/3289566-assistant-educator-professor-showing-teacher-teaching_107089.png" alt="Docencia" class="tab-icon"> Docencia
+								</button>
 
-<button class="tab-btn" onclick="openTab(event, 'tab2')">
-    <img src="https://static.vecteezy.com/system/resources/previews/002/552/325/non_2x/document-magnifier-analysis-laboratory-science-and-research-line-style-icon-free-vector.jpg" alt="Investigación" class="tab-icon"> Investigación
-</button>
+								<button class="tab-btn" onclick="openTab(event, 'tab2')">
+									<img src="https://static.vecteezy.com/system/resources/previews/002/552/325/non_2x/document-magnifier-analysis-laboratory-science-and-research-line-style-icon-free-vector.jpg" alt="Investigación" class="tab-icon"> Investigación
+								</button>
 
-<button class="tab-btn" onclick="openTab(event, 'tab3')">
-    <img src="https://static.thenounproject.com/png/2350997-512.png" alt="Extensión" class="tab-icon"> Extensión
-</button>
+								<button class="tab-btn" onclick="openTab(event, 'tab3')">
+									<img src="https://static.thenounproject.com/png/2350997-512.png" alt="Extensión" class="tab-icon"> Extensión
+								</button>
 
-  <button class="tab-btn" onclick="openTab(event, 'tab3')">
-    <img src="https://icons.veryicon.com/png/o/miscellaneous/yuanql/icon-admin.png" alt="Actividades académico administrativas" class="tab-icon"> Actividades académico administrativas
-</button>
+								  <button class="tab-btn" onclick="openTab(event, 'tab4')">
+									<img src="https://icons.veryicon.com/png/o/miscellaneous/yuanql/icon-admin.png" alt="Actividades académico administrativas" class="tab-icon"> Actividades académico administrativas
+								</button>
 
-</div>
-
-
-    <div id="tab1" class="tab-content">
-    <div class="header-container" style="
-    display: flex; 
-    justify-content: space-between; 
-    align-items: center; 
-    margin-bottom: 10px;">
-    
-    <!-- Botón de agregar actividad -->
-    <button class="add-activity-btn" onclick="insertarFila6(this)" style="
-        padding: 10px 20px; 
-        background-color: #1977e8; 
-        color: white; 
-        border: none; 
-        border-radius: 5px; 
-        cursor: pointer;">
-        Agregar actividad
-    </button>
-    
-    <!-- Rectángulo con bordes redondeados -->
-    <div id="totalHoras" style="
-        background-color: #eceff8;
-        border: 2px solid #1977e8;
-        border-radius: 15px;
-        padding: 10px 20px;
-        font-size: 16px;
-        font-weight: bold;
-        color: #1977e8;
-        text-align: center;
-        width: 200px;">
-        Total Horas: 0
-    </div>
-</div>
-
-<h3 style="text-align: left; color: #1977e8;">Docencia</h3>
+						</div>
 
 
-    <div id="docencia">
-        <table border="1" cellspacing="0" cellpadding="4">
+					<div id="tab1" class="tab-content">
+							<div class="header-container" style="
+								display: flex; 
+								justify-content: space-between; 
+								align-items: center; 
+								margin-bottom: 10px;">
+								
+								<!-- Botón de agregar actividad -->
+								<button class="add-activity-btn" onclick="insertarFila6(this)" style="
+									padding: 10px 20px; 
+									background-color: #1977e8; 
+									color: white; 
+									border: none; 
+									border-radius: 5px; 
+									cursor: pointer;">
+									Agregar actividad
+								</button>
+								
+								<!-- Rectángulo con bordes redondeados -->
+								<div id="totalHoras" style="
+									background-color: #eceff8;
+									border: 2px solid #1977e8;
+									border-radius: 15px;
+									padding: 10px 20px;
+									font-size: 16px;
+									font-weight: bold;
+									color: #1977e8;
+									text-align: center;
+									width: 200px;">
+									Total Horas: 0
+								</div>
+							</div>
+
+						<h3 style="text-align: left; color: #1977e8;">Docencia</h3>
+
+							<div id="docencia">
+								<table border="1" cellspacing="0" cellpadding="4">
+									<thead>
+										<tr>
+											
+											<th colspan="9">DESCRIPCIÓN DE LA ACTIVIDAD</th>
+											<th style="color:red;" rowspan="2">Evidencia (si lo requiere)</th>
+											<th style="color:red;" rowspan="2">Autoevaluación / Porcentaje de avance</th>
+										</tr>
+										<tr>
+											<th style="width: 100px;">Año</th>
+											<th style="width: 100px;">Periodo</th>
+											<th style="width: 100px;">Código</th>
+											<th style="width: 100px;">Grupo</th>
+											<th style="width: 100px;">Asignatura</th>
+											<th style="width: 100px;">Horas clase semanal</th>
+											<th style="width: 100px;">Horas asesoría</th>
+											<th style="width: 100px;">Horas semestrales</th>
+											<th style="width: 100px;">Horario</th>
+											
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<td>
+												<select style="appearance: none; border: none; background-color: transparent; padding-right: 20px; font-size: inherit; float: right; background-image: url('data:image/svg+xml;utf8,<svg xmlns=&quot;http://www.w3.org/2000/svg&quot; viewBox=&quot;0 0 10 10&quot;><path fill=&quot;none&quot; stroke=&quot;gray&quot; stroke-width=&quot;1&quot; d=&quot;M1 3l3 3 3-3&quot;/></svg>'); background-repeat: no-repeat; background-position: right 5px center; background-size: 10px;">
+													<option value=" "> </option>
+													<option value="2024">2024</option>
+													<option value="2025">2025</option>
+													<option value="2026">2026</option>
+												</select>
+											</td>
+											<td>
+												<select style="appearance: none; border: none; background-color: transparent; padding-right: 20px; font-size: inherit; float: right; background-image: url('data:image/svg+xml;utf8,<svg xmlns=&quot;http://www.w3.org/2000/svg&quot; viewBox=&quot;0 0 10 10&quot;><path fill=&quot;none&quot; stroke=&quot;gray&quot; stroke-width=&quot;1&quot; d=&quot;M1 3l3 3 3-3&quot;/></svg>'); background-repeat: no-repeat; background-position: right 5px center; background-size: 10px;">
+													<option value=" "> </option>
+													<option value="1">1</option>
+													<option value="2">2</option>
+												</select>
+											</td>
+											<td contenteditable="true"></td>
+											<td contenteditable="true"></td>
+											<td contenteditable="true"></td>
+											<td contenteditable="true" id="cell4" oninput="calculateSum3()"></td>
+											<td contenteditable="true" id="cell5" oninput="calculateSum3()"></td>
+											<td id="resultCell"></td>
+											<td onclick="openModal(this)">Click para editar el horario</td>
+											<td>
+												<!-- Botón cuadrado para adjuntar archivos -->
+												<button class="square-button attachButton" onclick="openFileInput(this)">+</button>
+												<!-- Input de archivo oculto -->
+												<input type="file" class="fileInput" style="display: none;" />
+												<!-- Botón de texto para visualizar archivo -->
+												<button class="view-button" title="Descargar archivo">Ver</button>
+											</td>
+											<td contenteditable="true"></td>
+											
+										</tr>
+										<tr>
+											<td colspan="8" style="text-align: right;">Total horas</td>
+											<td id="totalHoras" contenteditable="true"></td>
+											<td contenteditable="true"></td>
+											<td contenteditable="true"></td>
+										<tr>
+										
+									</tbody>
+								</table>
+							
+						<button id="addThesisDirectionBtn" style="margin-top: 20px; background-color: #eceff8; border: none; border-radius: 10px; padding: 10px 20px; cursor: pointer;" onclick="showTable()">+ Agregar dirección de trabajos de grado</button>
+
+							<div id="thesisDirectionTableContainer" style="display: none; margin-top: 20px;">
+							<table border="1" cellspacing="0" cellpadding="4">
+								<thead>
+									<tr>
+										
+										<th colspan="10">DESCRIPCIÓN DE LA ACTIVIDAD</th>
+									</tr>
+									<tr>
+										<th>Código</th>
+										<th>Título</th>
+										<th>Proyecto</th>
+										<th>Autor</th>
+										<th>Nivel</th>
+										<th>Fecha de inicio</th>
+										<th>Horas semanales</th>
+										<th>Horas semestre</th>
+										
+										<th>EVIDENCIA (si lo requiere)</th>
+										<th style="color:red;">Autoevaluación / Porcentaje de avance</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										
+										<td contenteditable="true"></td>
+										<td contenteditable="true"></td>
+										<td contenteditable="true"></td>
+										<td contenteditable="true"></td>
+										<td contenteditable="true"></td>
+										<td contenteditable="true"></td>
+										<td contenteditable="true" id="cell3_original" oninput="calculateSum2('cell3_original')"></td>
+										<td id="resultCell2_original"></td>
+										
+										<td contenteditable="true"></td>
+										<td contenteditable="true" class="oculto"></td>
+									</tr>
+									<tr>
+										<td colspan="10" style="text-align: right;">
+											<button style="border: none;" onclick="insertarFila(this)">Añadir Fila</button>
+										</td>
+									</tr>
+									<tr>
+										<td colspan="8" style="text-align: right;">Total horas</td>
+										<td id="totalHoras" contenteditable="true"></td>
+										<td contenteditable="true"></td>
+										
+									</tr>
+								</tbody>
+							</table>
+						</div>
+
+
+							</div>
+					</div>
+					
+					
+					
+					
+					
+				   <!-- Sección Investigación (oculta inicialmente) -->
+					<div id="tab2" class="tab-content" style="display:none;">
+						<div class="header-container">
+							<button class="add-activity-btn" onclick="openActivityModal()">Agregar actividad</button>
+							<h3 style="text-align: left; color: #1977e8;">Investigación</h3>
+							<div id="Investigación">
+								<table border="1" cellspacing="0" cellpadding="4">
+									<thead>
+										
+										<tr></tr>
+									</thead>
+									<tbody id="activityTableBody">
+										<!-- Aquí se añadiran las tablas seleccionadas por el modal una debajo de otra -->
+														<!-- Tablas ocultas -->
+										<div id="tables-container">									
+														<table id="Escritura de Artículos Científicos" class="tabla-oculta" border="1">
+															<tr class="sub-header">
+																<td colspan="10" style="background-color: #f2f2f2;">Escritura de Artículos Científicos</td>
+															</tr>
+															<tr>
+																<th>Título</th>
+																<th>Autores</th>
+																<th>Filiación</th>
+																<th>Revista</th>
+																<th>Fecha inicio</th>
+																<th>Fecha finalización</th>
+																<th>Horas semanales</th>
+																<th>Horas semestre</th>
+																<th>EVIDENCIA (si lo requiere)</th>
+																<th style="color:red;" class="oculto">Autoevaluación / Porcentaje de avance</th>
+															</tr>
+															<tr>
+																<td colspan="10" style="text-align: right;">
+																	<button style="border: none;" onclick="insertarFila(this)">Añadir Fila</button>
+																</td>
+															</tr>
+														</table>
+
+														<table id="Participación en Eventos Científicos" class="tabla-oculta" border="1">
+															<tr class="sub-header">
+																<td colspan="10" style="background-color: #f2f2f2;">Participación en Eventos Científicos</td>
+															</tr>
+															<tr>
+																<th colspan="2">Nombre del evento</th>
+																<th>Rol</th>
+																<th>Filiación</th>
+																<th>Fecha inicio</th>
+																<th>Fecha finalización</th>
+																<th>Horas semanales</th>
+																<th>Horas semestre</th>
+																<th>EVIDENCIA (si lo requiere)</th>
+																<th style="color:red;" class="oculto">Autoevaluación / Porcentaje de avance</th>
+															</tr>
+															<tr>
+																<td colspan="10" style="text-align: right;">
+																	<button style="border: none;" onclick="insertarFila2(this)">Añadir Fila</button>
+																</td>
+															</tr>
+														</table>
+
+														<table id="Participación en comités editoriales de revistas científicas" class="tabla-oculta" border="1">
+															<tr class="sub-header">
+																<td colspan="10" style="background-color: #f2f2f2;">Participación en Comités Editoriales de Revistas Científicas</td>
+															</tr>
+															<tr>
+																<th colspan="3">Nombre de la revista</th>
+																<th>Rol</th>
+																<th>Fecha inicio</th>
+																<th>Fecha finalización</th>
+																<th>Horas semanales</th>
+																<th>Horas semestre</th>
+																<th>EVIDENCIA (si lo requiere)</th>
+																<th style="color:red;" class="oculto">Autoevaluación / Porcentaje de avance</th>
+															</tr>
+															<tr>
+																<td colspan="10" style="text-align: right;">
+																	<button style="border: none;" onclick="insertarFila3(this)">Añadir Fila</button>
+																</td>
+															</tr>
+														</table>
+
+														<table id="Participación en asociaciones científicas" class="tabla-oculta" border="1">
+															<tr class="sub-header">
+																<td colspan="10" style="background-color: #f2f2f2;">Participación en Asociaciones Científicas</td>
+															</tr>
+															<tr>
+																 <th colspan="3">Nombre de la asociación</th>
+																<th>Rol</th>
+																<th>Fecha inicio</th>
+																<th>Fecha finalización</th>
+																<th>Horas semanales</th>
+																<th>Horas semestre</th>
+																<th>EVIDENCIA (si lo requiere)</th>
+																<th style="color:red;" class="oculto">Autoevaluación / Porcentaje de avance</th>
+															</tr>
+															<tr>
+																<td colspan="10" style="text-align: right;">
+																	<button style="border: none;" onclick="insertarFila3(this)">Añadir Fila</button>
+																</td>
+															</tr>
+														</table>
+
+														<table id="Reconocimiento como investigador junior, asociado, senior o emérito por el ministerio de ciencia y tecnología" class="tabla-oculta" border="1">
+															<tr class="sub-header">
+																<td colspan="10" style="background-color: #f2f2f2;">Reconocimiento como Investigador por el Ministerio de Ciencia y Tecnología</td>
+															</tr>
+															<tr>
+																<th colspan="3">Grupo de Investigación</th>
+																<th>Categoría</th>
+																<th>Fecha inicio</th>
+																<th>Fecha finalización</th>
+																<th>Horas semanales</th>
+																<th>Horas semestre</th>
+																<th>EVIDENCIA (si lo requiere)</th>
+																<th style="color:red;" class="oculto">Autoevaluación / Porcentaje de avance</th>
+															</tr>
+															<tr>
+																<td colspan="10" style="text-align: right;">
+																	<button style="border: none;" onclick="insertarFila3(this)">Añadir Fila</button>
+																</td>
+															</tr>
+														</table>
+
+														<table id="Creación y participación en semilleros de investigación reconocidos por la VIE" class="tabla-oculta" border="1">
+															<tr class="sub-header">
+																<td colspan="10" style="background-color: #f2f2f2;">Creación y Participación en Semilleros de Investigación Reconocidos por la VIE</td>
+															</tr>
+															<tr>
+																<th colspan="3">Nombre del semillero</th>
+																<th>Rol</th>
+																<th>Fecha inicio</th>
+																<th>Fecha finalización</th>
+																<th>Horas semanales</th>
+																<th>Horas semestre</th>
+																<th>EVIDENCIA (si lo requiere)</th>
+																<th style="color:red;" class="oculto">Autoevaluación / Porcentaje de avance</th>
+															</tr>
+															<tr>
+																<td colspan="10" style="text-align: right;">
+																	<button style="border: none;" onclick="insertarFila3(this)">Añadir Fila</button>
+																</td>
+															</tr>
+														</table>
+
+														<table id="Gestión de proyectos de investigación en convocatorias internacionales" class="tabla-oculta" border="1">
+															<tr class="sub-header">
+																<td colspan="10" style="background-color: #f2f2f2;">Gestión de Proyectos de Investigación en Convocatorias Internacionales</td>
+															</tr>
+															<tr>
+																<th colspan="3">Proyecto</th>
+																<th>Rol</th>
+																<th>Fecha inicio</th>
+																<th>Fecha finalización</th>
+																<th>Horas semanales</th>
+																<th>Horas semestre</th>
+																<th>EVIDENCIA (si lo requiere)</th>
+																<th style="color:red;" class="oculto">Autoevaluación / Porcentaje de avance</th>
+															</tr>
+															<tr>
+																<td colspan="10" style="text-align: right;">
+																	<button style="border: none;" onclick="insertarFila3(this)">Añadir Fila</button>
+																</td>
+															</tr>
+														</table>
+
+														<table id="Obtención de patentes" class="tabla-oculta" border="1">
+															<tr class="sub-header">
+																<td colspan="10" style="background-color: #f2f2f2;">Obtención de Patentes</td>
+															</tr>
+															<tr>
+																<th colspan="3">Producto</th>
+																<th>Inventores</th>
+																<th>Fecha solicitud</th>
+																<th>Fecha concesión</th>
+																<th>Horas semanales</th>
+																<th>Horas semestre</th>
+																<th>EVIDENCIA (si lo requiere)</th>
+																<th style="color:red;" class="oculto">Autoevaluación / Porcentaje de avance</th>
+															</tr>
+															<tr>
+																<td colspan="10" style="text-align: right;">
+																	<button style="border: none;" onclick="insertarFila3(this)">Añadir Fila</button>
+																</td>
+															</tr>
+														</table>
+
+														<table id="Generación y mantenimiento de Spin-OFF" class="tabla-oculta" border="1">
+															<tr class="sub-header">
+																<td colspan="10" style="background-color: #f2f2f2;">Generación y Mantenimiento de Spin-OFF</td>
+															</tr>
+															<tr>
+																<th colspan="2">Nombre de empresa</th>
+																<th>Rol</th>
+																<th>Fase</th>
+																<th>Fecha inicio</th>
+																<th>Fecha mantenimiento</th>
+																<th>Horas semanales</th>
+																<th>Horas semestre</th>
+																<th>EVIDENCIA (si lo requiere)</th>
+																<th style="color:red;" class="oculto">Autoevaluación / Porcentaje de avance</th>
+															</tr>
+															<tr>
+																<td colspan="10" style="text-align: right;">
+																	<button style="border: none;" onclick="insertarFila2(this)">Añadir Fila</button>
+																</td>
+															</tr>
+														</table>
+
+														<table id="Otros" class="tabla-oculta" border="1">
+															<tr class="sub-header">
+																<td colspan="10" style="background-color: #f2f2f2;">Otros</td>
+															</tr>
+															<tr>
+																<th colspan="3">Descripción</th>
+																<th>Proyecto asociado</th>
+																<th>Fecha inicio</th>
+																<th>Fecha finalización</th>
+																<th>Horas semanales</th>
+																<th>Horas semestre</th>
+																<th>EVIDENCIA (si lo requiere)</th>
+																<th style="color:red;" class="oculto">Autoevaluación / Porcentaje de avance</th>
+															</tr>
+															<tr>
+																<td colspan="10" style="text-align: right;">
+																	<button style="border: none;" onclick="insertarFila3(this)">Añadir Fila</button>
+																</td>
+															</tr>
+														</table>
+										</div>
+
+										
+									</tbody>
+								</table>
+							</div>
+						</div>
+					
+					
+					
+						<!-- Sección Extensión (oculta inicialmente) -->
+						<div id="tab3" class="tab-content" style="display:none;">
+							<div class="header-container">
+								<button class="add-activity-btn" onclick="openExtModal()">Agregar actividad</button>
+								<h3 style="text-align: left; color: #1977e8;">Extensión</h3>
+								<div id="Extensión">
+									<table border="1" cellspacing="0" cellpadding="4">
+										<thead>
+										<tr></tr>
+										</thead>
+										<tbody>
+													<div id="activitiesContainer">									
+													
+																		<table id="tabla-autofinanciados" border="1" cellspacing="0" cellpadding="4" class="tabla-oculta">
+												<thead>
+													<tr>
+														<th colspan="8">DESCRIPCIÓN DE LA ACTIVIDAD</th>
+														<th>HORAS PLANEADAS</th>
+														<th>EVIDENCIA (si lo requiere)</th>
+													</tr>
+												</thead>
+												<tbody>
+													<tr>
+														<td colspan="10" style="background-color: #f2f2f2;">Coordinación de programas autofinanciados</td>
+													</tr>
+													<tr>
+														<td colspan="8" contenteditable="true"></td>
+														<td contenteditable="true" data-sum="true"></td>
+														<td contenteditable="true"></td>
+													</tr>
+													<tr>
+														<td colspan="10" style="text-align: right;">
+															<button style="border: none;" onclick="insertarFila4(this)">Añadir Fila</button>
+														</td>
+													</tr>
+												</tbody>
+											</table>
+
+											<!-- Desarrollo de Proyecto de extensión solidaria -->
+											<table id="tabla-solidaria" border="1" cellspacing="0" cellpadding="4" class="tabla-oculta">
+												<thead>
+													<tr>
+														<th colspan="8">DESCRIPCIÓN DE LA ACTIVIDAD</th>
+														<th>HORAS PLANEADAS</th>
+														<th>EVIDENCIA (si lo requiere)</th>
+													</tr>
+												</thead>
+												<tbody>
+													<tr>
+														<td colspan="10" style="background-color: #f2f2f2;">Desarrollo de Proyecto de extensión solidaria</td>
+													</tr>
+													<tr>
+														<td colspan="8" contenteditable="true"></td>
+														<td contenteditable="true" data-sum="true"></td>
+														<td contenteditable="true"></td>
+													</tr>
+													<tr>
+														<td colspan="10" style="text-align: right;">
+															<button style="border: none;" onclick="insertarFila4(this)">Añadir Fila</button>
+														</td>
+													</tr>
+												</tbody>
+											</table>
+
+											<!-- Desarrollo de Proyecto de extensión no solidaria -->
+											<table id="tabla-no-solidaria" border="1" cellspacing="0" cellpadding="4" class="tabla-oculta">
+												<thead>
+													<tr>
+														<th colspan="8">DESCRIPCIÓN DE LA ACTIVIDAD</th>
+														<th>HORAS PLANEADAS</th>
+														<th>EVIDENCIA (si lo requiere)</th>
+													</tr>
+												</thead>
+												<tbody>
+													<tr>
+														<td colspan="10" style="background-color: #f2f2f2;">Desarrollo de Proyecto de extensión no solidaria</td>
+													</tr>
+													<tr>
+														<td colspan="8" contenteditable="true"></td>
+														<td contenteditable="true" data-sum="true"></td>
+														<td contenteditable="true"></td>
+													</tr>
+													<tr>
+														<td colspan="10" style="text-align: right;">
+															<button style="border: none;" onclick="insertarFila4(this)">Añadir Fila</button>
+														</td>
+													</tr>
+												</tbody>
+											</table>
+
+											<!-- Coordinación de laboratorios -->
+											<table id="tabla-laboratorios" border="1" cellspacing="0" cellpadding="4" class="tabla-oculta">
+												<thead>
+													<tr>
+														<th colspan="8">DESCRIPCIÓN DE LA ACTIVIDAD</th>
+														<th>HORAS PLANEADAS</th>
+														<th>EVIDENCIA (si lo requiere)</th>
+													</tr>
+												</thead>
+												<tbody>
+													<tr>
+														<td colspan="10" style="background-color: #f2f2f2;">Coordinación de laboratorios</td>
+													</tr>
+													<tr>
+														<td colspan="8" contenteditable="true"></td>
+														<td contenteditable="true" data-sum="true"></td>
+														<td contenteditable="true"></td>
+													</tr>
+													<tr>
+														<td colspan="10" style="text-align: right;">
+															<button style="border: none;" onclick="insertarFila4(this)">Añadir Fila</button>
+														</td>
+													</tr>
+												</tbody>
+											</table>
+
+											<!-- Consultoría especializada -->
+											<table id="tabla-consultoria" border="1" cellspacing="0" cellpadding="4" class="tabla-oculta"">
+												<thead>
+													<tr>
+														<th colspan="8">DESCRIPCIÓN DE LA ACTIVIDAD</th>
+														<th>HORAS PLANEADAS</th>
+														<th>EVIDENCIA (si lo requiere)</th>
+													</tr>
+												</thead>
+												<tbody>
+													<tr>
+														<td colspan="10" style="background-color: #f2f2f2;">Consultoría especializada</td>
+													</tr>
+													<tr>
+														<td colspan="8" contenteditable="true"></td>
+														<td contenteditable="true" data-sum="true"></td>
+														<td contenteditable="true"></td>
+													</tr>
+													<tr>
+														<td colspan="10" style="text-align: right;">
+															<button style="border: none;" onclick="insertarFila4(this)">Añadir Fila</button>
+														</td>
+													</tr>
+												</tbody>
+											</table>
+
+											<!-- Otros -->
+											<table id="tabla-otros" border="1" cellspacing="0" cellpadding="4" class="tabla-oculta">
+												<thead>
+													<tr>
+														<th colspan="8">DESCRIPCIÓN DE LA ACTIVIDAD</th>
+														<th>HORAS PLANEADAS</th>
+														<th>EVIDENCIA (si lo requiere)</th>
+													</tr>
+												</thead>
+												<tbody>
+													<tr>
+														<td colspan="10" style="background-color: #f2f2f2;">Otros</td>
+													</tr>
+													<tr>
+														<td colspan="8" contenteditable="true"></td>
+														<td contenteditable="true" data-sum="true"></td>
+														<td contenteditable="true"></td>
+													</tr>
+													<tr>
+														<td colspan="10" style="text-align: right;">
+															<button style="border: none;" onclick="insertarFila4(this)">Añadir Fila</button>
+														</td>
+													</tr>
+												</tbody>
+											</table>
+
+														
+														
+													</div>
+
+											
+										</tbody>
+									</table>
+								</div>
+							</div>
+							
+							
+							
+							
+							<!-- ACT acad admin -->
+							
+							<div id="tab4" class="tab-content" style="display:none;">
+							
+							<!-- Tabla para Actividades Académico Administrativas -->
+        <table border="1" style="width: 100%; border-collapse: collapse;">
             <thead>
                 <tr>
                     
-                    <th colspan="9">DESCRIPCIÓN DE LA ACTIVIDAD</th>
-                    <th style="color:red;" rowspan="2">Evidencia (si lo requiere)</th>
-					<th style="color:red;" rowspan="2">Autoevaluación / Porcentaje de avance</th>
+                    <th rowspan="2" colspan="8">DESCRIPCIÓN DE LA ACTIVIDAD</th>
+                    <th rowspan="2">HORAS PLANEADAS</th>
+                    <th >EVIDENCIA (si lo requiere)</th>
+                    <th style="color:red;" rowspan="2">Autoevaluación / Porcentaje de avance</th>
                 </tr>
-                <tr>
-                    <th style="width: 100px;">Año</th>
-                    <th style="width: 100px;">Periodo</th>
-                    <th style="width: 100px;">Código</th>
-                    <th style="width: 100px;">Grupo</th>
-                    <th style="width: 100px;">Asignatura</th>
-                    <th style="width: 100px;">Horas clase semanal</th>
-                    <th style="width: 100px;">Horas asesoría</th>
-                    <th style="width: 100px;">Horas semestrales</th>
-                    <th style="width: 100px;">Horario</th>
-                    
-                </tr>
+                
             </thead>
             <tbody>
                 <tr>
-                    <td>
-                        <select style="appearance: none; border: none; background-color: transparent; padding-right: 20px; font-size: inherit; float: right; background-image: url('data:image/svg+xml;utf8,<svg xmlns=&quot;http://www.w3.org/2000/svg&quot; viewBox=&quot;0 0 10 10&quot;><path fill=&quot;none&quot; stroke=&quot;gray&quot; stroke-width=&quot;1&quot; d=&quot;M1 3l3 3 3-3&quot;/></svg>'); background-repeat: no-repeat; background-position: right 5px center; background-size: 10px;">
-							<option value=" "> </option>
-							<option value="2024">2024</option>
-							<option value="2025">2025</option>
-							<option value="2026">2026</option>
-						</select>
-                    </td>
-                    <td>
-                        <select style="appearance: none; border: none; background-color: transparent; padding-right: 20px; font-size: inherit; float: right; background-image: url('data:image/svg+xml;utf8,<svg xmlns=&quot;http://www.w3.org/2000/svg&quot; viewBox=&quot;0 0 10 10&quot;><path fill=&quot;none&quot; stroke=&quot;gray&quot; stroke-width=&quot;1&quot; d=&quot;M1 3l3 3 3-3&quot;/></svg>'); background-repeat: no-repeat; background-position: right 5px center; background-size: 10px;">
-                            <option value=" "> </option>
-                            <option value="1">1</option>
-                            <option value="2">2</option>
-                        </select>
-                    </td>
+                    
+                    <td contenteditable="true" colspan="8">Dirección de Unidad Académico Administrativa</td>
+                    <td contenteditable="true" data-sum1="true"></td>
                     <td contenteditable="true"></td>
                     <td contenteditable="true"></td>
+                </tr>
+                <tr>
+                    
+                    <td contenteditable="true" colspan="8">Comité curricular pregrado</td>
+                    <td contenteditable="true" data-sum1="true"></td>
                     <td contenteditable="true"></td>
-                    <td contenteditable="true" id="cell4" oninput="calculateSum3()"></td>
-                    <td contenteditable="true" id="cell5" oninput="calculateSum3()"></td>
-                    <td id="resultCell"></td>
-                    <td onclick="openModal(this)">Click para editar el horario</td>
-					<td>
-						<!-- Botón cuadrado para adjuntar archivos -->
-						<button class="square-button attachButton" onclick="openFileInput(this)">+</button>
-						<!-- Input de archivo oculto -->
-						<input type="file" class="fileInput" style="display: none;" />
-						<!-- Botón de texto para visualizar archivo -->
-						<button class="view-button" title="Descargar archivo">Ver</button>
-					</td>
-					<td contenteditable="true"></td>
+                    <td contenteditable="true"></td>
                     
                 </tr>
+                <tr>
+                    
+                    <td contenteditable="true" colspan="8">Comité curricular posgrados</td>
+                    <td contenteditable="true" data-sum1="true"></td>
+                    <td contenteditable="true"></td>
+                    <td contenteditable="true"></td>
+                    
+                </tr>
+                <tr>
+                    
+                    <td contenteditable="true" colspan="8">Coordinación de programas autofinanciados</td>
+                    <td contenteditable="true" data-sum1="true"></td>
+                    <td contenteditable="true"></td>
+                    <td contenteditable="true"></td>
+                    
+                </tr>
+                <tr>
+                    
+                    <td contenteditable="true" colspan="8">Reforma académica de programa</td>
+                    <td contenteditable="true" data-sum1="true"></td>
+                    <td contenteditable="true"></td>
+                    <td contenteditable="true"></td>
+                    
+                </tr>
+                <tr>
+                    
+                    <td contenteditable="true" colspan="8">Líder Proyecto Plan de mejoramiento del programa</td>
+                    <td contenteditable="true" data-sum1="true"></td>
+                    <td contenteditable="true"></td>
+                    <td contenteditable="true"></td>
+                    
+                </tr>
+                <tr>
+                    
+                    <td contenteditable="true" colspan="8">Acreditación ABET</td>
+                    <td contenteditable="true" data-sum1="true"></td>
+                    <td contenteditable="true"></td>
+                    <td contenteditable="true"></td>
+                    
+                </tr>
+                <tr>
+                    
+                    <td contenteditable="true" colspan="8">Nodo Proceso de autoevaluación del programa</td>
+                    <td contenteditable="true" data-sum1="true"></td>
+                    <td contenteditable="true"></td>
+                    <td contenteditable="true"></td>
+                    
+                </tr>
+                <tr>
+                    
+                    <td contenteditable="true" colspan="8">Representante profesoral (Consejo de Escuela, Consejo de Facultad, CA, CS ...)</td>
+                    <td contenteditable="true" data-sum1="true"></td>
+                    <td contenteditable="true"></td>
+                    <td contenteditable="true"></td>
+                    
+                </tr>
+                <tr>
+                    <td style="background-color: #f2f2f2;" colspan="11">Otros</td>
+                </tr>
+                <tr>
+                    
+                    <td contenteditable="true" colspan="8"></td>
+                    <td contenteditable="true" data-sum1="true"></td>
+                    <td contenteditable="true"></td>
+                    <td contenteditable="true"></td>
+                    
+                </tr>
+                <tr>
+                    <td colspan="11" style="text-align: right;">
+                        <button style="border: none;" onclick="insertarFila4(this)">Añadir Fila</button>
+                    </td>
+                </tr>
 				<tr>
-					<td colspan="8" style="text-align: right;">Total horas</td>
-					<td id="totalHoras" contenteditable="true"></td>
-					<td contenteditable="true"></td>
-					<td contenteditable="true"></td>
-				<tr>
-                
+							
+							<td colspan="8" style="text-align: right;">
+								Total horas
+								<!-- Botón que llamará a la función de suma -->
+								<button id="btnSuma" onclick="actualizarSuma1()">Suma</button>
+							</td>
+
+							<td id="Totalhoras4"></td>
+							
+
+					</tr>
             </tbody>
         </table>
-    
-<button id="addThesisDirectionBtn" style="margin-top: 20px; background-color: #eceff8; border: none; border-radius: 10px; padding: 10px 20px; cursor: pointer;" onclick="showTable()">+ Agregar dirección de trabajos de grado</button>
-
-	<div id="thesisDirectionTableContainer" style="display: none; margin-top: 20px;">
-    <table border="1" cellspacing="0" cellpadding="4">
-        <thead>
-            <tr>
-                
-                <th colspan="13">DESCRIPCIÓN DE LA ACTIVIDAD</th>
-            </tr>
-            <tr>
-                <th>Código</th>
-                <th>Título</th>
-                <th>Proyecto</th>
-                <th>Autor</th>
-                <th>Nivel</th>
-                <th>Fecha de inicio</th>
-                <th>Horas semanales</th>
-                <th>Horas semestre</th>
-                
-                <th>EVIDENCIA (si lo requiere)</th>
-                <th style="color:red;">Autoevaluación / Porcentaje de avance</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                
-                <td contenteditable="true"></td>
-                <td contenteditable="true"></td>
-                <td contenteditable="true"></td>
-                <td contenteditable="true"></td>
-                <td contenteditable="true"></td>
-                <td contenteditable="true"></td>
-                <td contenteditable="true" id="cell3_original" oninput="calculateSum2('cell3_original')"></td>
-                <td id="resultCell2_original"></td>
-                
-                <td contenteditable="true"></td>
-                <td contenteditable="true" class="oculto"></td>
-            </tr>
-            <tr>
-                <td colspan="13" style="text-align: right;">
-                    <button style="border: none;" onclick="insertarFila(this)">Añadir Fila</button>
-                </td>
-            </tr>
-            <tr>
-                <td colspan="8" style="text-align: right;">Total horas</td>
-                <td id="totalHoras" contenteditable="true"></td>
-                <td contenteditable="true"></td>
-                <td contenteditable="true"></td>
-            </tr>
-        </tbody>
-    </table>
-</div>
-
-
-	</div>
-	</div>
-	
-	
-	
-	
-	
-	
-	
-	
-   <!-- Sección Investigación (oculta inicialmente) -->
-<div id="tab2" class="tab-content" style="display:none;">
-    <div class="header-container">
-        <button class="add-activity-btn" onclick="openActivityModal()">Agregar actividad</button>
-        <h3 style="text-align: left; color: #1977e8;">Investigación</h3>
-        <div id="Investigación">
-            <table border="1" cellspacing="0" cellpadding="4">
-                <thead>
-                    
-                    <tr></tr>
-                </thead>
-                <tbody id="activityTableBody">
-                    <!-- Aquí se añadiran las tablas seleccionadas por el modal una debajo de otra -->
-									<!-- Tablas ocultas -->
-<div id="tables-container">									
-				<table id="Escritura de Artículos Científicos" class="tabla-oculta" border="1">
-					<tr class="sub-header">
-						<td colspan="10" style="background-color: #f2f2f2;">Escritura de Artículos Científicos</td>
-					</tr>
-					<tr>
-						<th>Título</th>
-						<th>Autores</th>
-						<th>Filiación</th>
-						<th>Revista</th>
-						<th>Fecha inicio</th>
-						<th>Fecha finalización</th>
-						<th>Horas semanales</th>
-						<th>Horas semestre</th>
-						<th>EVIDENCIA (si lo requiere)</th>
-						<th style="color:red;" class="oculto">Autoevaluación / Porcentaje de avance</th>
-					</tr>
-					<tr>
-						<td colspan="10" style="text-align: right;">
-							<button style="border: none;" onclick="insertarFila(this)">Añadir Fila</button>
-						</td>
-					</tr>
-				</table>
-
-				<table id="Participación en Eventos Científicos" class="tabla-oculta" border="1">
-					<tr class="sub-header">
-						<td colspan="10" style="background-color: #f2f2f2;">Participación en Eventos Científicos</td>
-					</tr>
-					<tr>
-						<th colspan="2">Nombre del evento</th>
-						<th>Rol</th>
-						<th>Filiación</th>
-						<th>Fecha inicio</th>
-						<th>Fecha finalización</th>
-						<th>Horas semanales</th>
-						<th>Horas semestre</th>
-						<th>EVIDENCIA (si lo requiere)</th>
-						<th style="color:red;" class="oculto">Autoevaluación / Porcentaje de avance</th>
-					</tr>
-					<tr>
-						<td colspan="10" style="text-align: right;">
-							<button style="border: none;" onclick="insertarFila2(this)">Añadir Fila</button>
-						</td>
-					</tr>
-				</table>
-
-				<table id="Participación en comités editoriales de revistas científicas" class="tabla-oculta" border="1">
-					<tr class="sub-header">
-						<td colspan="10" style="background-color: #f2f2f2;">Participación en Comités Editoriales de Revistas Científicas</td>
-					</tr>
-					<tr>
-						<th colspan="3">Nombre de la revista</th>
-						<th>Rol</th>
-						<th>Fecha inicio</th>
-						<th>Fecha finalización</th>
-						<th>Horas semanales</th>
-						<th>Horas semestre</th>
-						<th>EVIDENCIA (si lo requiere)</th>
-						<th style="color:red;" class="oculto">Autoevaluación / Porcentaje de avance</th>
-					</tr>
-					<tr>
-						<td colspan="10" style="text-align: right;">
-							<button style="border: none;" onclick="insertarFila3(this)">Añadir Fila</button>
-						</td>
-					</tr>
-				</table>
-
-				<table id="Participación en asociaciones científicas" class="tabla-oculta" border="1">
-					<tr class="sub-header">
-						<td colspan="10" style="background-color: #f2f2f2;">Participación en Asociaciones Científicas</td>
-					</tr>
-					<tr>
-						 <th colspan="3">Nombre de la asociación</th>
-						<th>Rol</th>
-						<th>Fecha inicio</th>
-						<th>Fecha finalización</th>
-						<th>Horas semanales</th>
-						<th>Horas semestre</th>
-						<th>EVIDENCIA (si lo requiere)</th>
-						<th style="color:red;" class="oculto">Autoevaluación / Porcentaje de avance</th>
-					</tr>
-					<tr>
-						<td colspan="10" style="text-align: right;">
-							<button style="border: none;" onclick="insertarFila3(this)">Añadir Fila</button>
-						</td>
-					</tr>
-				</table>
-
-				<table id="Reconocimiento como investigador junior, asociado, senior o emérito por el ministerio de ciencia y tecnología" class="tabla-oculta" border="1">
-					<tr class="sub-header">
-						<td colspan="10" style="background-color: #f2f2f2;">Reconocimiento como Investigador por el Ministerio de Ciencia y Tecnología</td>
-					</tr>
-					<tr>
-						<th colspan="3">Grupo de Investigación</th>
-						<th>Categoría</th>
-						<th>Fecha inicio</th>
-						<th>Fecha finalización</th>
-						<th>Horas semanales</th>
-						<th>Horas semestre</th>
-						<th>EVIDENCIA (si lo requiere)</th>
-						<th style="color:red;" class="oculto">Autoevaluación / Porcentaje de avance</th>
-					</tr>
-					<tr>
-						<td colspan="10" style="text-align: right;">
-							<button style="border: none;" onclick="insertarFila3(this)">Añadir Fila</button>
-						</td>
-					</tr>
-				</table>
-
-				<table id="Creación y participación en semilleros de investigación reconocidos por la VIE" class="tabla-oculta" border="1">
-					<tr class="sub-header">
-						<td colspan="10" style="background-color: #f2f2f2;">Creación y Participación en Semilleros de Investigación Reconocidos por la VIE</td>
-					</tr>
-					<tr>
-						<th colspan="3">Nombre del semillero</th>
-						<th>Rol</th>
-						<th>Fecha inicio</th>
-						<th>Fecha finalización</th>
-						<th>Horas semanales</th>
-						<th>Horas semestre</th>
-						<th>EVIDENCIA (si lo requiere)</th>
-						<th style="color:red;" class="oculto">Autoevaluación / Porcentaje de avance</th>
-					</tr>
-					<tr>
-						<td colspan="10" style="text-align: right;">
-							<button style="border: none;" onclick="insertarFila3(this)">Añadir Fila</button>
-						</td>
-					</tr>
-				</table>
-
-				<table id="Gestión de proyectos de investigación en convocatorias internacionales" class="tabla-oculta" border="1">
-					<tr class="sub-header">
-						<td colspan="10" style="background-color: #f2f2f2;">Gestión de Proyectos de Investigación en Convocatorias Internacionales</td>
-					</tr>
-					<tr>
-						<th colspan="3">Proyecto</th>
-						<th>Rol</th>
-						<th>Fecha inicio</th>
-						<th>Fecha finalización</th>
-						<th>Horas semanales</th>
-						<th>Horas semestre</th>
-						<th>EVIDENCIA (si lo requiere)</th>
-						<th style="color:red;" class="oculto">Autoevaluación / Porcentaje de avance</th>
-					</tr>
-					<tr>
-						<td colspan="10" style="text-align: right;">
-							<button style="border: none;" onclick="insertarFila3(this)">Añadir Fila</button>
-						</td>
-					</tr>
-				</table>
-
-				<table id="Obtención de patentes" class="tabla-oculta" border="1">
-					<tr class="sub-header">
-						<td colspan="10" style="background-color: #f2f2f2;">Obtención de Patentes</td>
-					</tr>
-					<tr>
-						<th colspan="3">Producto</th>
-						<th>Inventores</th>
-						<th>Fecha solicitud</th>
-						<th>Fecha concesión</th>
-						<th>Horas semanales</th>
-						<th>Horas semestre</th>
-						<th>EVIDENCIA (si lo requiere)</th>
-						<th style="color:red;" class="oculto">Autoevaluación / Porcentaje de avance</th>
-					</tr>
-					<tr>
-						<td colspan="10" style="text-align: right;">
-							<button style="border: none;" onclick="insertarFila3(this)">Añadir Fila</button>
-						</td>
-					</tr>
-				</table>
-
-				<table id="Generación y mantenimiento de Spin-OFF" class="tabla-oculta" border="1">
-					<tr class="sub-header">
-						<td colspan="10" style="background-color: #f2f2f2;">Generación y Mantenimiento de Spin-OFF</td>
-					</tr>
-					<tr>
-						<th colspan="2">Nombre de empresa</th>
-						<th>Rol</th>
-						<th>Fase</th>
-						<th>Fecha inicio</th>
-						<th>Fecha mantenimiento</th>
-						<th>Horas semanales</th>
-						<th>Horas semestre</th>
-						<th>EVIDENCIA (si lo requiere)</th>
-						<th style="color:red;" class="oculto">Autoevaluación / Porcentaje de avance</th>
-					</tr>
-					<tr>
-						<td colspan="10" style="text-align: right;">
-							<button style="border: none;" onclick="insertarFila2(this)">Añadir Fila</button>
-						</td>
-					</tr>
-				</table>
-
-				<table id="Otros" class="tabla-oculta" border="1">
-					<tr class="sub-header">
-						<td colspan="10" style="background-color: #f2f2f2;">Otros</td>
-					</tr>
-					<tr>
-						<th colspan="3">Descripción</th>
-						<th>Proyecto asociado</th>
-						<th>Fecha inicio</th>
-						<th>Fecha finalización</th>
-						<th>Horas semanales</th>
-						<th>Horas semestre</th>
-						<th>EVIDENCIA (si lo requiere)</th>
-						<th style="color:red;" class="oculto">Autoevaluación / Porcentaje de avance</th>
-					</tr>
-					<tr>
-						<td colspan="10" style="text-align: right;">
-							<button style="border: none;" onclick="insertarFila3(this)">Añadir Fila</button>
-						</td>
-					</tr>
-				</table>
-</div>
-
+							
+							
+							</div>
 					
-                </tbody>
-            </table>
-        </div>
-    </div>
-</div>
-    
-	<div id="tab3" class="tab-content" style="display:none;">Content for Tab 3</div>
-    <div id="tab4" class="tab-content" style="display:none;">Content for Tab 4</div>
+		</div>	
+	</div>	
+			
+				
+				
+			  
+			  
+
+
+			<!-- Modal oculto que contiene la tabla -->
+			<div id="myModal" class="modal">
+			  <div class="modal-content">
+				<span class="close" onclick="closeModal()">&times;</span>
+				<table border="1" style="border-collapse: collapse; width: 100%;">
+				  <thead>
+					<tr>
+					  <th>Día</th>
+					  <th>Hora</th>
+					</tr>
+				  </thead>
+				  <tbody>
+					<tr>
+					  <td contenteditable="true">Lunes</td>
+					  <td contenteditable="true">08:00 - 10:00</td>
+					</tr>
+					<tr>
+					  <td contenteditable="true">Martes</td>
+					  <td contenteditable="true"></td>
+					</tr>
+					<tr>
+					  <td contenteditable="true">Miércoles</td>
+					  <td contenteditable="true"></td>
+					</tr>
+					<tr>
+					  <td contenteditable="true">Jueves</td>
+					  <td contenteditable="true"></td>
+					</tr>
+					<tr>
+					  <td contenteditable="true">Viernes</td>
+					  <td contenteditable="true"></td>
+					</tr>
+				  </tbody>
+				</table>
+				<button onclick="saveHorario()">Guardar</button>
+			  </div>
+			</div>
+			  
+			<!-- Modal de Actividad (oculto inicialmente) -->
+			<div id="activityModal" class="modal">
+				<div class="modal-content">
+					<span class="close" onclick="closeActivityModal()">&times;</span>
+					<h3>Selecciona una actividad</h3>
+					<div class="modal-buttons">
+						<button onclick="showTable1('Escritura de Artículos Científicos')">Escritura de Artículos Científicos</button>
+						<button onclick="showTable1('Participación en Eventos Científicos')">Participación en Eventos Científicos</button>
+						<button onclick="showTable1('Participación en comités editoriales de revistas científicas')">Participación en Comités Editoriales</button>
+						<button onclick="showTable1('Participación en asociaciones científicas')">Participación en Asociaciones Científicas</button>
+						<button onclick="showTable1('Reconocimiento como investigador')">Reconocimiento como Investigador</button>
+						<button onclick="showTable1('Creación y participación en semilleros')">Creación en Semilleros</button>
+						<button onclick="showTable1('Gestión de proyectos internacionales')">Gestión de Proyectos Internacionales</button>
+						<button onclick="showTable1('Obtención de patentes')">Obtención de Patentes</button>
+						<button onclick="showTable1('Generación y mantenimiento de Spin-OFF')">Generación de Spin-Off</button>
+						<button onclick="showTable1('Otros')">Otros</button>
+					</div>
+				</div>
+			</div>
+
+			<!-- Modal de Extensión (oculto inicialmente) -->
+			<div id="extModal" class="modal">
+				<div class="modal-content">
+					<span class="close" onclick="closeExtModal()">&times;</span>
+					<h3>Seleccionar Actividad</h3>
+					<div class="modal-buttons">
+						<button onclick="displayActivityTable('tabla-autofinanciados')">Coordinación de programas autofinanciados</button>
+						<button onclick="displayActivityTable('tabla-solidaria')">Desarrollo de Proyecto de extensión solidaria</button>
+						<button onclick="displayActivityTable('tabla-no-solidaria')">Desarrollo de Proyecto no solidaria</button>
+						<button onclick="displayActivityTable('tabla-laboratorios')">Coordinación de laboratorios</button>
+						<button onclick="displayActivityTable('tabla-consultoria')">Consultoría especializada</button>
+						<button onclick="displayActivityTable('tabla-otros')">Otros</button>
+					</div>
+				</div>
+			</div>
+
 	
-  </div>
-</div>
-
-<!-- Modal oculto que contiene la tabla -->
-<div id="myModal" class="modal">
-  <div class="modal-content">
-    <span class="close" onclick="closeModal()">&times;</span>
-    <table border="1" style="border-collapse: collapse; width: 100%;">
-      <thead>
-        <tr>
-          <th>Día</th>
-          <th>Hora</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td contenteditable="true">Lunes</td>
-          <td contenteditable="true">08:00 - 10:00</td>
-        </tr>
-        <tr>
-          <td contenteditable="true">Martes</td>
-          <td contenteditable="true"></td>
-        </tr>
-        <tr>
-          <td contenteditable="true">Miércoles</td>
-          <td contenteditable="true"></td>
-        </tr>
-        <tr>
-          <td contenteditable="true">Jueves</td>
-          <td contenteditable="true"></td>
-        </tr>
-        <tr>
-          <td contenteditable="true">Viernes</td>
-          <td contenteditable="true"></td>
-        </tr>
-      </tbody>
-    </table>
-    <button onclick="saveHorario()">Guardar</button>
-  </div>
-</div>
-  
-  
-  
-  <!-- Modal de Actividad (oculto inicialmente) -->
-<div id="activityModal" class="modal" style="display:none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.5);">
-    <div class="modal-content" style="background: white; padding: 20px; margin: 100px auto; width: 50%; position: relative;">
-        <span class="close" onclick="closeActivityModal()" style="position: absolute; top: 10px; right: 10px; cursor: pointer;">&times;</span>
-        <h3>Selecciona una actividad</h3>
-        <div id="activityList" class="activity-list">
-            <!-- Botones de actividades -->
-            <button class="activity-btn" onclick="showTable1('Escritura de Artículos Científicos')">Escritura de Artículos Científicos</button>
-			<button class="activity-btn" onclick="showTable1('Participación en Eventos Científicos')">Participación en Eventos Científicos</button>
-			<button class="activity-btn" onclick="showTable1('Participación en comités editoriales de revistas científicas')">Participación en Comités Editoriales de Revistas Científicas</button>
-			<button class="activity-btn" onclick="showTable1('Participación en asociaciones científicas')">Participación en Asociaciones Científicas</button>
-			<button class="activity-btn" onclick="showTable1('Reconocimiento como investigador junior, asociado, senior o emérito por el ministerio de ciencia y tecnología')">Reconocimiento como Investigador</button>
-			<button class="activity-btn" onclick="showTable1('Creación y participación en semilleros de investigación reconocidos por la VIE')">Creación y Participación en Semilleros de Investigación</button>
-			<button class="activity-btn" onclick="showTable1('Gestión de proyectos de investigación en convocatorias internacionales')">Gestión de Proyectos Internacionales</button>
-			<button class="activity-btn" onclick="showTable1('Obtención de patentes')">Obtención de Patentes</button>
-			<button class="activity-btn" onclick="showTable1('Generación y mantenimiento de Spin-OFF')">Generación y Mantenimiento de Spin-OFF</button>
-			<button class="activity-btn" onclick="showTable1('Otros')">Otros</button>
-
-        </div>
-    </div>
-</div>
-
+		</div>
 
 
 
@@ -925,182 +1319,9 @@ th, td {
       event.currentTarget.classList.add('active');
     }
 	
-	function toggleSeccion(id) {
-            const elemento = document.getElementById(id);
-            if (elemento.style.display === 'none' || elemento.style.display === '') {
-                elemento.style.display = 'block';
-            } else {
-                elemento.style.display = 'none';
-            }
-        }
-		
-		document.getElementById('planForm').addEventListener('submit', function(e) {
-            e.preventDefault(); // Previene que el formulario se envíe automáticamente
-
-            const profesor = document.getElementById('profesor').value;
-            const diaFormulacion = document.getElementById('diaFormulacion').value;
-            const mesFormulacion = document.getElementById('mesFormulacion').value;
-            const anoFormulacion = document.getElementById('anoFormulacion').value;
-            const facultad = document.getElementById('facultad').value;
-            const propuesta = document.getElementById('propuesta').value;
-            const escuela = document.getElementById('escuela').value;
-            const diaClaustro = document.getElementById('diaClaustro').value;
-            const mesClaustro = document.getElementById('mesClaustro').value;
-            const anoClaustro = document.getElementById('anoClaustro').value;
-            const nombreProfesor = document.getElementById('nombreProfesor').value;
-            const revisionConsejo = document.getElementById('revisionConsejo').value;
-            const identificacion = document.getElementById('identificacion').value;
-            const aprobacionDecanato = document.getElementById('aprobacionDecanato').value;
-
-            // Mostrar los resultados
-            const result = `
-                <h3>Información ingresada</h3>
-                <p><strong>Profesor:</strong> ${profesor}</p>
-                <p><strong>Fecha de formulación:</strong> ${diaFormulacion}/${mesFormulacion}/${anoFormulacion}</p>
-                <p><strong>Facultad:</strong> ${facultad}</p>
-                <p><strong>Propuesta:</strong> ${propuesta}</p>
-                <p><strong>Escuela/Departamento:</strong> ${escuela}</p>
-                <p><strong>Fecha del claustro:</strong> ${diaClaustro}/${mesClaustro}/${anoClaustro}</p>
-                <p><strong>Nombre del profesor:</strong> ${nombreProfesor}</p>
-                <p><strong>Revisión Consejo:</strong> ${revisionConsejo}</p>
-                <p><strong>No. Identificación:</strong> ${identificacion}</p>
-                <p><strong>Aprobación Decanato:</strong> ${aprobacionDecanato}</p>
-            `;
-            document.getElementById('result').innerHTML = result;
-        });
-		
-		 function showForm() {
-            document.getElementById('instructions').classList.add('hidden');
-            document.getElementById('form').classList.add('active');
-        }
-
-        function goBack() {
-            document.getElementById('instructions').classList.remove('hidden');
-            document.getElementById('form').classList.remove('active');
-        }
-
-        function saveForm() {
-            alert('Formato guardado. Puede revisar y ajustar el resumen si es necesario.');
-            // Aquí puedes agregar la lógica para guardar el formato
-        }
-		
-		function addRow(tableId) {
-        var table = document.getElementById(tableId);
-        var row = table.insertRow(-1);
-        var cols = table.rows[0].cells.length;
-        for (var i = 0; i < cols; i++) {
-            var cell = row.insertCell(i);
-            cell.contentEditable = "true";
-            cell.className = "editable";
-        }
-    }
-
-  
-
-
-
-    function saveAndPrint() {
-        var sections = {
-            'asignaturas': 'Dirección de Asignaturas',
-            'trabajosGrado': 'Dirección de Trabajos de Grado',
-            'direccionCodireccionTrabajo': 'Dirección y Codirección de Trabajo',
-            'gestionProyectosInternos': 'Gestión de Proyectos Internos',
-            'escrituraArticulos': 'Escritura de Artículos',
-            'participacionEventos': 'Participación en Eventos',
-            'comitesEditoriales': 'Comités Editoriales',
-            'asociacionesCientificas': 'Asociaciones Científicas',
-            'reconocimientoInvestigador': 'Reconocimiento como Investigador',
-            'semillerosInvestigacion': 'Semilleros de Investigación',
-            'gestionProyectosInvestigacion': 'Gestión de Proyectos de Investigación',
-            'obtencionPatentes': 'Obtención de Patentes',
-            'generacionSpinOff': 'Generación de Spin-OFF',
-            'extension': 'Extensión',
-            'funcionesAcademicoAdministrativas': 'Funciones Académico Administrativas'
-        };
-
-        var investigacionTables = [
-            'direccionCodireccionTrabajo',
-            'gestionProyectosInternos',
-            'escrituraArticulos',
-            'participacionEventos',
-            'comitesEditoriales',
-            'asociacionesCientificas',
-            'reconocimientoInvestigador',
-            'semillerosInvestigacion',
-            'gestionProyectosInvestigacion',
-            'obtencionPatentes',
-            'generacionSpinOff'
-        ];
-
-        var savedData = {};
-        var hasData = false;
-        var investigacionHasData = false;
-
-        Object.keys(sections).forEach(function(tableId) {
-            var table = document.getElementById(tableId);
-            var rows = table.getElementsByTagName('tr');
-            var isEmpty = true;
-
-            for (var i = 0; i < rows.length; i++) {
-                var cells = rows[i].getElementsByTagName('td');
-                for (var j = 0; j < cells.length; j++) {
-                    if (cells[j].innerText.trim() !== '') {
-                        isEmpty = false;
-                        break;
-                    }
-                }
-                if (!isEmpty) break;
-            }
-
-            if (!isEmpty) {
-                savedData[sections[tableId]] = table.innerHTML;
-                hasData = true;
-
-                // Verifica si la tabla pertenece a la sección de "Investigación"
-                if (investigacionTables.includes(tableId)) {
-                    investigacionHasData = true;
-                }
-            }
-        });
-
-        if (hasData) {
-            localStorage.setItem('tablesData', JSON.stringify(savedData));
-
-            var printWindow = window.open('', '', 'height=600,width=800');
-            printWindow.document.write('<html><head><title>Impresión de Tablas</title><style>table {width: 100%; border-collapse: collapse; margin-bottom: 20px;} th, td {border: 1px solid black; padding: 8px; text-align: left;} th {background-color: #f2f2f2;} .editable {background-color: #e7f3fe;} .section-container {border: 2px solid black; padding: 10px; margin-bottom: 20px;}</style></head><body>');
-
-            printWindow.document.write('<h1>PLAN DE TRABAJO ANUAL</h1>');
-
-            // Imprimimos las tablas, garantizando el orden
-            for (var section in savedData) {
-                if (savedData.hasOwnProperty(section)) {
-                    var tableData = savedData[section];
-                    if (tableData) {
-                        // Si imprimimos la tabla de "Dirección de Trabajos de Grado", verificamos si luego viene "Investigación"
-                        if (section === 'Dirección de Trabajos de Grado' && investigacionHasData) {
-                            printWindow.document.write('<h3>' + section + '</h3>');
-                            printWindow.document.write('<table>' + tableData + '</table>');
-                            printWindow.document.write('<h2>Investigación</h2>'); // Imprime el título "Investigación" después
-                        } else {
-                            // Solo imprimimos las tablas si están llenas
-                            printWindow.document.write('<h3>' + section + '</h3>');
-                            printWindow.document.write('<table>' + tableData + '</table>');
-                        }
-                    }
-                }
-            }
-
-            printWindow.document.write('</body></html>');
-            printWindow.document.close();
-            printWindow.focus();
-            printWindow.print();
-        } else {
-            alert('No hay datos para imprimir.');
-        }
-    }
 	
 		
-		
+		 
 
 function insertarFila(button) {
     // Contar las filas actuales para asignar IDs únicos
@@ -1684,7 +1905,36 @@ function calculateTotalHoras() {
 }
 
  
+      // Función para abrir el modal
+    function openExtModal() {
+        document.getElementById("extModal").style.display = "block";
+    }
 
+    // Función para cerrar el modal
+    function closeExtModal() {
+        document.getElementById("extModal").style.display = "none";
+    }
+
+    // Función para mostrar una tabla específica al seleccionar una actividad
+    function displayActivityTable(tableId) {
+        // Obtener la tabla seleccionada
+        let table = document.getElementById(tableId);
+
+        // Crear un nuevo contenedor para la actividad seleccionada
+        let activityContainer = document.createElement("div");
+        activityContainer.classList.add("activity-container");
+
+        // Clonar la tabla seleccionada y agregarla al contenedor
+        let tableClone = table.cloneNode(true);
+        tableClone.classList.remove("tabla-oculta"); // Asegurarse de que la clase "tabla-oculta" se remueva
+        activityContainer.appendChild(tableClone);
+
+        // Agregar el contenedor de actividad al contenedor principal
+        document.getElementById("activitiesContainer").appendChild(activityContainer);
+
+        // Cerrar el modal
+        closeExtModal();
+    }
 
 
  
