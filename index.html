@@ -442,6 +442,22 @@ th, td {
   transition: opacity 0.3s ease, visibility 0.3s ease;
 }
 
+th {
+    background-color: #daebff;
+    color: #333; /* Asegura un buen contraste para la legibilidad */
+    font-weight: bold;
+}
+
+/* Asegurarse de que los encabezados de las subtablas también tengan el mismo color */
+table table th {
+    background-color: #daebff;
+}
+
+/* Mantener el estilo para las filas de encabezado que abarcan varias columnas */
+tr[class="sub-header"] td {
+    background-color: #daebff;
+}
+
   </style>
 </head>
 
@@ -479,6 +495,31 @@ th, td {
   
 		<div class="white-rectangle">
 		
+		<div id="instructions" class="instructions" style="margin-bottom: 10px; font-size: 14px; line-height: 1.5; 
+			padding: 20px; border: 2px solid #1977e8; border-radius: 15px;">
+			<h3 style="font-size: 16px;">Taller Evaluación Integral</h3>
+			<p>El objetivo de este taller es presentar un modelo del Plan de Trabajo Anual. Durante el taller, los participantes llenarán un formato de manera práctica, para luego discutir sus observaciones y sugerencias en grupo.</p>
+
+			<h3 style="font-size: 16px;">Instrucciones:</h3>
+			<ol>
+				Al final de esta hoja encontrará una barra conformada por cuatro secciones principales: Función Docencia, Investigación, Extensión, y Funciones académico administrativas. </li>
+				<li><strong>Llenado de Campos:</strong> Haga clic en la función para la que desee incluir actividades</li>
+				<strong>RECUERDE:</strong> La función docencia es obligatoria. Para aprobar el PTA debe incluir actividades en al menos dos funciones
+
+				<li><strong>Finalización del Ejercicio:</strong> Una vez completado el formato, haga clic en el botón "Guardar". Esto generará un resumen editable del Plan de Trabajo Anual, el cual podrá revisar y ajustar si es necesario.</li>
+			</ol>
+
+			<h4 style="font-size: 14px;">Discusión:</h4>
+			<p>Una vez que todos hayan completado el formato, procederemos a discutir los resultados y sugerencias para el modelo del Plan de Trabajo Anual.</p>
+
+			<h4 style="font-size: 14px;">Notas Adicionales:</h4>
+			<ul>
+				<li>Asegúrese de llenar todos los campos para evitar inconsistencias en el registro.</li>
+				<li>Recuerde que este ejercicio es un ensayo práctico, y cualquier duda o dificultad será atendida durante la discusión posterior.</li>
+			</ul>
+		</div>
+
+
 		
 					<h2>Plan de Trabajo Anual</h2>
 							<div class="tabs">
@@ -500,12 +541,9 @@ th, td {
 
 						</div>
 
-<div id="instructions" class="instructions" style="margin-bottom: 20px;">
-    <h3>Instrucciones</h3>
-    <p>Seleccione una pestaña para explorar el contenido relacionado. Este cuadro desaparecerá cuando elija una opción.</p>
-  </div>
+
 					<div id="tab1" class="tab-content" style="display: none;">
-  <div class="header-container" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+							<div class="header-container" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
     	
 								<!-- Botón de agregar actividad -->
 								<button class="add-activity-btn" onclick="insertarFila6(this)" style="
@@ -577,7 +615,15 @@ th, td {
 											</td>
 											<td contenteditable="true"></td>
 											<td contenteditable="true"></td>
-											<td contenteditable="true"></td>
+											<td> 
+												<select style="appearance: none; border: none; background-color: transparent; padding-right: 20px; font-size: inherit; float: right; background-image: url('data:image/svg+xml;utf8,<svg xmlns=&quot;http://www.w3.org/2000/svg&quot; viewBox=&quot;0 0 10 10&quot;><path fill=&quot;none&quot; stroke=&quot;gray&quot; stroke-width=&quot;1&quot; d=&quot;M1 3l3 3 3-3&quot;/></svg>'); background-repeat: no-repeat; background-position: right 5px center; background-size: 10px;">
+													<option value=" "> </option>
+													<option value="2024">Asignatura 1</option>
+													<option value="2025">Asignatura 2</option>
+													<option value="2026">Asignatura 3</option>
+													<option value="2026">Asignatura 4</option>
+												</select>
+											</td>
 											<td contenteditable="true" id="cell4" oninput="calculateSum3()"></td>
 											<td contenteditable="true" id="cell5" oninput="calculateSum3()"></td>
 											<td id="resultCell"></td>
@@ -593,68 +639,63 @@ th, td {
 											<td contenteditable="true"></td>
 											
 										</tr>
-										<tr>
-											<td colspan="8" style="text-align: right;">Total horas</td>
+										<tr style="display: none;">
+											<td colspan="7" style="text-align: right;">Total horas</td>
 											<td id="totalHoras" contenteditable="true"></td>
 											<td contenteditable="true"></td>
 											<td contenteditable="true"></td>
-										<tr>
+										</tr>
 										
 									</tbody>
 								</table>
 							
 						<button id="addThesisDirectionBtn" style="margin-top: 20px; background-color: #eceff8; border: none; border-radius: 10px; padding: 10px 20px; cursor: pointer;" onclick="showTable()">+ Agregar dirección de trabajos de grado</button>
 
-							<div id="thesisDirectionTableContainer" style="display: none; margin-top: 20px;">
-							<table border="1" cellspacing="0" cellpadding="4">
-								<thead>
-									<tr>
-										
-										<th colspan="10">DESCRIPCIÓN DE LA ACTIVIDAD</th>
-									</tr>
-									<tr>
-										<th>Código</th>
-										<th>Título</th>
-										<th>Proyecto</th>
-										<th>Autor</th>
-										<th>Nivel</th>
-										<th>Fecha de inicio</th>
-										<th>Horas semanales</th>
-										<th>Horas semestre</th>
-										
-										<th>EVIDENCIA (si lo requiere)</th>
-										<th style="color:red;">Autoevaluación / Porcentaje de avance</th>
-									</tr>
-								</thead>
-								<tbody>
-									<tr>
-										
-										<td contenteditable="true"></td>
-										<td contenteditable="true"></td>
-										<td contenteditable="true"></td>
-										<td contenteditable="true"></td>
-										<td contenteditable="true"></td>
-										<td contenteditable="true"></td>
-										<td contenteditable="true" id="cell3_original" oninput="calculateSum2('cell3_original')"></td>
-										<td id="resultCell2_original"></td>
-										
-										<td contenteditable="true"></td>
-										<td contenteditable="true" class="oculto"></td>
-									</tr>
-									<tr>
-										<td colspan="10" style="text-align: right;">
-											<button style="border: none;" onclick="insertarFila(this)">Añadir Fila</button>
-										</td>
-									</tr>
-									<tr>
-										<td colspan="8" style="text-align: right;">Total horas</td>
-										<td id="totalHoras" contenteditable="true"></td>
-										<td contenteditable="true"></td>
-										
-									</tr>
-								</tbody>
-							</table>
-						</div>
+<div id="thesisDirectionTableContainer" style="display: none; margin-top: 20px;">
+    <table border="1" cellspacing="0" cellpadding="4">
+        <thead>
+            <tr>
+                <th colspan="10">DESCRIPCIÓN DE LA ACTIVIDAD</th>
+            </tr>
+            <tr>
+                <th>Código</th>
+                <th>Título</th>
+                <th>Proyecto</th>
+                <th>Autor</th>
+                <th>Nivel</th>
+                <th>Fecha de inicio</th>
+                <th>Horas semanales</th>
+                <th>Horas semestre</th>
+                <th>EVIDENCIA (si lo requiere)</th>
+                <th style="color:red;">Autoevaluación / Porcentaje de avance</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td contenteditable="true"></td>
+                <td contenteditable="true"></td>
+                <td contenteditable="true"></td>
+                <td contenteditable="true"></td>
+                <td contenteditable="true"></td>
+                <td contenteditable="true"></td>
+                <td contenteditable="true" id="cell3_original" oninput="calculateSum2('cell3_original')"></td>
+                <td id="resultCell2_original"></td>
+                <td contenteditable="true"></td>
+                <td contenteditable="true" class="oculto"></td>
+            </tr>
+            <tr>
+                <td colspan="10" style="text-align: right;">
+                    <button style="border: none;" onclick="insertarFila(this)">Añadir Fila</button>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="7" style="text-align: right;">Total horas</td>
+                <td id="totalHorasTesis" contenteditable="true"></td>
+                <td contenteditable="true"></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
 
 
 							</div>
@@ -1336,57 +1377,72 @@ th, td {
 		 
 
 function insertarFila(button) {
-    // Contar las filas actuales para asignar IDs únicos
-    let contadorFilas = document.querySelectorAll('tr').length; 
-
-    // Crear una nueva fila
+    let contadorFilas = document.querySelectorAll('#thesisDirectionTableContainer tbody tr').length;
     let nuevaFila = document.createElement('tr');
+    let cell3Id = 'cell3_' + contadorFilas;
+    let resultCellId = 'resultCell2_' + contadorFilas;
 
-    // Asignar nuevos IDs únicos para las celdas
-    let cell3Id = 'cell3_' + contadorFilas; // ID único para la celda que calcula
-    let resultCellId = 'resultCell2_' + contadorFilas; // ID único para la celda de resultado
-
-    // Definir la estructura de la nueva fila con IDs únicos
     nuevaFila.innerHTML = `
-    
-    <td contenteditable="true"></td>
-    <td contenteditable="true"></td>
-    <td contenteditable="true"></td>
-    <td contenteditable="true"></td>
-    <td contenteditable="true"></td>
-    <td contenteditable="true"></td>
-    <td contenteditable="true" id="${cell3Id}" oninput="calculateSum2('${cell3Id}')"></td>
-    <td id="${resultCellId}"></td>
-    
-    <td contenteditable="true"></td>
-	<td contenteditable="true"></td>
-    
+        <td contenteditable="true"></td>
+        <td contenteditable="true"></td>
+        <td contenteditable="true"></td>
+        <td contenteditable="true"></td>
+        <td contenteditable="true"></td>
+        <td contenteditable="true"></td>
+        <td contenteditable="true" id="${cell3Id}"></td>
+        <td id="${resultCellId}"></td>
+        <td contenteditable="true"></td>
+        <td contenteditable="true"></td>
     `;
 
-    // Navegar correctamente al tbody que contiene la fila actual
     let filaActual = button.closest('tr');
     filaActual.parentNode.insertBefore(nuevaFila, filaActual);
-	
-	
+
+    // Agregar event listener a la nueva celda de horas
+    document.getElementById(cell3Id).addEventListener('input', () => calculateSum2(cell3Id));
+    updateThesisDirectionTotal();
 }
 	
 function calculateSum2(cellId) {
-    // Obtiene el valor de la celda específica basada en el ID proporcionado
     let cellValue = parseFloat(document.getElementById(cellId).innerText) || 0;
-
-    // Suma el valor y lo multiplica por 22
     let result = cellValue * 22;
-
-    // Determina el ID de la celda de resultado
-    let resultCellId = cellId.replace('cell3', 'resultCell2'); // Cambia el ID de la celda de resultados para nuevas filas
-
-    // Muestra el resultado en la celda correspondiente
+    let resultCellId = cellId.replace('cell3', 'resultCell2');
     document.getElementById(resultCellId).innerText = result;
-	
-	// Recalcular el total
-    sumarResultadosInvestigacion();
+    updateThesisDirectionTotal();
 }
 
+function updateThesisDirectionTotal() {
+    let total = 0;
+    const resultCells = document.querySelectorAll('[id^="resultCell2_"]');
+    resultCells.forEach(cell => {
+        total += parseFloat(cell.innerText) || 0;
+    });
+    document.getElementById('totalHorasTesis').innerText = total;
+    updateTotalHoras();
+}
+
+function addEventListenersToEditableCells() {
+    // Para la sección de docencia
+    document.getElementById('cell4').addEventListener('input', calculateSum3);
+    document.getElementById('cell5').addEventListener('input', calculateSum3);
+
+    // Para la sección de tesis
+    const thesisHoursCells = document.querySelectorAll('[id^="cell3_"]');
+    thesisHoursCells.forEach(cell => {
+        cell.addEventListener('input', () => calculateSum2(cell.id));
+    });
+}
+
+function updateTotalHoras() {
+    const totalHorasDocencia = parseFloat(document.getElementById('totalHoras').innerText) || 0;
+    const totalHorasTesis = parseFloat(document.getElementById('totalHorasTesis').innerText) || 0;
+    const totalGeneral = totalHorasDocencia + totalHorasTesis;
+    
+    const totalHorasRectangulo = document.getElementById('totalHorasRectangulo');
+    if (totalHorasRectangulo) {
+        totalHorasRectangulo.innerText = `Total Horas: ${totalGeneral}`;
+    }
+}
 
 
 function insertarFila2(button) {
@@ -1584,7 +1640,15 @@ function insertarFila6(button) {
         </td>
         <td contenteditable="true"></td>
         <td contenteditable="true"></td>
-		<td contenteditable="true"></td>
+		<td> 
+												<select style="appearance: none; border: none; background-color: transparent; padding-right: 20px; font-size: inherit; float: right; background-image: url('data:image/svg+xml;utf8,<svg xmlns=&quot;http://www.w3.org/2000/svg&quot; viewBox=&quot;0 0 10 10&quot;><path fill=&quot;none&quot; stroke=&quot;gray&quot; stroke-width=&quot;1&quot; d=&quot;M1 3l3 3 3-3&quot;/></svg>'); background-repeat: no-repeat; background-position: right 5px center; background-size: 10px;">
+													<option value=" "> </option>
+													<option value="2024">Asignatura 1</option>
+													<option value="2025">Asignatura 2</option>
+													<option value="2026">Asignatura 3</option>
+													<option value="2026">Asignatura 4</option>
+												</select>
+											</td>
         <td contenteditable="true" id="${cell4Id}" oninput="calculateSum('${cell4Id}', '${cell5Id}', '${resultCellId}')"></td>
         <td contenteditable="true" id="${cell5Id}" oninput="calculateSum('${cell4Id}', '${cell5Id}', '${resultCellId}')"></td>
         <td id="${resultCellId}"></td>
@@ -1601,7 +1665,7 @@ function insertarFila6(button) {
     `;
 
     // Localizar la fila de "Total horas año"
-    let filaTotalHoras = document.querySelector('tr td[colspan="8"]');
+    let filaTotalHoras = document.querySelector('tr td[colspan="7"]');
     if (filaTotalHoras) {
         // Insertar la nueva fila justo antes de la fila de "Total horas año"
         filaTotalHoras.closest('tr').parentNode.insertBefore(nuevaFila, filaTotalHoras.closest('tr'));
@@ -1609,6 +1673,12 @@ function insertarFila6(button) {
 
     // Actualizar el total de horas
     calculateTotalHoras();
+	
+	// Actualizar el total de horas
+    calculateTotalHoras();
+    
+    // Actualizar el total general
+    updateTotalHoras();
 }
 
 
@@ -1747,16 +1817,13 @@ document.addEventListener('change', function (event) {
     }
 });
 function calculateSum3() {
-    // Obtiene los valores de las celdas
     let cell4Value = parseFloat(document.getElementById('cell4').innerText) || 0;
     let cell5Value = parseFloat(document.getElementById('cell5').innerText) || 0;
-    
-    // Suma los valores y los multiplica por 22
     let result = (cell4Value + cell5Value) * 22;
-    
-    // Muestra el resultado en la celda correspondiente
     document.getElementById('resultCell').innerText = result;
-  }
+    document.getElementById('totalHoras').innerText = result;
+    updateTotalHoras();
+}
   
 function calculateSum(cell4Id, cell5Id, resultCellId) {
     let cell4Value = parseFloat(document.getElementById(cell4Id).innerText) || 0;
@@ -1830,9 +1897,15 @@ function actualizarSuma1() {
 function showTable() {
         // Mostrar la tabla debajo del botón
         document.getElementById('thesisDirectionTableContainer').style.display = 'block';
-    }
+    document.getElementById('thesisDirectionTableContainer').style.display = 'block';
+    updateThesisDirectionTotal();
+    addEventListenersToEditableCells();
+	}
 
-
+window.addEventListener('load', () => {
+    addEventListenersToEditableCells();
+    updateTotalHoras();
+});
 
 
 // Función para manejar el clic en el botón "Suma"
