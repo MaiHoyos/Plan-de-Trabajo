@@ -15,35 +15,7 @@ body {
             line-height: 1.6; /* Mejora la legibilidad con un buen interlineado */
 }
 
-/* Títulos más grandes proporcionalmente */
-        h1 {
-            font-size: 2.5em; /* 2.5 veces el tamaño base */
-        }
 
-        h2 {
-            font-size: 2em;
-        }
-
-        h3 {
-            font-size: 1.75em;
-        }
-
-        h4 {
-            font-size: 1.5em;
-        }
-
-        h5 {
-            font-size: 1.25em;
-        }
-
-        h6 {
-            font-size: 1.1em;
-        }
-
-        /* Ajustar el texto en párrafos y otros elementos comunes */
-        p, li, td, th {
-            font-size: 1.125em; /* Aumenta un poco más los textos secundarios */
-        }
 	  
 .container {
   display: flex;
@@ -185,14 +157,13 @@ body {
 }
 
 .tab-btn {
-	font-size: 16px; /* Ajusta el tamaño del texto */
+  font-size: 16px;
   padding: 10px 20px;
   margin-right: 10px;
-  border: none; /* Sin borde */
-  background: white; /* Fondo blanco */
+  border: none;
+  background: white;
   cursor: pointer;
 }
-
 
 .tab-btn:hover {
   background: #ddd;
@@ -201,6 +172,7 @@ body {
 .tab-btn.active {
   border-bottom: 3px solid #1977e8;
 }
+
 
 .tab-content {
   background: white;
@@ -466,6 +438,9 @@ th, td {
         width: 60%; /* Puedes ajustarlo para que se vean más centrados */
     }
 
+.instructions, .tab-content {
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
 
   </style>
 </head>
@@ -500,8 +475,11 @@ th, td {
 
 <!-- Main Content -->
 	<div class="main-content" style="width: 500px; margin-left: 5px; background-color: #fff; padding: 20px;">
-	 
+	 <!-- Cuadro de instrucciones -->
+  
 		<div class="white-rectangle">
+		
+		
 					<h2>Plan de Trabajo Anual</h2>
 							<div class="tabs">
 								  <button class="tab-btn" onclick="openTab(event, 'tab1')">
@@ -522,14 +500,13 @@ th, td {
 
 						</div>
 
-
-					<div id="tab1" class="tab-content">
-							<div class="header-container" style="
-								display: flex; 
-								justify-content: space-between; 
-								align-items: center; 
-								margin-bottom: 10px;">
-								
+<div id="instructions" class="instructions" style="margin-bottom: 20px;">
+    <h3>Instrucciones</h3>
+    <p>Seleccione una pestaña para explorar el contenido relacionado. Este cuadro desaparecerá cuando elija una opción.</p>
+  </div>
+					<div id="tab1" class="tab-content" style="display: none;">
+  <div class="header-container" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+    	
 								<!-- Botón de agregar actividad -->
 								<button class="add-activity-btn" onclick="insertarFila6(this)" style="
 									font-size: 18px; /* Ajusta el tamaño del texto */
@@ -1971,8 +1948,33 @@ function calculateTotalHoras() {
         closeExtModal();
     }
 
+// Mostrar contenido de pestañas y ocultar instrucciones
+  function openTab(event, tabId) {
+    // Ocultar todas las pestañas
+    const tabs = document.querySelectorAll('.tab-content');
+    tabs.forEach(tab => tab.style.display = 'none');
+    
+    // Mostrar la pestaña seleccionada
+    document.getElementById(tabId).style.display = 'block';
+    
+    // Ocultar cuadro de instrucciones
+    document.getElementById('instructions').style.display = 'none';
+  }
 
- 
+  function openTab(event, tabId) {
+    // Ocultar todas las pestañas
+    const tabs = document.querySelectorAll('.tab-content');
+    tabs.forEach(tab => tab.style.display = 'none');
+
+    // Mostrar la pestaña seleccionada
+    document.getElementById(tabId).style.display = 'block';
+
+    // Ocultar el cuadro de instrucciones si existe
+    const instructions = document.getElementById('instructions');
+    if (instructions) {
+      instructions.style.display = 'none';
+    }
+  }
   </script>
 </body>
 </html>
