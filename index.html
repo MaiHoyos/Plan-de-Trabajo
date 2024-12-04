@@ -521,7 +521,21 @@ tr[class="sub-header"] td {
 
 
 		
-					<h2>Plan de Trabajo Anual</h2>
+					<div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+    <h2>Plan de Trabajo Anual</h2>
+    <div id="totalHorasGeneral" style="
+      background-color: #eceff8;
+      border: 2px solid #1977e8;
+      border-radius: 15px;
+      padding: 10px 20px;
+      font-size: 16px;
+      font-weight: bold;
+      color: #1977e8;
+      text-align: center;
+      min-width: 150px;">
+      Total Horas General: 0
+    </div>
+  </div>
 							<div class="tabs">
 								  <button class="tab-btn" onclick="openTab(event, 'tab1')">
 									<img src="https://cdn.icon-icons.com/icons2/1539/PNG/512/3289566-assistant-educator-professor-showing-teacher-teaching_107089.png" alt="Docencia" class="tab-icon"> Docencia
@@ -985,7 +999,26 @@ tr[class="sub-header"] td {
 						<!-- Sección Extensión (oculta inicialmente) -->
 						<div id="tab3" class="tab-content" style="display:none;">
 							<div class="header-container">
-								<button class="add-activity-btn" onclick="openExtModal()">Agregar actividad</button>
+							
+								<div class="header-container" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+  <button class="add-activity-btn" onclick="openExtModal()">Agregar actividad</button>
+  <div id="totalHorasExtension" style="
+    background-color: #eceff8;
+    border: 2px solid #1977e8;
+    border-radius: 15px;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #1977e8;
+    text-align: center;
+    min-width: 150px;
+    display: none;">
+    Total Horas: 0
+  </div>
+</div>
+
+
+								
 								<h3 style="text-align: left; color: #1977e8;">Extensión</h3>
 								<div id="Extensión">
 									<table border="1" cellspacing="0" cellpadding="4">
@@ -1157,6 +1190,20 @@ tr[class="sub-header"] td {
 											
 										</tbody>
 									</table>
+									
+									<button id="guardarExtensionBtn" class="guardarExtension" style="
+  font-size: 18px;
+  padding: 10px 20px; 
+  background-color: #1977e8; 
+  color: white; 
+  border: none; 
+  border-radius: 5px; 
+  cursor: pointer;
+  margin-top: 20px;">
+  Guardar
+</button>
+
+									
 								</div>
 							</div>
 							
@@ -1165,8 +1212,31 @@ tr[class="sub-header"] td {
 							
 							<!-- ACT acad admin -->
 							
-							<div id="tab4" class="tab-content" style="display:none;">
-							
+							<div id="tab4" class="tab-content" style="display:none; position: relative;">
+  <div class="header-container" style="
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 20px;
+    position: relative;">
+    <h3 style="text-align: left; color: #1977e8;">Actividades Académico Administrativas</h3>
+    <div id="totalHorasAcademico" style="
+      position: absolute;
+      top: 0;
+      right: 0;
+      background-color: #eceff8;
+      border: 2px solid #1977e8;
+      border-radius: 15px;
+      padding: 10px 20px;
+      font-size: 16px;
+      font-weight: bold;
+      color: #1977e8;
+      text-align: center;
+      min-width: 150px;
+      display: none;">
+      Total Horas: 0
+    </div>
+  </div>
 							<!-- Tabla para Actividades Académico Administrativas -->
         <table border="1" style="width: 100%; border-collapse: collapse;">
             <thead>
@@ -1269,18 +1339,30 @@ tr[class="sub-header"] td {
                 </tr>
 				<tr>
 							
-							<td colspan="8" style="text-align: right;">
-								Total horas
-								<!-- Botón que llamará a la función de suma -->
-								<button id="btnSuma" onclick="actualizarSuma1()">Suma</button>
-							</td>
+							<td colspan="8" style="text-align: right;" hidden>
+    Total horas
+    <!-- Botón que llamará a la función de suma -->
+    <button id="btnSuma" onclick="actualizarSuma1()">Suma</button>
+</td>
+<td id="Totalhoras4" hidden></td>
 
-							<td id="Totalhoras4"></td>
 							
 
 					</tr>
             </tbody>
         </table>
+		
+		<button id="guardarAcademicoBtn" class="guardarAcademico" style="
+    font-size: 18px;
+    padding: 10px 20px; 
+    background-color: #1977e8; 
+    color: white; 
+    border: none; 
+    border-radius: 5px; 
+    cursor: pointer;
+    margin-top: 20px;">
+    Guardar
+  </button>
 							
 							
 							</div>
@@ -1469,6 +1551,7 @@ function guardarInvestigacion() {
     updateTotalHorasInvestigacion();
     // Aquí puedes añadir cualquier otra lógica necesaria para guardar los datos
     console.log('Datos de investigación guardados');
+	updateTotalHorasGeneral();
 }
 
 document.addEventListener('DOMContentLoaded', function() {
@@ -2174,6 +2257,132 @@ document.addEventListener('DOMContentLoaded', function() {
         console.error('Botón "Guardar" no encontrado.');
     }
 });
+
+function guardarExtension() {
+  updateTotalHorasExtension();
+  const totalHorasDiv = document.getElementById('totalHorasExtension');
+  if (totalHorasDiv) {
+    totalHorasDiv.style.display = 'block';
+  } else {
+    console.error('Elemento totalHorasExtension no encontrado');
+  }
+  console.log('Datos de extensión guardados');
+  updateTotalHorasGeneral();
+}
+
+function updateTotalHorasExtension() {
+  let total = 0;
+  const horasCells = document.querySelectorAll('#tab3 td[data-sum="true"]');
+  horasCells.forEach(cell => {
+    const value = parseFloat(cell.innerText) || 0;
+    total += value;
+  });
+
+  const totalHorasDiv = document.getElementById('totalHorasExtension');
+  if (totalHorasDiv) {
+    totalHorasDiv.innerText = `Total Horas: ${total}`;
+    // No cambiamos el display aquí para mantenerlo oculto hasta que se guarde
+  } else {
+    console.error('Elemento totalHorasExtension no encontrado');
+  }
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+  const guardarExtensionBtn = document.getElementById('guardarExtensionBtn');
+  if (guardarExtensionBtn) {
+    guardarExtensionBtn.addEventListener('click', guardarExtension);
+  } else {
+    console.error('Botón "Guardar Extensión" no encontrado.');
+  }
+
+  // Añadir listener para actualizar en tiempo real, pero sin mostrar el total
+  const extensionTab = document.getElementById('tab3');
+  if (extensionTab) {
+    extensionTab.addEventListener('input', function(event) {
+      if (event.target.matches('td[data-sum="true"]')) {
+        updateTotalHorasExtension();
+      }
+    });
+  }
+});
+
+function guardarAcademico() {
+  updateTotalHorasAcademico();
+  const totalHorasDiv = document.getElementById('totalHorasAcademico');
+  if (totalHorasDiv) {
+    totalHorasDiv.style.display = 'block';
+    console.log('Rectángulo de total de horas mostrado');
+  } else {
+    console.error('Elemento totalHorasAcademico no encontrado');
+  }
+  console.log('Datos de actividades académico administrativas guardados');
+  updateTotalHorasGeneral();
+}
+
+function updateTotalHorasAcademico() {
+  let total = 0;
+  const horasCells = document.querySelectorAll('#tab4 td[data-sum1="true"]');
+  horasCells.forEach(cell => {
+    const value = parseFloat(cell.textContent) || 0;
+    total += value;
+  });
+
+  const totalHorasDiv = document.getElementById('totalHorasAcademico');
+  if (totalHorasDiv) {
+    totalHorasDiv.textContent = `Total Horas: ${total}`;
+    console.log(`Total de horas actualizado: ${total}`);
+  } else {
+    console.error('Elemento totalHorasAcademico no encontrado');
+  }
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+  const guardarAcademicoBtn = document.getElementById('guardarAcademicoBtn');
+  if (guardarAcademicoBtn) {
+    guardarAcademicoBtn.addEventListener('click', guardarAcademico);
+    console.log('Event listener añadido al botón guardarAcademico');
+  } else {
+    console.error('Botón "Guardar Actividades Académico Administrativas" no encontrado.');
+  }
+
+  const academicoTab = document.getElementById('tab4');
+  if (academicoTab) {
+    academicoTab.addEventListener('input', function(event) {
+      if (event.target.matches('td[data-sum1="true"]')) {
+        updateTotalHorasAcademico();
+      }
+    });
+    console.log('Event listener añadido a las celdas editables');
+  }
+});
+
+function updateTotalHorasGeneral() {
+  const totalDocencia = parseFloat(document.getElementById('totalHoras').textContent.split(':')[1]) || 0;
+  const totalInvestigacion = parseFloat(document.getElementById('totalHorasInvestigacion').textContent.split(':')[1]) || 0;
+  const totalExtension = parseFloat(document.getElementById('totalHorasExtension').textContent.split(':')[1]) || 0;
+  const totalAcademico = parseFloat(document.getElementById('totalHorasAcademico').textContent.split(':')[1]) || 0;
+
+  const totalGeneral = totalDocencia + totalInvestigacion + totalExtension + totalAcademico;
+
+  const totalHorasGeneralDiv = document.getElementById('totalHorasGeneral');
+  if (totalHorasGeneralDiv) {
+    totalHorasGeneralDiv.textContent = `Total Horas General: ${totalGeneral}`;
+  }
+}
+
+
+document.addEventListener('DOMContentLoaded', function() {
+  // Event listeners existentes
+
+  // Añadir event listeners para actualizar el total general
+  const guardarBotones = document.querySelectorAll('.guardarDocencia, .guardarInvestigacion, .guardarExtension, .guardarAcademico');
+  guardarBotones.forEach(boton => {
+    boton.addEventListener('click', updateTotalHorasGeneral);
+  });
+});
+
+
+
   </script>
 </body>
 </html>
