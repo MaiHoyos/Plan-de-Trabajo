@@ -652,51 +652,51 @@ tr[class="sub-header"] td {
 							
 						<button id="addThesisDirectionBtn" style="margin-top: 20px; background-color: #eceff8; border: none; border-radius: 10px; padding: 10px 20px; cursor: pointer;" onclick="showTable()">+ Agregar dirección de trabajos de grado</button>
 
-<div id="thesisDirectionTableContainer" style="display: none; margin-top: 20px;">
-    <table border="1" cellspacing="0" cellpadding="4">
-        <thead>
-            <tr>
-                <th colspan="10">DESCRIPCIÓN DE LA ACTIVIDAD</th>
-            </tr>
-            <tr>
-                <th>Código</th>
-                <th>Título</th>
-                <th>Proyecto</th>
-                <th>Autor</th>
-                <th>Nivel</th>
-                <th>Fecha de inicio</th>
-                <th>Horas semanales</th>
-                <th>Horas semestre</th>
-                <th>EVIDENCIA (si lo requiere)</th>
-                <th style="color:red;">Autoevaluación / Porcentaje de avance</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td contenteditable="true"></td>
-                <td contenteditable="true"></td>
-                <td contenteditable="true"></td>
-                <td contenteditable="true"></td>
-                <td contenteditable="true"></td>
-                <td contenteditable="true"></td>
-                <td contenteditable="true" id="cell3_original" oninput="calculateSum2('cell3_original')"></td>
-                <td id="resultCell2_original"></td>
-                <td contenteditable="true"></td>
-                <td contenteditable="true" class="oculto"></td>
-            </tr>
-            <tr>
-                <td colspan="10" style="text-align: right;">
-                    <button style="border: none;" onclick="insertarFila(this)">Añadir Fila</button>
-                </td>
-            </tr>
-            <tr style="display: none;">
-                <td colspan="7" style="text-align: right;">Total horas</td>
-                <td id="totalHorasTesis" contenteditable="true"></td>
-                <td contenteditable="true"></td>
-            </tr>
-        </tbody>
-    </table>
-</div>
+							<div id="thesisDirectionTableContainer" style="display: none; margin-top: 20px;">
+								<table border="1" cellspacing="0" cellpadding="4">
+									<thead>
+										<tr>
+											<th colspan="10">DESCRIPCIÓN DE LA ACTIVIDAD</th>
+										</tr>
+										<tr>
+											<th>Código</th>
+											<th>Título</th>
+											<th>Proyecto</th>
+											<th>Autor</th>
+											<th>Nivel</th>
+											<th>Fecha de inicio</th>
+											<th>Horas semanales</th>
+											<th>Horas semestre</th>
+											<th>EVIDENCIA (si lo requiere)</th>
+											<th style="color:red;">Autoevaluación / Porcentaje de avance</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<td contenteditable="true"></td>
+											<td contenteditable="true"></td>
+											<td contenteditable="true"></td>
+											<td contenteditable="true"></td>
+											<td contenteditable="true"></td>
+											<td contenteditable="true"></td>
+											<td contenteditable="true" id="cell3_original" oninput="calculateSum2('cell3_original')"></td>
+											<td id="resultCell2_original"></td>
+											<td contenteditable="true"></td>
+											<td contenteditable="true" class="oculto"></td>
+										</tr>
+										<tr>
+											<td colspan="10" style="text-align: right;">
+												<button style="border: none;" onclick="insertarFila(this)">Añadir Fila</button>
+											</td>
+										</tr>
+										<tr style="display: none;">
+											<td colspan="7" style="text-align: right;">Total horas</td>
+											<td id="totalHorasTesis" contenteditable="true"></td>
+											<td contenteditable="true"></td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
 
 
 							</div>
@@ -720,10 +720,24 @@ tr[class="sub-header"] td {
 					
 				   <!-- Sección Investigación (oculta inicialmente) -->
 					<div id="tab2" class="tab-content" style="display:none;">
-						<div class="header-container">
+						<div class="header-container" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
 							<button class="add-activity-btn" onclick="openActivityModal()">Agregar actividad</button>
-							<h3 style="text-align: left; color: #1977e8;">Investigación</h3>
-							<div id="Investigación">
+							<div id="totalHorasInvestigacion" style="
+								background-color: #eceff8;
+								border: 2px solid #1977e8;
+								border-radius: 15px;
+								padding: 10px 20px;
+								font-size: 16px;
+								font-weight: bold;
+								color: #1977e8;
+								text-align: center;
+								min-width: 150px;
+								display: none;">
+								Total Horas: 0
+							</div>
+						</div>
+						<h3 style="text-align: left; color: #1977e8;">Investigación</h3>
+						<div id="Investigación">
 								<table border="1" cellspacing="0" cellpadding="4">
 									<thead>
 										
@@ -820,7 +834,7 @@ tr[class="sub-header"] td {
 															</tr>
 														</table>
 
-														<table id="Reconocimiento como investigador junior, asociado, senior o emérito por el ministerio de ciencia y tecnología" class="tabla-oculta" border="1">
+														<table id="Reconocimiento como investigador" class="tabla-oculta" border="1">
 															<tr class="sub-header">
 																<td colspan="10" style="background-color: #f2f2f2;">Reconocimiento como Investigador por el Ministerio de Ciencia y Tecnología</td>
 															</tr>
@@ -841,7 +855,7 @@ tr[class="sub-header"] td {
 															</tr>
 														</table>
 
-														<table id="Creación y participación en semilleros de investigación reconocidos por la VIE" class="tabla-oculta" border="1">
+														<table id="Creación y participación en semilleros" class="tabla-oculta" border="1">
 															<tr class="sub-header">
 																<td colspan="10" style="background-color: #f2f2f2;">Creación y Participación en Semilleros de Investigación Reconocidos por la VIE</td>
 															</tr>
@@ -862,7 +876,7 @@ tr[class="sub-header"] td {
 															</tr>
 														</table>
 
-														<table id="Gestión de proyectos de investigación en convocatorias internacionales" class="tabla-oculta" border="1">
+														<table id="Gestión de proyectos internacionales" class="tabla-oculta" border="1">
 															<tr class="sub-header">
 																<td colspan="10" style="background-color: #f2f2f2;">Gestión de Proyectos de Investigación en Convocatorias Internacionales</td>
 															</tr>
@@ -951,6 +965,18 @@ tr[class="sub-header"] td {
 										
 									</tbody>
 								</table>
+								
+								<button id="guardarInvestigacionBtn" class="guardarInvestigacion" style="
+										font-size: 18px;
+										padding: 10px 20px; 
+										background-color: #1977e8; 
+										color: white; 
+										border: none; 
+										border-radius: 5px; 
+										cursor: pointer;
+										margin-top: 20px;">
+										Guardar
+									</button>
 							</div>
 						</div>
 					
@@ -1422,7 +1448,38 @@ function calculateSum2(cellId) {
     let resultCellId = cellId.replace('cell3', 'resultCell2');
     document.getElementById(resultCellId).innerText = result;
     updateThesisDirectionTotal();
+	updateTotalHorasInvestigacion();
 }
+
+function updateTotalHorasInvestigacion() {
+    let total = 0;
+    const resultCells = document.querySelectorAll('#tab2 [id^="resultCell2_"]');
+    resultCells.forEach(cell => {
+        total += parseFloat(cell.innerText) || 0;
+    });
+
+    const totalHorasDiv = document.getElementById('totalHorasInvestigacion');
+    if (totalHorasDiv) {
+        totalHorasDiv.innerText = `Total Horas: ${total}`;
+        totalHorasDiv.style.display = 'block';
+    }
+}
+
+function guardarInvestigacion() {
+    updateTotalHorasInvestigacion();
+    // Aquí puedes añadir cualquier otra lógica necesaria para guardar los datos
+    console.log('Datos de investigación guardados');
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+    var guardarInvestigacionBtn = document.getElementById('guardarInvestigacionBtn');
+    
+    if (guardarInvestigacionBtn) {
+        guardarInvestigacionBtn.addEventListener('click', guardarInvestigacion);
+    } else {
+        console.error('Botón "Guardar Investigación" no encontrado.');
+    }
+});
 
 function updateThesisDirectionTotal() {
     let total = 0;
@@ -1488,6 +1545,7 @@ function insertarFila2(button) {
      // Navegar correctamente al tbody que contiene la fila actual
     let filaActual = button.closest('tr');
     filaActual.parentNode.insertBefore(nuevaFila, filaActual);
+	
 }
 	
 
@@ -1527,6 +1585,7 @@ function insertarFila3(button) {
 
     // Insertar la nueva fila antes de la fila actual
     filaActual.parentNode.insertBefore(nuevaFila, filaActual);
+	
 }
 
 function calculateSum2(cellId) {
@@ -1958,6 +2017,17 @@ function showTable1(tableId) {
     const modal = document.getElementById('modal');
     if (modal) {
         modal.style.display = 'none'; // Ocultar el modal
+		if (table.style.display === 'none' || table.style.display === '') {
+        table.style.display = 'table';
+        const container = document.getElementById('tables-container');
+        if (!container.contains(table)) {
+            container.appendChild(table);
+        }
+        updateTotalHorasInvestigacion(); // Actualizar total después de mostrar la tabla
+    } else {
+        table.style.display = 'none';
+        updateTotalHorasInvestigacion(); // Actualizar total después de ocultar la tabla
+    }
     }
 
     // Seleccionar la tabla que corresponde al id
@@ -2042,7 +2112,7 @@ function calculateTotalHoras() {
     const tabs = document.querySelectorAll('.tab-content');
     tabs.forEach(tab => tab.style.display = 'none');
     
-    // Mostrar la pestaña seleccionada
+   // Mostrar la pestaña seleccionada
     document.getElementById(tabId).style.display = 'block';
     
     // Ocultar cuadro de instrucciones
