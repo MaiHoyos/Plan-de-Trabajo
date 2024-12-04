@@ -485,7 +485,7 @@ tr[class="sub-header"] td {
 							<tr><td style="width: 80px; font-size: 18px; font-weight: bold;">Identificación</td><td contenteditable="true" style="font-size: 18px;  width: 100px;"></td></tr>
 						</table>
 
-					<button id="autoevaluacionBtn" style="
+					<button id="autoevaluacionBtn" onclick="duplicarPagina()" style="
 					  margin-top: 20px;
 					  width: 100%;
 					  padding: 10px;
@@ -612,7 +612,7 @@ tr[class="sub-header"] td {
 											
 											<th colspan="9">DESCRIPCIÓN DE LA ACTIVIDAD</th>
 											<th style="color:red;" rowspan="2">Evidencia (si lo requiere)</th>
-											<th style="color:red;" rowspan="2">Autoevaluación / Porcentaje de avance</th>
+											<th style="color:red; display: none;" rowspan="2" class="autoevaluacion-celda">Autoevaluación / Porcentaje de avance</th>
 										</tr>
 										<tr>
 											<th style="width: 100px;">Año</th>
@@ -667,7 +667,7 @@ tr[class="sub-header"] td {
 												<!-- Botón de texto para visualizar archivo -->
 												<button class="view-button" title="Descargar archivo">Ver</button>
 											</td>
-											<td contenteditable="true"></td>
+											<td contenteditable="true" style= "display: none;" class="autoevaluacion-celda"></td>
 											
 										</tr>
 										<tr style="display: none;">
@@ -698,7 +698,7 @@ tr[class="sub-header"] td {
 											<th>Horas semanales</th>
 											<th>Horas semestre</th>
 											<th>EVIDENCIA (si lo requiere)</th>
-											<th style="color:red;">Autoevaluación / Porcentaje de avance</th>
+											<th style="color:red; display: none;" rowspan="2" class="autoevaluacion-celda">Autoevaluación / Porcentaje de avance</th>
 										</tr>
 									</thead>
 									<tbody>
@@ -712,7 +712,7 @@ tr[class="sub-header"] td {
 											<td contenteditable="true" id="cell3_original" oninput="calculateSum2('cell3_original')"></td>
 											<td id="resultCell2_original"></td>
 											<td contenteditable="true"></td>
-											<td contenteditable="true" class="oculto"></td>
+											<td contenteditable="true" style= "display: none;" class="autoevaluacion-celda"></td>
 										</tr>
 										<tr>
 											<td colspan="10" style="text-align: right;">
@@ -791,7 +791,7 @@ tr[class="sub-header"] td {
 																<th>Horas semanales</th>
 																<th>Horas semestre</th>
 																<th>EVIDENCIA (si lo requiere)</th>
-																<th style="color:red;" class="oculto">Autoevaluación / Porcentaje de avance</th>
+																<th style="color:red; display: none;" class="autoevaluacion-celda">Autoevaluación / Porcentaje de avance</th>
 															</tr>
 															<tr>
 																<td colspan="10" style="text-align: right;">
@@ -813,7 +813,7 @@ tr[class="sub-header"] td {
 																<th>Horas semanales</th>
 																<th>Horas semestre</th>
 																<th>EVIDENCIA (si lo requiere)</th>
-																<th style="color:red;" class="oculto">Autoevaluación / Porcentaje de avance</th>
+																<th style="color:red; display: none;" class="autoevaluacion-celda">Autoevaluación / Porcentaje de avance</th>
 															</tr>
 															<tr>
 																<td colspan="10" style="text-align: right;">
@@ -834,7 +834,7 @@ tr[class="sub-header"] td {
 																<th>Horas semanales</th>
 																<th>Horas semestre</th>
 																<th>EVIDENCIA (si lo requiere)</th>
-																<th style="color:red;" class="oculto">Autoevaluación / Porcentaje de avance</th>
+																<th style="color:red; display: none;" class="autoevaluacion-celda">Autoevaluación / Porcentaje de avance</th>
 															</tr>
 															<tr>
 																<td colspan="10" style="text-align: right;">
@@ -855,7 +855,7 @@ tr[class="sub-header"] td {
 																<th>Horas semanales</th>
 																<th>Horas semestre</th>
 																<th>EVIDENCIA (si lo requiere)</th>
-																<th style="color:red;" class="oculto">Autoevaluación / Porcentaje de avance</th>
+																<th style="color:red; display: none;" class="autoevaluacion-celda">Autoevaluación / Porcentaje de avance</th>
 															</tr>
 															<tr>
 																<td colspan="10" style="text-align: right;">
@@ -876,7 +876,7 @@ tr[class="sub-header"] td {
 																<th>Horas semanales</th>
 																<th>Horas semestre</th>
 																<th>EVIDENCIA (si lo requiere)</th>
-																<th style="color:red;" class="oculto">Autoevaluación / Porcentaje de avance</th>
+																<th style="color:red; display: none;" class="autoevaluacion-celda">Autoevaluación / Porcentaje de avance</th>
 															</tr>
 															<tr>
 																<td colspan="10" style="text-align: right;">
@@ -897,7 +897,7 @@ tr[class="sub-header"] td {
 																<th>Horas semanales</th>
 																<th>Horas semestre</th>
 																<th>EVIDENCIA (si lo requiere)</th>
-																<th style="color:red;" class="oculto">Autoevaluación / Porcentaje de avance</th>
+																<th style="color:red; display: none;" class="autoevaluacion-celda">Autoevaluación / Porcentaje de avance</th>
 															</tr>
 															<tr>
 																<td colspan="10" style="text-align: right;">
@@ -918,7 +918,7 @@ tr[class="sub-header"] td {
 																<th>Horas semanales</th>
 																<th>Horas semestre</th>
 																<th>EVIDENCIA (si lo requiere)</th>
-																<th style="color:red;" class="oculto">Autoevaluación / Porcentaje de avance</th>
+																<th style="color:red; display: none;" class="autoevaluacion-celda">Autoevaluación / Porcentaje de avance</th>
 															</tr>
 															<tr>
 																<td colspan="10" style="text-align: right;">
@@ -939,7 +939,7 @@ tr[class="sub-header"] td {
 																<th>Horas semanales</th>
 																<th>Horas semestre</th>
 																<th>EVIDENCIA (si lo requiere)</th>
-																<th style="color:red;" class="oculto">Autoevaluación / Porcentaje de avance</th>
+																<th style="color:red; display: none;" class="autoevaluacion-celda">Autoevaluación / Porcentaje de avance</th>
 															</tr>
 															<tr>
 																<td colspan="10" style="text-align: right;">
@@ -961,7 +961,7 @@ tr[class="sub-header"] td {
 																<th>Horas semanales</th>
 																<th>Horas semestre</th>
 																<th>EVIDENCIA (si lo requiere)</th>
-																<th style="color:red;" class="oculto">Autoevaluación / Porcentaje de avance</th>
+																<th style="color:red; display: none;" class="autoevaluacion-celda">Autoevaluación / Porcentaje de avance</th>
 															</tr>
 															<tr>
 																<td colspan="10" style="text-align: right;">
@@ -982,7 +982,7 @@ tr[class="sub-header"] td {
 																<th>Horas semanales</th>
 																<th>Horas semestre</th>
 																<th>EVIDENCIA (si lo requiere)</th>
-																<th style="color:red;" class="oculto">Autoevaluación / Porcentaje de avance</th>
+																<th style="color:red; display: none;" class="autoevaluacion-celda">Autoevaluación / Porcentaje de avance</th>
 															</tr>
 															<tr>
 																<td colspan="10" style="text-align: right;">
@@ -1050,19 +1050,21 @@ tr[class="sub-header"] td {
 														<th colspan="8">DESCRIPCIÓN DE LA ACTIVIDAD</th>
 														<th>HORAS PLANEADAS</th>
 														<th>EVIDENCIA (si lo requiere)</th>
+														<th style="color:red; display: none;" rowspan="2" class="autoevaluacion-celda">Autoevaluación / Porcentaje de avance</th>
 													</tr>
 												</thead>
 												<tbody>
 													<tr>
-														<td colspan="10" style="background-color: #f2f2f2;">Coordinación de programas autofinanciados</td>
+														<td colspan="11" style="background-color: #f2f2f2;">Coordinación de programas autofinanciados</td>
 													</tr>
 													<tr>
 														<td colspan="8" contenteditable="true"></td>
 														<td contenteditable="true" data-sum="true"></td>
 														<td contenteditable="true"></td>
+														<td contenteditable="true" style= "display: none;" class="autoevaluacion-celda"></td>
 													</tr>
 													<tr>
-														<td colspan="10" style="text-align: right;">
+														<td colspan="11" style="text-align: right;">
 															<button style="border: none;" onclick="insertarFila4(this)">Añadir Fila</button>
 														</td>
 													</tr>
@@ -1076,19 +1078,21 @@ tr[class="sub-header"] td {
 														<th colspan="8">DESCRIPCIÓN DE LA ACTIVIDAD</th>
 														<th>HORAS PLANEADAS</th>
 														<th>EVIDENCIA (si lo requiere)</th>
+														<th style="color:red; display: none;" rowspan="2" class="autoevaluacion-celda">Autoevaluación / Porcentaje de avance</th>
 													</tr>
 												</thead>
 												<tbody>
 													<tr>
-														<td colspan="10" style="background-color: #f2f2f2;">Desarrollo de Proyecto de extensión solidaria</td>
+														<td colspan="11" style="background-color: #f2f2f2;">Desarrollo de Proyecto de extensión solidaria</td>
 													</tr>
 													<tr>
 														<td colspan="8" contenteditable="true"></td>
 														<td contenteditable="true" data-sum="true"></td>
 														<td contenteditable="true"></td>
+														<td contenteditable="true" style= "display: none;" class="autoevaluacion-celda"></td>
 													</tr>
 													<tr>
-														<td colspan="10" style="text-align: right;">
+														<td colspan="11" style="text-align: right;">
 															<button style="border: none;" onclick="insertarFila4(this)">Añadir Fila</button>
 														</td>
 													</tr>
@@ -1102,19 +1106,21 @@ tr[class="sub-header"] td {
 														<th colspan="8">DESCRIPCIÓN DE LA ACTIVIDAD</th>
 														<th>HORAS PLANEADAS</th>
 														<th>EVIDENCIA (si lo requiere)</th>
+														<th style="color:red; display: none;" rowspan="2" class="autoevaluacion-celda">Autoevaluación / Porcentaje de avance</th>
 													</tr>
 												</thead>
 												<tbody>
 													<tr>
-														<td colspan="10" style="background-color: #f2f2f2;">Desarrollo de Proyecto de extensión no solidaria</td>
+														<td colspan="11" style="background-color: #f2f2f2;">Desarrollo de Proyecto de extensión no solidaria</td>
 													</tr>
 													<tr>
 														<td colspan="8" contenteditable="true"></td>
 														<td contenteditable="true" data-sum="true"></td>
 														<td contenteditable="true"></td>
+														<td contenteditable="true" style= "display: none;" class="autoevaluacion-celda"></td>
 													</tr>
 													<tr>
-														<td colspan="10" style="text-align: right;">
+														<td colspan="11" style="text-align: right;">
 															<button style="border: none;" onclick="insertarFila4(this)">Añadir Fila</button>
 														</td>
 													</tr>
@@ -1128,19 +1134,21 @@ tr[class="sub-header"] td {
 														<th colspan="8">DESCRIPCIÓN DE LA ACTIVIDAD</th>
 														<th>HORAS PLANEADAS</th>
 														<th>EVIDENCIA (si lo requiere)</th>
+														<th style="color:red; display: none;" rowspan="2" class="autoevaluacion-celda">Autoevaluación / Porcentaje de avance</th>
 													</tr>
 												</thead>
 												<tbody>
 													<tr>
-														<td colspan="10" style="background-color: #f2f2f2;">Coordinación de laboratorios</td>
+														<td colspan="11" style="background-color: #f2f2f2;">Coordinación de laboratorios</td>
 													</tr>
 													<tr>
 														<td colspan="8" contenteditable="true"></td>
 														<td contenteditable="true" data-sum="true"></td>
 														<td contenteditable="true"></td>
+														<td contenteditable="true" style= "display: none;" class="autoevaluacion-celda"></td>
 													</tr>
 													<tr>
-														<td colspan="10" style="text-align: right;">
+														<td colspan="11" style="text-align: right;">
 															<button style="border: none;" onclick="insertarFila4(this)">Añadir Fila</button>
 														</td>
 													</tr>
@@ -1154,19 +1162,21 @@ tr[class="sub-header"] td {
 														<th colspan="8">DESCRIPCIÓN DE LA ACTIVIDAD</th>
 														<th>HORAS PLANEADAS</th>
 														<th>EVIDENCIA (si lo requiere)</th>
+														<th style="color:red; display: none;" rowspan="2" class="autoevaluacion-celda">Autoevaluación / Porcentaje de avance</th>
 													</tr>
 												</thead>
 												<tbody>
 													<tr>
-														<td colspan="10" style="background-color: #f2f2f2;">Consultoría especializada</td>
+														<td colspan="11" style="background-color: #f2f2f2;">Consultoría especializada</td>
 													</tr>
 													<tr>
 														<td colspan="8" contenteditable="true"></td>
 														<td contenteditable="true" data-sum="true"></td>
 														<td contenteditable="true"></td>
+														<td contenteditable="true" style= "display: none;" class="autoevaluacion-celda"></td>
 													</tr>
 													<tr>
-														<td colspan="10" style="text-align: right;">
+														<td colspan="11" style="text-align: right;">
 															<button style="border: none;" onclick="insertarFila4(this)">Añadir Fila</button>
 														</td>
 													</tr>
@@ -1180,19 +1190,21 @@ tr[class="sub-header"] td {
 														<th colspan="8">DESCRIPCIÓN DE LA ACTIVIDAD</th>
 														<th>HORAS PLANEADAS</th>
 														<th>EVIDENCIA (si lo requiere)</th>
+														<th style="color:red; display: none;" rowspan="2" class="autoevaluacion-celda">Autoevaluación / Porcentaje de avance</th>
 													</tr>
 												</thead>
 												<tbody>
 													<tr>
-														<td colspan="10" style="background-color: #f2f2f2;">Otros</td>
+														<td colspan="11" style="background-color: #f2f2f2;">Otros</td>
 													</tr>
 													<tr>
 														<td colspan="8" contenteditable="true"></td>
 														<td contenteditable="true" data-sum="true"></td>
 														<td contenteditable="true"></td>
+														<td contenteditable="true" style= "display: none;" class="autoevaluacion-celda"></td>
 													</tr>
 													<tr>
-														<td colspan="10" style="text-align: right;">
+														<td colspan="11" style="text-align: right;">
 															<button style="border: none;" onclick="insertarFila4(this)">Añadir Fila</button>
 														</td>
 													</tr>
@@ -1229,30 +1241,31 @@ tr[class="sub-header"] td {
 							<!-- ACT acad admin -->
 							
 							<div id="tab4" class="tab-content" style="display:none; position: relative;">
-  <div class="header-container" style="
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    margin-bottom: 20px;
-    position: relative;">
-    <h3 style="text-align: left; color: #1977e8;">Actividades Académico Administrativas</h3>
-    <div id="totalHorasAcademico" style="
-      position: absolute;
-      top: 0;
-      right: 0;
-      background-color: #eceff8;
-      border: 2px solid #1977e8;
-      border-radius: 15px;
-      padding: 10px 20px;
-      font-size: 16px;
-      font-weight: bold;
-      color: #1977e8;
-      text-align: center;
-      min-width: 150px;
-      display: none;">
-      Total Horas: 0
-    </div>
-  </div>
+							  
+<div class="header-container" style="
+								display: flex;
+								justify-content: space-between;
+								align-items: flex-start;
+								margin-bottom: 20px;
+								position: relative;">
+										<h3 style="text-align: left; color: #1977e8;">Actividades Académico Administrativas</h3>
+											<div id="totalHorasAcademico" style="
+											  position: absolute;
+											  top: 0;
+											  right: 0;
+											  background-color: #eceff8;
+											  border: 2px solid #1977e8;
+											  border-radius: 15px;
+											  padding: 10px 20px;
+											  font-size: 16px;
+											  font-weight: bold;
+											  color: #1977e8;
+											  text-align: center;
+											  min-width: 150px;
+											  display: none;">
+											  Total Horas: 0
+											</div>
+							  </div>
 							<!-- Tabla para Actividades Académico Administrativas -->
         <table border="1" style="width: 100%; border-collapse: collapse;">
             <thead>
@@ -1261,7 +1274,7 @@ tr[class="sub-header"] td {
                     <th rowspan="2" colspan="8">DESCRIPCIÓN DE LA ACTIVIDAD</th>
                     <th rowspan="2">HORAS PLANEADAS</th>
                     <th >EVIDENCIA (si lo requiere)</th>
-                    <th style="color:red;" rowspan="2">Autoevaluación / Porcentaje de avance</th>
+                    <th style="color:red; display: none;" rowspan="2" class="autoevaluacion-celda">Autoevaluación / Porcentaje de avance</th>
                 </tr>
                 
             </thead>
@@ -1271,14 +1284,14 @@ tr[class="sub-header"] td {
                     <td contenteditable="true" colspan="8">Dirección de Unidad Académico Administrativa</td>
                     <td contenteditable="true" data-sum1="true"></td>
                     <td contenteditable="true"></td>
-                    <td contenteditable="true"></td>
+                    <td contenteditable="true" style= "display: none;" class="autoevaluacion-celda"></td>
                 </tr>
                 <tr>
                     
                     <td contenteditable="true" colspan="8">Comité curricular pregrado</td>
                     <td contenteditable="true" data-sum1="true"></td>
                     <td contenteditable="true"></td>
-                    <td contenteditable="true"></td>
+                    <td contenteditable="true" style= "display: none;" class="autoevaluacion-celda"></td>
                     
                 </tr>
                 <tr>
@@ -1286,7 +1299,7 @@ tr[class="sub-header"] td {
                     <td contenteditable="true" colspan="8">Comité curricular posgrados</td>
                     <td contenteditable="true" data-sum1="true"></td>
                     <td contenteditable="true"></td>
-                    <td contenteditable="true"></td>
+                    <td contenteditable="true" style= "display: none;" class="autoevaluacion-celda"></td>
                     
                 </tr>
                 <tr>
@@ -1294,7 +1307,7 @@ tr[class="sub-header"] td {
                     <td contenteditable="true" colspan="8">Coordinación de programas autofinanciados</td>
                     <td contenteditable="true" data-sum1="true"></td>
                     <td contenteditable="true"></td>
-                    <td contenteditable="true"></td>
+                    <td contenteditable="true" style= "display: none;" class="autoevaluacion-celda"></td>
                     
                 </tr>
                 <tr>
@@ -1302,7 +1315,7 @@ tr[class="sub-header"] td {
                     <td contenteditable="true" colspan="8">Reforma académica de programa</td>
                     <td contenteditable="true" data-sum1="true"></td>
                     <td contenteditable="true"></td>
-                    <td contenteditable="true"></td>
+                    <td contenteditable="true" style= "display: none;" class="autoevaluacion-celda"></td>
                     
                 </tr>
                 <tr>
@@ -1310,7 +1323,7 @@ tr[class="sub-header"] td {
                     <td contenteditable="true" colspan="8">Líder Proyecto Plan de mejoramiento del programa</td>
                     <td contenteditable="true" data-sum1="true"></td>
                     <td contenteditable="true"></td>
-                    <td contenteditable="true"></td>
+                    <td contenteditable="true" style= "display: none;" class="autoevaluacion-celda"></td>
                     
                 </tr>
                 <tr>
@@ -1318,7 +1331,7 @@ tr[class="sub-header"] td {
                     <td contenteditable="true" colspan="8">Acreditación ABET</td>
                     <td contenteditable="true" data-sum1="true"></td>
                     <td contenteditable="true"></td>
-                    <td contenteditable="true"></td>
+                    <td contenteditable="true" style= "display: none;" class="autoevaluacion-celda"></td>
                     
                 </tr>
                 <tr>
@@ -1326,7 +1339,7 @@ tr[class="sub-header"] td {
                     <td contenteditable="true" colspan="8">Nodo Proceso de autoevaluación del programa</td>
                     <td contenteditable="true" data-sum1="true"></td>
                     <td contenteditable="true"></td>
-                    <td contenteditable="true"></td>
+                    <td contenteditable="true" style= "display: none;" class="autoevaluacion-celda"></td>
                     
                 </tr>
                 <tr>
@@ -1334,7 +1347,7 @@ tr[class="sub-header"] td {
                     <td contenteditable="true" colspan="8">Representante profesoral (Consejo de Escuela, Consejo de Facultad, CA, CS ...)</td>
                     <td contenteditable="true" data-sum1="true"></td>
                     <td contenteditable="true"></td>
-                    <td contenteditable="true"></td>
+                    <td contenteditable="true" style= "display: none;" class="autoevaluacion-celda"></td>
                     
                 </tr>
                 <tr>
@@ -1345,7 +1358,7 @@ tr[class="sub-header"] td {
                     <td contenteditable="true" colspan="8"></td>
                     <td contenteditable="true" data-sum1="true"></td>
                     <td contenteditable="true"></td>
-                    <td contenteditable="true"></td>
+                    <td contenteditable="true" style= "display: none;" class="autoevaluacion-celda"></td>
                     
                 </tr>
                 <tr>
@@ -1529,7 +1542,7 @@ function insertarFila(button) {
         <td contenteditable="true" id="${cell3Id}"></td>
         <td id="${resultCellId}"></td>
         <td contenteditable="true"></td>
-        <td contenteditable="true"></td>
+        <td contenteditable="true" style= "display: none;" class="autoevaluacion-celda"></td>
     `;
 
     let filaActual = button.closest('tr');
@@ -1637,7 +1650,7 @@ function insertarFila2(button) {
         <td contenteditable="true" id="${cell3Id}" oninput="calculateSum2('${cell3Id}')"></td>
 		<td id="${resultCellId}"></td>
         <td contenteditable="true" ></td>
-        <td contenteditable="true" ></td>
+        <td contenteditable="true" style= "display: none;" class="autoevaluacion-celda"></td>
         
     `;
 
@@ -1673,7 +1686,7 @@ function insertarFila3(button) {
 				<td id="${resultCellId}"></td>
                 <td contenteditable="true"></td>
                 
-                <td contenteditable="true" ></td>
+                <td contenteditable="true" style= "display: none;" class="autoevaluacion-celda"></td>
                 
                 
             
@@ -2396,6 +2409,108 @@ document.addEventListener('DOMContentLoaded', function() {
     boton.addEventListener('click', updateTotalHorasGeneral);
   });
 });
+
+
+
+function duplicarPagina() {
+  // Clonar el contenido actual
+  var contenidoClonado = document.documentElement.cloneNode(true);
+
+  // Crear un nuevo documento HTML
+  var nuevoDocumento = document.implementation.createHTMLDocument('Autoevaluación');
+
+  // Reemplazar el contenido del nuevo documento con el contenido clonado
+  nuevoDocumento.documentElement.replaceWith(contenidoClonado);
+
+  // Ocultar el botón de autoevaluación en el contenido clonado
+  var botonAutoevaluacion = nuevoDocumento.getElementById('autoevaluacionBtn');
+  if (botonAutoevaluacion) {
+    botonAutoevaluacion.style.display = 'none';
+  }
+
+  // Ocultar el div de instrucciones en el contenido clonado
+  var divInstrucciones = nuevoDocumento.getElementById('instructions');
+  if (divInstrucciones) {
+    divInstrucciones.style.display = 'none';
+  }
+
+  // Hacer visibles todas las celdas de autoevaluación
+  var celdasAutoevaluacion = nuevoDocumento.getElementsByClassName('autoevaluacion-celda');
+  for (var i = 0; i < celdasAutoevaluacion.length; i++) {
+    celdasAutoevaluacion[i].style.display = '';
+  }
+
+  // Convertir el nuevo documento a string
+  var contenidoHTML = new XMLSerializer().serializeToString(nuevoDocumento);
+
+  // Abrir una nueva ventana/pestaña con el contenido clonado
+  var nuevaVentana = window.open('', '_blank');
+  nuevaVentana.document.open();
+  nuevaVentana.document.write(contenidoHTML);
+  nuevaVentana.document.close();
+
+  // Función para reinicializar los eventos y funcionalidades
+  function reinicializarFuncionalidades() {
+    // Reinicializar los event listeners para las pestañas
+    var tabButtons = nuevaVentana.document.getElementsByClassName('tab-btn');
+    for (var i = 0; i < tabButtons.length; i++) {
+      tabButtons[i].addEventListener('click', function(event) {
+        openTab(event, this.getAttribute('onclick').match(/'([^']+)'/)[1]);
+      });
+    }
+
+    // Reinicializar otras funcionalidades específicas
+    nuevaVentana.toggleSidebar = toggleSidebar;
+    nuevaVentana.openModal = openModal;
+    nuevaVentana.closeModal = closeModal;
+    nuevaVentana.saveHorario = saveHorario;
+    nuevaVentana.insertarFila = insertarFila;
+    nuevaVentana.calculateSum = calculateSum;
+    nuevaVentana.calculateTotalHoras = calculateTotalHoras;
+    nuevaVentana.openActivityModal = openActivityModal;
+    nuevaVentana.closeActivityModal = closeActivityModal;
+    nuevaVentana.showTable1 = showTable1;
+    nuevaVentana.openExtModal = openExtModal;
+    nuevaVentana.closeExtModal = closeExtModal;
+    nuevaVentana.displayActivityTable = displayActivityTable;
+
+    // Asegurarse de que los cambios permanezcan
+    var botonEnNuevaVentana = nuevaVentana.document.getElementById('autoevaluacionBtn');
+    if (botonEnNuevaVentana) {
+      botonEnNuevaVentana.style.display = 'none';
+    }
+
+    var instruccionesEnNuevaVentana = nuevaVentana.document.getElementById('instructions');
+    if (instruccionesEnNuevaVentana) {
+      instruccionesEnNuevaVentana.style.display = 'none';
+    }
+
+    var celdasAutoevaluacionEnNuevaVentana = nuevaVentana.document.getElementsByClassName('autoevaluacion-celda');
+    for (var i = 0; i < celdasAutoevaluacionEnNuevaVentana.length; i++) {
+      celdasAutoevaluacionEnNuevaVentana[i].style.display = '';
+    }
+  }
+
+  // Esperar a que la nueva ventana cargue completamente
+  nuevaVentana.onload = function() {
+    // Copiar los estilos
+    var estilos = document.getElementsByTagName('style');
+    for (var i = 0; i < estilos.length; i++) {
+      nuevaVentana.document.head.appendChild(estilos[i].cloneNode(true));
+    }
+
+    // Copiar los scripts
+    var scripts = document.getElementsByTagName('script');
+    for (var i = 0; i < scripts.length; i++) {
+      var nuevoScript = nuevaVentana.document.createElement('script');
+      nuevoScript.textContent = scripts[i].textContent;
+      nuevaVentana.document.body.appendChild(nuevoScript);
+    }
+
+    // Reinicializar las funcionalidades
+    reinicializarFuncionalidades();
+  };
+}
 
 
 
