@@ -567,7 +567,8 @@ tr[class="sub-header"] td {
 									font-weight: bold;
 									color: #1977e8;
 									text-align: center;
-									width: 200px;">
+									width: 200px;
+									display: none;">
 									Total Horas: 0
 								</div>
 							</div>
@@ -688,7 +689,7 @@ tr[class="sub-header"] td {
                     <button style="border: none;" onclick="insertarFila(this)">Añadir Fila</button>
                 </td>
             </tr>
-            <tr>
+            <tr style="display: none;">
                 <td colspan="7" style="text-align: right;">Total horas</td>
                 <td id="totalHorasTesis" contenteditable="true"></td>
                 <td contenteditable="true"></td>
@@ -699,6 +700,18 @@ tr[class="sub-header"] td {
 
 
 							</div>
+							
+								<button id="guardarDocenciaBtn" class="guardarDocencia" style="
+										font-size: 18px;
+										padding: 10px 20px; 
+										background-color: #1977e8; 
+										color: white; 
+										border: none; 
+										border-radius: 5px; 
+										cursor: pointer;">
+										Guardar
+									</button>
+							
 					</div>
 					
 					
@@ -1833,6 +1846,7 @@ function calculateSum(cell4Id, cell5Id, resultCellId) {
 
     // Actualizar el total de horas
     calculateTotalHoras();
+	
 }
 
 function calculateTotalHoras() {
@@ -1840,16 +1854,17 @@ function calculateTotalHoras() {
 
     // Seleccionar todas las celdas con IDs que empiezan con 'resultCell' o que sean exactamente 'resultCell'
     document.querySelectorAll('[id^="resultCell"], #resultCell').forEach(cell => {
-        let value = parseFloat(cell.innerText) || 0; // Convertir texto a número o usar 0 si está vacío
+        let value = parseFloat(cell.innerText) || 0;
         total += value;
     });
 
-    // Actualizar la celda de total horas
-    let totalHorasCell = document.getElementById('totalHoras');
-    if (totalHorasCell) {
-        totalHorasCell.innerText = total; // Mostrar el total calculado
+    // Actualizar el total en el rectángulo
+    let totalHorasDiv = document.getElementById('totalHoras');
+    if (totalHorasDiv) {
+        totalHorasDiv.innerText = `Total Horas: ${total}`;
+        totalHorasDiv.style.display = 'block'; // Hacer visible el rectángulo
     } else {
-        console.error('Celda de total horas no encontrada. Asegúrate de que exista un elemento con id="totalHoras".');
+        console.error('Elemento con id="totalHoras" no encontrado.');
     }
 }
 
@@ -2048,6 +2063,47 @@ function calculateTotalHoras() {
       instructions.style.display = 'none';
     }
   }
+  
+  
+  document.addEventListener('DOMContentLoaded', function() {
+    var guardarBtn = document.getElementById('guardarDocenciaBtn');
+    var totalHorasDiv = document.getElementById('totalHoras');
+
+    guardarBtn.addEventListener('click', function() {
+        // Aquí puedes añadir cualquier lógica adicional que necesites ejecutar al guardar
+
+        // Hacer visible el rectángulo de total de horas
+        totalHorasDiv.style.display = 'block';
+
+        // Actualizar el total de horas (asumiendo que tienes una función para esto)
+        actualizarTotalHoras();
+    });
+});
+
+function actualizarTotalHoras() {
+    // Aquí debes poner la lógica para calcular el total de horas
+    // Por ahora, solo actualizaremos el texto como ejemplo
+    var totalHorasDiv = document.getElementById('totalHoras');
+    totalHorasDiv.textContent = 'Total Horas: ' + calcularTotalHoras();
+}
+
+function calcularTotalHoras() {
+    // Implementa aquí la lógica para calcular el total de horas
+    // Este es solo un ejemplo, deberás adaptarlo a tu lógica específica
+    return 40; // Retorna un número fijo como ejemplo
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+    var guardarBtn = document.getElementById('guardarDocenciaBtn');
+    
+    if (guardarBtn) {
+        guardarBtn.addEventListener('click', function() {
+            calculateTotalHoras();
+        });
+    } else {
+        console.error('Botón "Guardar" no encontrado.');
+    }
+});
   </script>
 </body>
 </html>
