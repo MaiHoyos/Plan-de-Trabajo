@@ -44,7 +44,7 @@ body {
 }
 
 .sidebar.closed {
-  width: 40px;
+  width: 20px;
   padding: 0;
 }
 
@@ -78,7 +78,7 @@ body {
 
 .sidebar-header h3 {
   margin: 10px 0 0 0;
-  font-size: 16px;
+  font-size: 18px;
   font-weight: normal;
   color: #333;
 }
@@ -463,44 +463,58 @@ tr[class="sub-header"] td {
 
 <body>
   <div class="container">
-		<div class="sidebar" id="sidebar">
-				<div class="sidebar-header">
-				  <button class="menu-btn" id="menu-btn" onclick="toggleSidebar()"></button>
-					<br>
-				  <h3 style="font-weight: bold;">Información del profesor</h3>
-
-				</div>
-					<div class="table-container">
+			<div class="sidebar" id="sidebar">
+					<div class="sidebar-header">
+					  <button class="menu-btn" id="menu-btn" onclick="toggleSidebar()"></button>
 						<br>
-						
-						<table class="white-background">
-							<tr><td style="width: 80px; font-size: 18px; font-weight: bold;">Facultad / Instituto</td><td contenteditable="true" style="font-size: 18px; width: 100px;"></td></tr>
-							<tr><td style="width: 80px; font-size: 18px; font-weight: bold;">Escuela / Depto</td><td contenteditable="true" style="font-size: 18px;  width: 100px;"></td></tr>
-							<tr><td style="width: 80px; font-size: 18px; font-weight: bold;">Programa académcio</td><td contenteditable="true" style="font-size: 18px;  width: 100px;"></td></tr>
-							<tr><td style="width: 80px; font-size: 18px; font-weight: bold;">Nombre</td><td contenteditable="true" style="font-size: 18px;  width: 100px;"></td></tr>
-							<tr><td style="width: 80px; font-size: 18px; font-weight: bold;">Identificación</td><td contenteditable="true" style="font-size: 18px;  width: 100px;"></td></tr>
-						
-						</table>
-						
-
-					<button id="autoevaluacionBtn" onclick="duplicarPagina()" style="
-					  margin-top: 20px;
-					  width: 100%;
-					  padding: 10px;
-					  font-size: 16px;
-					  font-weight: bold;
-					  color: white;
-					  background-color: #1977e8;
-					  border: none;
-					  border-radius: 5px;
-					  cursor: pointer;">
-					  Autoevaluación
-					</button>
+					  <h3 style="font-weight: bold;">Información del profesor</h3>
 
 					</div>
-					
-					
-		</div>
+						<div class="table-container">
+							<br>
+							
+							<table class="white-background">
+							  <tr>
+								<td style="font-weight: bold; width: 40px;">Facultad / Instituto</td>
+								<td contenteditable="true" style="font-size: 14px; width: 80px; min-width: 120px; max-width: 80px; overflow: hidden;"></td>
+							  </tr>
+							  <tr>
+								<td style="font-weight: bold; width: 40px;">Escuela / Depto</td>
+								<td contenteditable="true" style="font-size: 14px; width: 80px; min-width: 120px; max-width: 80px; overflow: hidden;"></td>
+							  </tr>
+							  <tr>
+								<td style="font-weight: bold; width: 40px;">Programa académico</td>
+								<td contenteditable="true" style="font-size: 14px; width: 80px; min-width: 120px; max-width: 80px; overflow: hidden;"></td>
+							  </tr>
+							  <tr>
+								<td style="font-weight: bold; width: 40px;">Nombre</td>
+								<td contenteditable="true" style="font-size: 14px; width: 80px; min-width: 120px; max-width: 80px; overflow: hidden;"></td>
+							  </tr>
+							  <tr>
+								<td style="font-weight: bold; width: 40px;">Identificación</td>
+								<td contenteditable="true" style="font-size: 14px; width: 80px; min-width: 120px; max-width: 80px; overflow: hidden;"></td>
+							  </tr>
+							</table>
+							
+
+						<button id="autoevaluacionBtn" onclick="duplicarPagina()" style="
+						  margin-top: 20px;
+						  width: 100%;
+						  padding: 10px;
+						  font-size: 16px;
+						  font-weight: bold;
+						  color: white;
+						  background-color: #1977e8;
+						  border: none;
+						  border-radius: 5px;
+						  cursor: pointer;">
+						  Autoevaluación
+						</button>
+
+						</div>
+						
+						
+			</div>
 
 <!-- Main Content -->
 	<div class="main-content" style="width: 500px; margin-left: 5px; background-color: #fff; padding: 20px;">
