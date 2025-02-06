@@ -740,7 +740,14 @@ tr[class="sub-header"] td {
 											<td contenteditable="true"></td>
 											<td contenteditable="true"></td>
 											<td contenteditable="true"></td>
-											<td contenteditable="true"></td>
+											<td>
+											<select style="appearance: none; border: none; background-color: transparent; padding-right: 20px; font-size: inherit; float: right; background-image: url('data:image/svg+xml;utf8,<svg xmlns=&quot;http://www.w3.org/2000/svg&quot; viewBox=&quot;0 0 10 10&quot;><path fill=&quot;none&quot; stroke=&quot;gray&quot; stroke-width=&quot;1&quot; d=&quot;M1 3l3 3 3-3&quot;/></svg>'); background-repeat: no-repeat; background-position: right 5px center; background-size: 10px;">
+													<option value=" "> </option>
+													<option value="2024">Pregrado</option>
+													<option value="2025">Posgrado</option>
+													
+												</select>
+											</td>
 											<td contenteditable="true"></td>
 											<td contenteditable="true" id="cell3_original" oninput="calculateSum2('cell3_original')"></td>
 											<td id="resultCell2_original"></td>
@@ -819,7 +826,33 @@ tr[class="sub-header"] td {
 									<tbody id="activityTableBody">
 										<!-- Aquí se añadiran las tablas seleccionadas por el modal una debajo de otra -->
 														<!-- Tablas ocultas -->
-										<div id="tables-container">									
+										<div id="tables-container">		
+
+														<table id="Gestion de proyectos" class="tabla-oculta" border="1">
+															<tr class="sub-header">
+																<td colspan="11" style="background-color: #f2f2f2;">Gestión de proyectos de investigación</td>
+															</tr>
+															<tr>
+																<th colspan="2">Título</th>
+																<th>Rol</th>
+																<th>Fase</th>
+																<th>Fecha inicio</th>
+																<th>Fecha finalización</th>
+																<th>Horas semanales</th>
+																<th>Horas semestre</th>
+																<th style="color:red" class="autoevaluacion-celda">Indicador de cumplimiento</th>
+																<th style="color:red; display: none;" class="autoevaluacion-celda">EVIDENCIA (si lo requiere)</th>
+																<th style="color:red; display: none;" class="autoevaluacion-celda">Autoevaluación / Porcentaje de avance</th>
+															</tr>
+															<tr>
+																<td colspan="11" style="text-align: right;">
+																	<button style="border: none;" onclick="insertarFila2(this)">Añadir Fila</button>
+																</td>
+															</tr>
+														</table>
+
+
+										
 														<table id="Escritura de Artículos Científicos" class="tabla-oculta" border="1">
 															<tr class="sub-header">
 																<td colspan="11" style="background-color: #f2f2f2;">Escritura de Artículos Científicos</td>
@@ -1686,15 +1719,16 @@ tr[class="sub-header"] td {
 					<span class="close" onclick="closeActivityModal()">&times;</span>
 					<h3>Selecciona una actividad</h3>
 					<div class="modal-buttons">
+						<button onclick="showTable1('Gestion de proyectos')">Gestión de proyectos de investigación</button>
 						<button onclick="showTable1('Escritura de Artículos Científicos')">Escritura de Artículos Científicos</button>
 						<button onclick="showTable1('Participación en Eventos Científicos')">Participación en Eventos Científicos</button>
 						<button onclick="showTable1('Participación en comités editoriales de revistas científicas')">Participación en Comités Editoriales</button>
 						<button onclick="showTable1('Participación en asociaciones científicas')">Participación en Asociaciones Científicas</button>
 						<button onclick="showTable1('Reconocimiento como investigador')">Reconocimiento como Investigador</button>
-						<button onclick="showTable1('Creación y participación en semilleros')">Creación en Semilleros</button>
+						<button onclick="showTable1('Creación y participación en semilleros')">Creación y participación en Semilleros</button>
 						<button onclick="showTable1('Gestión de proyectos internacionales')">Gestión de Proyectos Internacionales</button>
 						<button onclick="showTable1('Obtención de patentes')">Obtención de Patentes</button>
-						<button onclick="showTable1('Generación y mantenimiento de Spin-OFF')">Generación de Spin-Off</button>
+						<button onclick="showTable1('Generación y mantenimiento de Spin-OFF')">Generación y mantenimiento de Spin-Off</button>
 						<button onclick="showTable1('Otros')">Otros</button>
 					</div>
 				</div>
@@ -2698,6 +2732,19 @@ function duplicarPagina() {
     celdasAutoevaluacion[i].style.display = '';
   }
 
+// Reemplazar los <select> por su texto seleccionado
+var selectsOriginal = document.querySelectorAll("select");
+var selectsClonados = nuevoDocumento.querySelectorAll("select");
+
+selectsOriginal.forEach((select, index) => {
+    if (selectsClonados[index]) {
+        var selectedText = select.options[select.selectedIndex]?.text || "";
+        var parentTd = selectsClonados[index].parentNode; // Obtener la celda que contiene el <select>
+        parentTd.innerHTML = selectedText; // Reemplazar el <select> con el texto seleccionado
+    }
+});
+
+
   // Convertir el nuevo documento a string
   var contenidoHTML = new XMLSerializer().serializeToString(nuevoDocumento);
 
@@ -2765,8 +2812,7 @@ function duplicarPagina() {
       nuevaVentana.document.body.appendChild(nuevoScript);
     }
 
-    // Reinicializar las funcionalidades
-    reinicializarFuncionalidades();
+    
   };
   
   
