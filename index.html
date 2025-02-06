@@ -465,25 +465,23 @@ tr[class="sub-header"] td {
   <div class="container">
 		<div class="sidebar" id="sidebar">
 				<div class="sidebar-header">
-				  <button class="menu-btn" id="menu-btn" onclick="toggleSidebar()">></button>
+				  <button class="menu-btn" id="menu-btn" onclick="toggleSidebar()"></button>
 					<br>
 				  <h3 style="font-weight: bold;">Información del profesor</h3>
 
 				</div>
 					<div class="table-container">
 						<br>
+						
 						<table class="white-background">
-						<tr><td style="width: 80px; font-size: 18px; font-weight: bold;">Facultad</td><td contenteditable="true" style="font-size: 18px; width: 100px;"></td></tr>
-						</table>
-						<table class="white-background">
-							<tr><td style="width: 80px; font-size: 18px; font-weight: bold;">Escuela/Depto</td><td contenteditable="true" style="font-size: 18px;  width: 100px;"></td></tr>
-						</table>
-						<table class="white-background">
+							<tr><td style="width: 80px; font-size: 18px; font-weight: bold;">Facultad / Instituto</td><td contenteditable="true" style="font-size: 18px; width: 100px;"></td></tr>
+							<tr><td style="width: 80px; font-size: 18px; font-weight: bold;">Escuela / Depto</td><td contenteditable="true" style="font-size: 18px;  width: 100px;"></td></tr>
+							<tr><td style="width: 80px; font-size: 18px; font-weight: bold;">Programa académcio</td><td contenteditable="true" style="font-size: 18px;  width: 100px;"></td></tr>
 							<tr><td style="width: 80px; font-size: 18px; font-weight: bold;">Nombre</td><td contenteditable="true" style="font-size: 18px;  width: 100px;"></td></tr>
-						</table>
-						<table class="white-background">
 							<tr><td style="width: 80px; font-size: 18px; font-weight: bold;">Identificación</td><td contenteditable="true" style="font-size: 18px;  width: 100px;"></td></tr>
+						
 						</table>
+						
 
 					<button id="autoevaluacionBtn" onclick="duplicarPagina()" style="
 					  margin-top: 20px;
@@ -504,71 +502,72 @@ tr[class="sub-header"] td {
 					
 		</div>
 
-
 <!-- Main Content -->
 	<div class="main-content" style="width: 500px; margin-left: 5px; background-color: #fff; padding: 20px;">
 	 <!-- Cuadro de instrucciones -->
   
 		<div class="white-rectangle">
 		
-		<div id="instructions" class="instructions" style="margin-bottom: 10px; font-size: 14px; line-height: 1.5; 
-			padding: 20px; border: 2px solid #1977e8; border-radius: 15px;">
-			<h3 style="font-size: 16px;">Taller Evaluación Integral</h3>
-			<p>El objetivo de este taller es llenar un caso atípico de la UAA en el modelo del Plan de Trabajo Anual. Luego discutir sus observaciones y realizar sugerencias.</p>
+			<div id="instructions" class="instructions" style="margin-bottom: 10px; font-size: 14px; line-height: 1.5; 
+				padding: 20px; border: 2px solid #1977e8; border-radius: 15px;">
+				<h3 style="font-size: 16px;">Taller Evaluación Integral</h3>
+				<p>El objetivo de este taller es llenar un caso atípico de la UAA en el modelo del Plan de Trabajo Anual. Luego discutir sus observaciones y realizar sugerencias.</p>
 
-			<h3 style="font-size: 16px;">Instrucciones:</h3>
-			
-			<p>Al final de esta hoja encontrará una barra conformada por cuatro secciones principales: Función Docencia, Investigación, Extensión, y Funciones académico administrativas. </p>
-			<ol>
+				<h3 style="font-size: 16px;">Instrucciones:</h3>
 				
-				<li><strong>Llenado de Campos:</strong> Haga clic en la función para la que desee incluir actividades</li>
-				<strong>RECUERDE:</strong> La función docencia es obligatoria. Para aprobar el PTA debe incluir actividades en al menos dos funciones
+				<p>Al final de esta hoja encontrará una barra conformada por cuatro secciones principales que corresponden a las funciones: Docencia, Investigación, Extensión, y Actividades académico administrativas. </p>
+				<ol>
+					
+					<li><strong>Llenado de Campos:</strong> Haga clic en la función para la que desee incluir actividades</li>
+					<li>En cada sección encontrará el botón <strong>"Guardar"</strong>, el cual genera la suma de horas correspondiente a la sección y la sumará al total de las horas.</li>
+					</ol>
 
-				<li><strong>Finalización del Ejercicio:</strong> Una vez completado el formato, haga clic en el botón "Guardar". Esto generará un resumen editable del Plan de Trabajo Anual, el cual podrá revisar y ajustar si es necesario.</li>
-			</ol>
+					<strong>RECUERDE:</strong>  
+					<li><strong>La función docencia es obligatoria.</strong> Para aprobar el PTA debe incluir actividades en al menos dos funciones</li>
+					<li> Una vez completado el formato, haga clic en el botón <strong>"Autoevaluación".</strong> Esto mostrará del Plan de Trabajo Anual, el cual podrá revisar y ajustar si es necesario.</li>
+				
 
 
-			<h4 style="font-size: 14px;">Notas Adicionales:</h4>
-			<ul>
-				<li>Recuerde que este ejercicio es un ensayo práctico, y cualquier duda o dificultad será atendida durante la discusión posterior.</li>
-			</ul>
-		</div>
+				<h4 style="font-size: 14px;">Notas Adicionales:</h4>
+				<ul>
+					<li>Recuerde que este ejercicio es un ensayo práctico, y cualquier duda o dificultad será atendida durante la discusión posterior.</li>
+				</ul>
+			</div>
 
 
-		
 					<div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
-    <h2>Plan de Trabajo Anual</h2>
-    <div id="totalHorasGeneral" style="
-      background-color: #eceff8;
-      border: 2px solid #1977e8;
-      border-radius: 15px;
-      padding: 10px 20px;
-      font-size: 16px;
-      font-weight: bold;
-      color: #1977e8;
-      text-align: center;
-      min-width: 150px;">
-      Total Horas General: 0
-    </div>
-  </div>
-							<div class="tabs">
-								  <button class="tab-btn" onclick="openTab(event, 'tab1')">
-									<img src="https://e7.pngegg.com/pngimages/589/567/png-clipart-teacher-computer-icons-education-learning-computer-software-teacher-text-teacher.png" alt="Docencia" class="tab-icon"> Docencia
-								</button>
+						<h2>Plan de Trabajo Anual</h2>
+						<div id="totalHorasGeneral" style="
+						  background-color: #eceff8;
+						  border: 2px solid #1977e8;
+						  border-radius: 15px;
+						  padding: 10px 20px;
+						  font-size: 16px;
+						  font-weight: bold;
+						  color: #1977e8;
+						  text-align: center;
+						  min-width: 150px;">
+						  Total Horas General: 0
+					</div>
+					</div>
+								<div class="tabs">
+									  <button class="tab-btn" onclick="openTab(event, 'tab1')">
+										<img src="https://e7.pngegg.com/pngimages/589/567/png-clipart-teacher-computer-icons-education-learning-computer-software-teacher-text-teacher.png" alt="Docencia" class="tab-icon"> Docencia
+									</button>
 
-								<button class="tab-btn" onclick="openTab(event, 'tab2')">
-									<img src="https://static.vecteezy.com/system/resources/previews/002/552/325/non_2x/document-magnifier-analysis-laboratory-science-and-research-line-style-icon-free-vector.jpg" alt="Investigación" class="tab-icon"> Investigación
-								</button>
+									<button class="tab-btn" onclick="openTab(event, 'tab2')">
+										<img src="https://static.vecteezy.com/system/resources/previews/002/552/325/non_2x/document-magnifier-analysis-laboratory-science-and-research-line-style-icon-free-vector.jpg" alt="Investigación" class="tab-icon"> Investigación
+									</button>
 
-								<button class="tab-btn" onclick="openTab(event, 'tab3')">
-									<img src="https://static.thenounproject.com/png/2350997-512.png" alt="Extensión" class="tab-icon"> Extensión
-								</button>
+									<button class="tab-btn" onclick="openTab(event, 'tab3')">
+										<img src="https://static.thenounproject.com/png/2350997-512.png" alt="Extensión" class="tab-icon"> Extensión
+									</button>
 
-								  <button class="tab-btn" onclick="openTab(event, 'tab4')">
-									<img src="https://icons.veryicon.com/png/o/miscellaneous/yuanql/icon-admin.png" alt="Actividades académico administrativas" class="tab-icon"> Actividades académico administrativas
-								</button>
+									  <button class="tab-btn" onclick="openTab(event, 'tab4')">
+										<img src="https://icons.veryicon.com/png/o/miscellaneous/yuanql/icon-admin.png" alt="Actividades académico administrativas" class="tab-icon"> Actividades académico administrativas
+									</button>
 
-						</div>
+								</div>
 
 
 					<div id="tab1" class="tab-content" style="display: none;">
@@ -606,13 +605,16 @@ tr[class="sub-header"] td {
 
 							<div id="docencia">
 								<table border="1" cellspacing="0" cellpadding="4">
+									
 									<thead>
+										<!-- Encabezado tabla-->
 										<tr>
-											
 											<th colspan="9">DESCRIPCIÓN DE LA ACTIVIDAD</th>
-											<th style="color:red;" rowspan="2">Evidencia (si lo requiere)</th>
+											<th style="color red" rowspan="2">Indicador de cumplimiento </th>
+											<th style="color:red; display: none;" rowspan="2" class="autoevaluacion-celda">Evidencia (si lo requiere)</th>
 											<th style="color:red; display: none;" rowspan="2" class="autoevaluacion-celda">Autoevaluación / Porcentaje de avance</th>
 										</tr>
+										<!-- Información tabla-->
 										<tr>
 											<th style="width: 100px;">Año</th>
 											<th style="width: 100px;">Periodo</th>
@@ -623,11 +625,13 @@ tr[class="sub-header"] td {
 											<th style="width: 100px;">Horas asesoría</th>
 											<th style="width: 100px;">Horas semestrales</th>
 											<th style="width: 100px;">Horario</th>
-											
 										</tr>
 									</thead>
+									
+									<!-- Datos a llenar-->
 									<tbody>
 										<tr>
+										<!-- Año-->
 											<td>
 												<select style="appearance: none; border: none; background-color: transparent; padding-right: 20px; font-size: inherit; float: right; background-image: url('data:image/svg+xml;utf8,<svg xmlns=&quot;http://www.w3.org/2000/svg&quot; viewBox=&quot;0 0 10 10&quot;><path fill=&quot;none&quot; stroke=&quot;gray&quot; stroke-width=&quot;1&quot; d=&quot;M1 3l3 3 3-3&quot;/></svg>'); background-repeat: no-repeat; background-position: right 5px center; background-size: 10px;">
 													<option value=" "> </option>
@@ -636,6 +640,7 @@ tr[class="sub-header"] td {
 													<option value="2026">2026</option>
 												</select>
 											</td>
+										<!-- Periodo-->	
 											<td>
 												<select style="appearance: none; border: none; background-color: transparent; padding-right: 20px; font-size: inherit; float: right; background-image: url('data:image/svg+xml;utf8,<svg xmlns=&quot;http://www.w3.org/2000/svg&quot; viewBox=&quot;0 0 10 10&quot;><path fill=&quot;none&quot; stroke=&quot;gray&quot; stroke-width=&quot;1&quot; d=&quot;M1 3l3 3 3-3&quot;/></svg>'); background-repeat: no-repeat; background-position: right 5px center; background-size: 10px;">
 													<option value=" "> </option>
@@ -643,8 +648,11 @@ tr[class="sub-header"] td {
 													<option value="2">2</option>
 												</select>
 											</td>
+										<!-- código-->	
 											<td contenteditable="true"></td>
+										<!-- grupo-->	
 											<td contenteditable="true"></td>
+										<!-- Asignatura-->	
 											<td> 
 												<select style="appearance: none; border: none; background-color: transparent; padding-right: 20px; font-size: inherit; float: right; background-image: url('data:image/svg+xml;utf8,<svg xmlns=&quot;http://www.w3.org/2000/svg&quot; viewBox=&quot;0 0 10 10&quot;><path fill=&quot;none&quot; stroke=&quot;gray&quot; stroke-width=&quot;1&quot; d=&quot;M1 3l3 3 3-3&quot;/></svg>'); background-repeat: no-repeat; background-position: right 5px center; background-size: 10px;">
 													<option value=" "> </option>
@@ -654,11 +662,19 @@ tr[class="sub-header"] td {
 													<option value="2026">Asignatura 4</option>
 												</select>
 											</td>
+										<!-- Horas clase semanal-->
 											<td contenteditable="true" id="cell4" oninput="calculateSum3()"></td>
+										<!-- Asesoria-->
 											<td contenteditable="true" id="cell5" oninput="calculateSum3()"></td>
+										<!-- Total horas-->
 											<td id="resultCell"></td>
+										<!-- Horario-->
 											<td onclick="openModal(this)">Click para editar el horario</td>
-											<td>
+										<!-- Indicador-->
+										<td contenteditable="true"></td>
+										
+										<!-- evidencia-->
+											<td contenteditable="true" style= "display: none;" class="autoevaluacion-celda">
 												<!-- Botón cuadrado para adjuntar archivos -->
 												<button class="square-button attachButton" onclick="openFileInput(this)">+</button>
 												<!-- Input de archivo oculto -->
@@ -666,8 +682,10 @@ tr[class="sub-header"] td {
 												<!-- Botón de texto para visualizar archivo -->
 												<button class="view-button" title="Descargar archivo">Ver</button>
 											</td>
+										<!-- Autoevaluación-->	
 											<td contenteditable="true" style= "display: none;" class="autoevaluacion-celda"></td>
-											
+										
+										<!-- contador horas - fila oculta siempre-->
 										</tr>
 										<tr style="display: none;">
 											<td colspan="7" style="text-align: right;">Total horas</td>
@@ -681,11 +699,12 @@ tr[class="sub-header"] td {
 							
 						<button id="addThesisDirectionBtn" style="margin-top: 20px; background-color: #eceff8; border: none; border-radius: 10px; padding: 10px 20px; cursor: pointer;" onclick="showTable()">+ Agregar dirección de trabajos de grado</button>
 
+						<!-- Dirección de trabajos de grado-->
 							<div id="thesisDirectionTableContainer" style="display: none; margin-top: 20px;">
 								<table border="1" cellspacing="0" cellpadding="4">
 									<thead>
 										<tr>
-											<th colspan="10">DESCRIPCIÓN DE LA ACTIVIDAD</th>
+											<th colspan="11">DESCRIPCIÓN DE LA ACTIVIDAD</th>
 										</tr>
 										<tr>
 											<th>Código</th>
@@ -696,7 +715,8 @@ tr[class="sub-header"] td {
 											<th>Fecha de inicio</th>
 											<th>Horas semanales</th>
 											<th>Horas semestre</th>
-											<th>EVIDENCIA (si lo requiere)</th>
+											<th>Indicador de desempeño</th>
+											<th style="color:red; display: none;" rowspan="2" class="autoevaluacion-celda">EVIDENCIA (si lo requiere)</th>
 											<th style="color:red; display: none;" rowspan="2" class="autoevaluacion-celda">Autoevaluación / Porcentaje de avance</th>
 										</tr>
 									</thead>
@@ -711,6 +731,16 @@ tr[class="sub-header"] td {
 											<td contenteditable="true" id="cell3_original" oninput="calculateSum2('cell3_original')"></td>
 											<td id="resultCell2_original"></td>
 											<td contenteditable="true"></td>
+											<!-- evidencia-->
+											<td contenteditable="true" style= "display: none;" class="autoevaluacion-celda">
+												<!-- Botón cuadrado para adjuntar archivos -->
+												<button class="square-button attachButton" onclick="openFileInput(this)">+</button>
+												<!-- Input de archivo oculto -->
+												<input type="file" class="fileInput" style="display: none;" />
+												<!-- Botón de texto para visualizar archivo -->
+												<button class="view-button" title="Descargar archivo">Ver</button>
+											</td>
+										<!-- Autoevaluación-->	
 											<td contenteditable="true" style= "display: none;" class="autoevaluacion-celda"></td>
 										</tr>
 										<tr>
@@ -778,7 +808,7 @@ tr[class="sub-header"] td {
 										<div id="tables-container">									
 														<table id="Escritura de Artículos Científicos" class="tabla-oculta" border="1">
 															<tr class="sub-header">
-																<td colspan="10" style="background-color: #f2f2f2;">Escritura de Artículos Científicos</td>
+																<td colspan="11" style="background-color: #f2f2f2;">Escritura de Artículos Científicos</td>
 															</tr>
 															<tr>
 																<th>Título</th>
@@ -789,11 +819,12 @@ tr[class="sub-header"] td {
 																<th>Fecha finalización</th>
 																<th>Horas semanales</th>
 																<th>Horas semestre</th>
-																<th>EVIDENCIA (si lo requiere)</th>
+																<th style="color:red" class="autoevaluacion-celda">Indicador de cumplimiento</th>
+																<th style="color:red; display: none;" class="autoevaluacion-celda">EVIDENCIA (si lo requiere)</th>
 																<th style="color:red; display: none;" class="autoevaluacion-celda">Autoevaluación / Porcentaje de avance</th>
 															</tr>
 															<tr>
-																<td colspan="10" style="text-align: right;">
+																<td colspan="11" style="text-align: right;">
 																	<button style="border: none;" onclick="insertarFila(this)">Añadir Fila</button>
 																</td>
 															</tr>
@@ -801,7 +832,7 @@ tr[class="sub-header"] td {
 
 														<table id="Participación en Eventos Científicos" class="tabla-oculta" border="1">
 															<tr class="sub-header">
-																<td colspan="10" style="background-color: #f2f2f2;">Participación en Eventos Científicos</td>
+																<td colspan="11" style="background-color: #f2f2f2;">Participación en Eventos Científicos</td>
 															</tr>
 															<tr>
 																<th colspan="2">Nombre del evento</th>
@@ -811,11 +842,12 @@ tr[class="sub-header"] td {
 																<th>Fecha finalización</th>
 																<th>Horas semanales</th>
 																<th>Horas semestre</th>
-																<th>EVIDENCIA (si lo requiere)</th>
+																<th style="color:red" class="autoevaluacion-celda">Indicador de cumplimiento</th>
+																<th style="color:red; display: none;" class="autoevaluacion-celda">EVIDENCIA (si lo requiere)</th>
 																<th style="color:red; display: none;" class="autoevaluacion-celda">Autoevaluación / Porcentaje de avance</th>
 															</tr>
 															<tr>
-																<td colspan="10" style="text-align: right;">
+																<td colspan="11" style="text-align: right;">
 																	<button style="border: none;" onclick="insertarFila2(this)">Añadir Fila</button>
 																</td>
 															</tr>
@@ -823,7 +855,7 @@ tr[class="sub-header"] td {
 
 														<table id="Participación en comités editoriales de revistas científicas" class="tabla-oculta" border="1">
 															<tr class="sub-header">
-																<td colspan="10" style="background-color: #f2f2f2;">Participación en Comités Editoriales de Revistas Científicas</td>
+																<td colspan="11" style="background-color: #f2f2f2;">Participación en Comités Editoriales de Revistas Científicas</td>
 															</tr>
 															<tr>
 																<th colspan="3">Nombre de la revista</th>
@@ -832,11 +864,12 @@ tr[class="sub-header"] td {
 																<th>Fecha finalización</th>
 																<th>Horas semanales</th>
 																<th>Horas semestre</th>
-																<th>EVIDENCIA (si lo requiere)</th>
-																<th style="color:red; display: none;" class="autoevaluacion-celda">Autoevaluación / Porcentaje de avance</th>
+																<th style="color:red" class="autoevaluacion-celda">Indicador de cumplimiento</th>
+																<th style="color:red; display: none;" class="autoevaluacion-celda">EVIDENCIA (si lo requiere)</th>
+																<th style="color:red; display: none;" class="autoevaluacion-celda">Autoevaluación / Porcentaje de a
 															</tr>
 															<tr>
-																<td colspan="10" style="text-align: right;">
+																<td colspan="11" style="text-align: right;">
 																	<button style="border: none;" onclick="insertarFila3(this)">Añadir Fila</button>
 																</td>
 															</tr>
@@ -844,7 +877,7 @@ tr[class="sub-header"] td {
 
 														<table id="Participación en asociaciones científicas" class="tabla-oculta" border="1">
 															<tr class="sub-header">
-																<td colspan="10" style="background-color: #f2f2f2;">Participación en Asociaciones Científicas</td>
+																<td colspan="11" style="background-color: #f2f2f2;">Participación en Asociaciones Científicas</td>
 															</tr>
 															<tr>
 																 <th colspan="3">Nombre de la asociación</th>
@@ -853,11 +886,12 @@ tr[class="sub-header"] td {
 																<th>Fecha finalización</th>
 																<th>Horas semanales</th>
 																<th>Horas semestre</th>
-																<th>EVIDENCIA (si lo requiere)</th>
-																<th style="color:red; display: none;" class="autoevaluacion-celda">Autoevaluación / Porcentaje de avance</th>
+																<th style="color:red" class="autoevaluacion-celda">Indicador de cumplimiento</th>
+																<th style="color:red; display: none;" class="autoevaluacion-celda">EVIDENCIA (si lo requiere)</th>
+																<th style="color:red; display: none;" class="autoevaluacion-celda">Autoevaluación / Porcentaje de a
 															</tr>
 															<tr>
-																<td colspan="10" style="text-align: right;">
+																<td colspan="11" style="text-align: right;">
 																	<button style="border: none;" onclick="insertarFila3(this)">Añadir Fila</button>
 																</td>
 															</tr>
@@ -865,7 +899,7 @@ tr[class="sub-header"] td {
 
 														<table id="Reconocimiento como investigador" class="tabla-oculta" border="1">
 															<tr class="sub-header">
-																<td colspan="10" style="background-color: #f2f2f2;">Reconocimiento como Investigador por el Ministerio de Ciencia y Tecnología</td>
+																<td colspan="11" style="background-color: #f2f2f2;">Reconocimiento como Investigador por el Ministerio de Ciencia y Tecnología</td>
 															</tr>
 															<tr>
 																<th colspan="3">Grupo de Investigación</th>
@@ -874,8 +908,9 @@ tr[class="sub-header"] td {
 																<th>Fecha finalización</th>
 																<th>Horas semanales</th>
 																<th>Horas semestre</th>
-																<th>EVIDENCIA (si lo requiere)</th>
-																<th style="color:red; display: none;" class="autoevaluacion-celda">Autoevaluación / Porcentaje de avance</th>
+																<th style="color:red" class="autoevaluacion-celda">Indicador de cumplimiento</th>
+																<th style="color:red; display: none;" class="autoevaluacion-celda">EVIDENCIA (si lo requiere)</th>
+																<th style="color:red; display: none;" class="autoevaluacion-celda">Autoevaluación / Porcentaje de a
 															</tr>
 															<tr>
 																<td colspan="10" style="text-align: right;">
@@ -886,7 +921,7 @@ tr[class="sub-header"] td {
 
 														<table id="Creación y participación en semilleros" class="tabla-oculta" border="1">
 															<tr class="sub-header">
-																<td colspan="10" style="background-color: #f2f2f2;">Creación y Participación en Semilleros de Investigación Reconocidos por la VIE</td>
+																<td colspan="11" style="background-color: #f2f2f2;">Creación y Participación en Semilleros de Investigación Reconocidos por la VIE</td>
 															</tr>
 															<tr>
 																<th colspan="3">Nombre del semillero</th>
@@ -895,11 +930,12 @@ tr[class="sub-header"] td {
 																<th>Fecha finalización</th>
 																<th>Horas semanales</th>
 																<th>Horas semestre</th>
-																<th>EVIDENCIA (si lo requiere)</th>
-																<th style="color:red; display: none;" class="autoevaluacion-celda">Autoevaluación / Porcentaje de avance</th>
+																<th style="color:red" class="autoevaluacion-celda">Indicador de cumplimiento</th>
+																<th style="color:red; display: none;" class="autoevaluacion-celda">EVIDENCIA (si lo requiere)</th>
+																<th style="color:red; display: none;" class="autoevaluacion-celda">Autoevaluación / Porcentaje de a
 															</tr>
 															<tr>
-																<td colspan="10" style="text-align: right;">
+																<td colspan="11" style="text-align: right;">
 																	<button style="border: none;" onclick="insertarFila3(this)">Añadir Fila</button>
 																</td>
 															</tr>
@@ -907,7 +943,7 @@ tr[class="sub-header"] td {
 
 														<table id="Gestión de proyectos internacionales" class="tabla-oculta" border="1">
 															<tr class="sub-header">
-																<td colspan="10" style="background-color: #f2f2f2;">Gestión de Proyectos de Investigación en Convocatorias Internacionales</td>
+																<td colspan="11" style="background-color: #f2f2f2;">Gestión de Proyectos de Investigación en Convocatorias Internacionales</td>
 															</tr>
 															<tr>
 																<th colspan="3">Proyecto</th>
@@ -916,11 +952,12 @@ tr[class="sub-header"] td {
 																<th>Fecha finalización</th>
 																<th>Horas semanales</th>
 																<th>Horas semestre</th>
-																<th>EVIDENCIA (si lo requiere)</th>
-																<th style="color:red; display: none;" class="autoevaluacion-celda">Autoevaluación / Porcentaje de avance</th>
+																<th style="color:red" class="autoevaluacion-celda">Indicador de cumplimiento</th>
+																<th style="color:red; display: none;" class="autoevaluacion-celda">EVIDENCIA (si lo requiere)</th>
+																<th style="color:red; display: none;" class="autoevaluacion-celda">Autoevaluación / Porcentaje de a
 															</tr>
 															<tr>
-																<td colspan="10" style="text-align: right;">
+																<td colspan="11" style="text-align: right;">
 																	<button style="border: none;" onclick="insertarFila3(this)">Añadir Fila</button>
 																</td>
 															</tr>
@@ -928,7 +965,7 @@ tr[class="sub-header"] td {
 
 														<table id="Obtención de patentes" class="tabla-oculta" border="1">
 															<tr class="sub-header">
-																<td colspan="10" style="background-color: #f2f2f2;">Obtención de Patentes</td>
+																<td colspan="11" style="background-color: #f2f2f2;">Obtención de Patentes</td>
 															</tr>
 															<tr>
 																<th colspan="3">Producto</th>
@@ -937,11 +974,12 @@ tr[class="sub-header"] td {
 																<th>Fecha concesión</th>
 																<th>Horas semanales</th>
 																<th>Horas semestre</th>
-																<th>EVIDENCIA (si lo requiere)</th>
-																<th style="color:red; display: none;" class="autoevaluacion-celda">Autoevaluación / Porcentaje de avance</th>
+																<th style="color:red" class="autoevaluacion-celda">Indicador de cumplimiento</th>
+																<th style="color:red; display: none;" class="autoevaluacion-celda">EVIDENCIA (si lo requiere)</th>
+																<th style="color:red; display: none;" class="autoevaluacion-celda">Autoevaluación / Porcentaje de a
 															</tr>
 															<tr>
-																<td colspan="10" style="text-align: right;">
+																<td colspan="11" style="text-align: right;">
 																	<button style="border: none;" onclick="insertarFila3(this)">Añadir Fila</button>
 																</td>
 															</tr>
@@ -949,7 +987,7 @@ tr[class="sub-header"] td {
 
 														<table id="Generación y mantenimiento de Spin-OFF" class="tabla-oculta" border="1">
 															<tr class="sub-header">
-																<td colspan="10" style="background-color: #f2f2f2;">Generación y Mantenimiento de Spin-OFF</td>
+																<td colspan="11" style="background-color: #f2f2f2;">Generación y Mantenimiento de Spin-OFF</td>
 															</tr>
 															<tr>
 																<th colspan="2">Nombre de empresa</th>
@@ -959,11 +997,12 @@ tr[class="sub-header"] td {
 																<th>Fecha mantenimiento</th>
 																<th>Horas semanales</th>
 																<th>Horas semestre</th>
-																<th>EVIDENCIA (si lo requiere)</th>
-																<th style="color:red; display: none;" class="autoevaluacion-celda">Autoevaluación / Porcentaje de avance</th>
+																<th style="color:red" class="autoevaluacion-celda">Indicador de cumplimiento</th>
+																<th style="color:red; display: none;" class="autoevaluacion-celda">EVIDENCIA (si lo requiere)</th>
+																<th style="color:red; display: none;" class="autoevaluacion-celda">Autoevaluación / Porcentaje de a
 															</tr>
 															<tr>
-																<td colspan="10" style="text-align: right;">
+																<td colspan="11" style="text-align: right;">
 																	<button style="border: none;" onclick="insertarFila2(this)">Añadir Fila</button>
 																</td>
 															</tr>
@@ -971,7 +1010,7 @@ tr[class="sub-header"] td {
 
 														<table id="Otros" class="tabla-oculta" border="1">
 															<tr class="sub-header">
-																<td colspan="10" style="background-color: #f2f2f2;">Otros</td>
+																<td colspan="11" style="background-color: #f2f2f2;">Otros</td>
 															</tr>
 															<tr>
 																<th colspan="3">Descripción</th>
@@ -980,8 +1019,9 @@ tr[class="sub-header"] td {
 																<th>Fecha finalización</th>
 																<th>Horas semanales</th>
 																<th>Horas semestre</th>
-																<th>EVIDENCIA (si lo requiere)</th>
-																<th style="color:red; display: none;" class="autoevaluacion-celda">Autoevaluación / Porcentaje de avance</th>
+																<th style="color:red" class="autoevaluacion-celda">Indicador de cumplimiento</th>
+																<th style="color:red; display: none;" class="autoevaluacion-celda">EVIDENCIA (si lo requiere)</th>
+																<th style="color:red; display: none;" class="autoevaluacion-celda">Autoevaluación / Porcentaje de a
 															</tr>
 															<tr>
 																<td colspan="10" style="text-align: right;">
@@ -1016,21 +1056,21 @@ tr[class="sub-header"] td {
 							<div class="header-container">
 							
 								<div class="header-container" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
-  <button class="add-activity-btn" onclick="openExtModal()">Agregar actividad</button>
-  <div id="totalHorasExtension" style="
-    background-color: #eceff8;
-    border: 2px solid #1977e8;
-    border-radius: 15px;
-    padding: 10px 20px;
-    font-size: 16px;
-    font-weight: bold;
-    color: #1977e8;
-    text-align: center;
-    min-width: 150px;
-    display: none;">
-    Total Horas: 0
-  </div>
-</div>
+								  <button class="add-activity-btn" onclick="openExtModal()">Agregar actividad</button>
+								  <div id="totalHorasExtension" style="
+									background-color: #eceff8;
+									border: 2px solid #1977e8;
+									border-radius: 15px;
+									padding: 10px 20px;
+									font-size: 16px;
+									font-weight: bold;
+									color: #1977e8;
+									text-align: center;
+									min-width: 150px;
+									display: none;">
+									Total Horas: 0
+								  </div>
+								</div>
 
 
 								
@@ -1048,22 +1088,35 @@ tr[class="sub-header"] td {
 													<tr>
 														<th colspan="8">DESCRIPCIÓN DE LA ACTIVIDAD</th>
 														<th>HORAS PLANEADAS</th>
-														<th>EVIDENCIA (si lo requiere)</th>
-														<th style="color:red; display: none;" rowspan="2" class="autoevaluacion-celda">Autoevaluación / Porcentaje de avance</th>
+														<th style="color:red" class="autoevaluacion-celda">Indicador de cumplimiento</th>
+														<th style="color:red; display: none;" class="autoevaluacion-celda">EVIDENCIA (si lo requiere)</th>
+														<th style="color:red; display: none;" class="autoevaluacion-celda">Autoevaluación / Porcentaje de avance</th>
 													</tr>
 												</thead>
+												
 												<tbody>
 													<tr>
-														<td colspan="11" style="background-color: #f2f2f2;">Coordinación de programas autofinanciados</td>
+														<td colspan="12" style="background-color: #f2f2f2;">Coordinación de programas autofinanciados</td>
 													</tr>
 													<tr>
 														<td colspan="8" contenteditable="true"></td>
 														<td contenteditable="true" data-sum="true"></td>
 														<td contenteditable="true"></td>
-														<td contenteditable="true" style= "display: none;" class="autoevaluacion-celda"></td>
+										
+										<!-- evidencia-->
+											<td contenteditable="true" style= "display: none;" class="autoevaluacion-celda">
+												<!-- Botón cuadrado para adjuntar archivos -->
+												<button class="square-button attachButton" onclick="openFileInput(this)">+</button>
+												<!-- Input de archivo oculto -->
+												<input type="file" class="fileInput" style="display: none;" />
+												<!-- Botón de texto para visualizar archivo -->
+												<button class="view-button" title="Descargar archivo">Ver</button>
+											</td>
+										<!-- Autoevaluación-->	
+											<td contenteditable="true" style= "display: none;" class="autoevaluacion-celda"></td>
 													</tr>
 													<tr>
-														<td colspan="11" style="text-align: right;">
+														<td colspan="12" style="text-align: right;">
 															<button style="border: none;" onclick="insertarFila4(this)">Añadir Fila</button>
 														</td>
 													</tr>
@@ -1076,22 +1129,34 @@ tr[class="sub-header"] td {
 													<tr>
 														<th colspan="8">DESCRIPCIÓN DE LA ACTIVIDAD</th>
 														<th>HORAS PLANEADAS</th>
-														<th>EVIDENCIA (si lo requiere)</th>
-														<th style="color:red; display: none;" rowspan="2" class="autoevaluacion-celda">Autoevaluación / Porcentaje de avance</th>
+														<th style="color:red" class="autoevaluacion-celda">Indicador de cumplimiento</th>
+														<th style="color:red; display: none;" class="autoevaluacion-celda">EVIDENCIA (si lo requiere)</th>
+														<th style="color:red; display: none;" class="autoevaluacion-celda">Autoevaluación / Porcentaje de avance</th>
 													</tr>
 												</thead>
 												<tbody>
 													<tr>
-														<td colspan="11" style="background-color: #f2f2f2;">Desarrollo de Proyecto de extensión solidaria</td>
+														<td colspan="12" style="background-color: #f2f2f2;">Desarrollo de Proyecto de extensión solidaria</td>
 													</tr>
 													<tr>
 														<td colspan="8" contenteditable="true"></td>
 														<td contenteditable="true" data-sum="true"></td>
 														<td contenteditable="true"></td>
-														<td contenteditable="true" style= "display: none;" class="autoevaluacion-celda"></td>
+										
+										<!-- evidencia-->
+											<td contenteditable="true" style= "display: none;" class="autoevaluacion-celda">
+												<!-- Botón cuadrado para adjuntar archivos -->
+												<button class="square-button attachButton" onclick="openFileInput(this)">+</button>
+												<!-- Input de archivo oculto -->
+												<input type="file" class="fileInput" style="display: none;" />
+												<!-- Botón de texto para visualizar archivo -->
+												<button class="view-button" title="Descargar archivo">Ver</button>
+											</td>
+										<!-- Autoevaluación-->	
+											<td contenteditable="true" style= "display: none;" class="autoevaluacion-celda"></td>
 													</tr>
 													<tr>
-														<td colspan="11" style="text-align: right;">
+														<td colspan="12" style="text-align: right;">
 															<button style="border: none;" onclick="insertarFila4(this)">Añadir Fila</button>
 														</td>
 													</tr>
@@ -1104,22 +1169,34 @@ tr[class="sub-header"] td {
 													<tr>
 														<th colspan="8">DESCRIPCIÓN DE LA ACTIVIDAD</th>
 														<th>HORAS PLANEADAS</th>
-														<th>EVIDENCIA (si lo requiere)</th>
-														<th style="color:red; display: none;" rowspan="2" class="autoevaluacion-celda">Autoevaluación / Porcentaje de avance</th>
+														<th style="color:red" class="autoevaluacion-celda">Indicador de cumplimiento</th>
+														<th style="color:red; display: none;" class="autoevaluacion-celda">EVIDENCIA (si lo requiere)</th>
+														<th style="color:red; display: none;" class="autoevaluacion-celda">Autoevaluación / Porcentaje de avance</th>
 													</tr>
 												</thead>
 												<tbody>
 													<tr>
-														<td colspan="11" style="background-color: #f2f2f2;">Desarrollo de Proyecto de extensión no solidaria</td>
+														<td colspan="12" style="background-color: #f2f2f2;">Desarrollo de Proyecto de extensión no solidaria</td>
 													</tr>
 													<tr>
 														<td colspan="8" contenteditable="true"></td>
 														<td contenteditable="true" data-sum="true"></td>
 														<td contenteditable="true"></td>
-														<td contenteditable="true" style= "display: none;" class="autoevaluacion-celda"></td>
+										
+										<!-- evidencia-->
+											<td contenteditable="true" style= "display: none;" class="autoevaluacion-celda">
+												<!-- Botón cuadrado para adjuntar archivos -->
+												<button class="square-button attachButton" onclick="openFileInput(this)">+</button>
+												<!-- Input de archivo oculto -->
+												<input type="file" class="fileInput" style="display: none;" />
+												<!-- Botón de texto para visualizar archivo -->
+												<button class="view-button" title="Descargar archivo">Ver</button>
+											</td>
+										<!-- Autoevaluación-->	
+											<td contenteditable="true" style= "display: none;" class="autoevaluacion-celda"></td>
 													</tr>
 													<tr>
-														<td colspan="11" style="text-align: right;">
+														<td colspan="12" style="text-align: right;">
 															<button style="border: none;" onclick="insertarFila4(this)">Añadir Fila</button>
 														</td>
 													</tr>
@@ -1132,22 +1209,34 @@ tr[class="sub-header"] td {
 													<tr>
 														<th colspan="8">DESCRIPCIÓN DE LA ACTIVIDAD</th>
 														<th>HORAS PLANEADAS</th>
-														<th>EVIDENCIA (si lo requiere)</th>
-														<th style="color:red; display: none;" rowspan="2" class="autoevaluacion-celda">Autoevaluación / Porcentaje de avance</th>
+														<th style="color:red" class="autoevaluacion-celda">Indicador de cumplimiento</th>
+														<th style="color:red; display: none;" class="autoevaluacion-celda">EVIDENCIA (si lo requiere)</th>
+														<th style="color:red; display: none;" class="autoevaluacion-celda">Autoevaluación / Porcentaje de avance</th>
 													</tr>
 												</thead>
 												<tbody>
 													<tr>
-														<td colspan="11" style="background-color: #f2f2f2;">Coordinación de laboratorios</td>
+														<td colspan="12" style="background-color: #f2f2f2;">Coordinación de laboratorios</td>
 													</tr>
 													<tr>
 														<td colspan="8" contenteditable="true"></td>
 														<td contenteditable="true" data-sum="true"></td>
 														<td contenteditable="true"></td>
-														<td contenteditable="true" style= "display: none;" class="autoevaluacion-celda"></td>
+										
+										<!-- evidencia-->
+											<td contenteditable="true" style= "display: none;" class="autoevaluacion-celda">
+												<!-- Botón cuadrado para adjuntar archivos -->
+												<button class="square-button attachButton" onclick="openFileInput(this)">+</button>
+												<!-- Input de archivo oculto -->
+												<input type="file" class="fileInput" style="display: none;" />
+												<!-- Botón de texto para visualizar archivo -->
+												<button class="view-button" title="Descargar archivo">Ver</button>
+											</td>
+										<!-- Autoevaluación-->	
+											<td contenteditable="true" style= "display: none;" class="autoevaluacion-celda"></td>
 													</tr>
 													<tr>
-														<td colspan="11" style="text-align: right;">
+														<td colspan="12" style="text-align: right;">
 															<button style="border: none;" onclick="insertarFila4(this)">Añadir Fila</button>
 														</td>
 													</tr>
@@ -1160,22 +1249,34 @@ tr[class="sub-header"] td {
 													<tr>
 														<th colspan="8">DESCRIPCIÓN DE LA ACTIVIDAD</th>
 														<th>HORAS PLANEADAS</th>
-														<th>EVIDENCIA (si lo requiere)</th>
-														<th style="color:red; display: none;" rowspan="2" class="autoevaluacion-celda">Autoevaluación / Porcentaje de avance</th>
+														<th style="color:red" class="autoevaluacion-celda">Indicador de cumplimiento</th>
+														<th style="color:red; display: none;" class="autoevaluacion-celda">EVIDENCIA (si lo requiere)</th>
+														<th style="color:red; display: none;" class="autoevaluacion-celda">Autoevaluación / Porcentaje de avance</th>
 													</tr>
 												</thead>
 												<tbody>
 													<tr>
-														<td colspan="11" style="background-color: #f2f2f2;">Consultoría especializada</td>
+														<td colspan="12" style="background-color: #f2f2f2;">Consultoría especializada</td>
 													</tr>
 													<tr>
 														<td colspan="8" contenteditable="true"></td>
 														<td contenteditable="true" data-sum="true"></td>
 														<td contenteditable="true"></td>
-														<td contenteditable="true" style= "display: none;" class="autoevaluacion-celda"></td>
+										
+										<!-- evidencia-->
+											<td contenteditable="true" style= "display: none;" class="autoevaluacion-celda">
+												<!-- Botón cuadrado para adjuntar archivos -->
+												<button class="square-button attachButton" onclick="openFileInput(this)">+</button>
+												<!-- Input de archivo oculto -->
+												<input type="file" class="fileInput" style="display: none;" />
+												<!-- Botón de texto para visualizar archivo -->
+												<button class="view-button" title="Descargar archivo">Ver</button>
+											</td>
+										<!-- Autoevaluación-->	
+											<td contenteditable="true" style= "display: none;" class="autoevaluacion-celda"></td>
 													</tr>
 													<tr>
-														<td colspan="11" style="text-align: right;">
+														<td colspan="12" style="text-align: right;">
 															<button style="border: none;" onclick="insertarFila4(this)">Añadir Fila</button>
 														</td>
 													</tr>
@@ -1188,22 +1289,34 @@ tr[class="sub-header"] td {
 													<tr>
 														<th colspan="8">DESCRIPCIÓN DE LA ACTIVIDAD</th>
 														<th>HORAS PLANEADAS</th>
-														<th>EVIDENCIA (si lo requiere)</th>
-														<th style="color:red; display: none;" rowspan="2" class="autoevaluacion-celda">Autoevaluación / Porcentaje de avance</th>
+														<th style="color:red" class="autoevaluacion-celda">Indicador de cumplimiento</th>
+														<th style="color:red; display: none;" class="autoevaluacion-celda">EVIDENCIA (si lo requiere)</th>
+														<th style="color:red; display: none;" class="autoevaluacion-celda">Autoevaluación / Porcentaje de avance</th>
 													</tr>
 												</thead>
 												<tbody>
 													<tr>
-														<td colspan="11" style="background-color: #f2f2f2;">Otros</td>
+														<td colspan="12" style="background-color: #f2f2f2;">Otros</td>
 													</tr>
 													<tr>
 														<td colspan="8" contenteditable="true"></td>
 														<td contenteditable="true" data-sum="true"></td>
 														<td contenteditable="true"></td>
-														<td contenteditable="true" style= "display: none;" class="autoevaluacion-celda"></td>
+										
+										<!-- evidencia-->
+											<td contenteditable="true" style= "display: none;" class="autoevaluacion-celda">
+												<!-- Botón cuadrado para adjuntar archivos -->
+												<button class="square-button attachButton" onclick="openFileInput(this)">+</button>
+												<!-- Input de archivo oculto -->
+												<input type="file" class="fileInput" style="display: none;" />
+												<!-- Botón de texto para visualizar archivo -->
+												<button class="view-button" title="Descargar archivo">Ver</button>
+											</td>
+										<!-- Autoevaluación-->	
+											<td contenteditable="true" style= "display: none;" class="autoevaluacion-celda"></td>
 													</tr>
 													<tr>
-														<td colspan="11" style="text-align: right;">
+														<td colspan="12" style="text-align: right;">
 															<button style="border: none;" onclick="insertarFila4(this)">Añadir Fila</button>
 														</td>
 													</tr>
@@ -1272,8 +1385,9 @@ tr[class="sub-header"] td {
                     
                     <th rowspan="2" colspan="8">DESCRIPCIÓN DE LA ACTIVIDAD</th>
                     <th rowspan="2">HORAS PLANEADAS</th>
-                    <th >EVIDENCIA (si lo requiere)</th>
-                    <th style="color:red; display: none;" rowspan="2" class="autoevaluacion-celda">Autoevaluación / Porcentaje de avance</th>
+                    <th style="color:red" class="autoevaluacion-celda">Indicador de cumplimiento</th>
+														<th style="color:red; display: none;" class="autoevaluacion-celda">EVIDENCIA (si lo requiere)</th>
+														<th style="color:red; display: none;" class="autoevaluacion-celda">Autoevaluación / Porcentaje de avance</th>
                 </tr>
                 
             </thead>
@@ -1283,14 +1397,36 @@ tr[class="sub-header"] td {
                     <td contenteditable="true" colspan="8">Dirección de Unidad Académico Administrativa</td>
                     <td contenteditable="true" data-sum1="true"></td>
                     <td contenteditable="true"></td>
-                    <td contenteditable="true" style= "display: none;" class="autoevaluacion-celda"></td>
+										
+										<!-- evidencia-->
+											<td contenteditable="true" style= "display: none;" class="autoevaluacion-celda">
+												<!-- Botón cuadrado para adjuntar archivos -->
+												<button class="square-button attachButton" onclick="openFileInput(this)">+</button>
+												<!-- Input de archivo oculto -->
+												<input type="file" class="fileInput" style="display: none;" />
+												<!-- Botón de texto para visualizar archivo -->
+												<button class="view-button" title="Descargar archivo">Ver</button>
+											</td>
+										<!-- Autoevaluación-->	
+											<td contenteditable="true" style= "display: none;" class="autoevaluacion-celda"></td>
                 </tr>
                 <tr>
                     
                     <td contenteditable="true" colspan="8">Comité curricular pregrado</td>
                     <td contenteditable="true" data-sum1="true"></td>
                     <td contenteditable="true"></td>
-                    <td contenteditable="true" style= "display: none;" class="autoevaluacion-celda"></td>
+										
+										<!-- evidencia-->
+											<td contenteditable="true" style= "display: none;" class="autoevaluacion-celda">
+												<!-- Botón cuadrado para adjuntar archivos -->
+												<button class="square-button attachButton" onclick="openFileInput(this)">+</button>
+												<!-- Input de archivo oculto -->
+												<input type="file" class="fileInput" style="display: none;" />
+												<!-- Botón de texto para visualizar archivo -->
+												<button class="view-button" title="Descargar archivo">Ver</button>
+											</td>
+										<!-- Autoevaluación-->	
+											<td contenteditable="true" style= "display: none;" class="autoevaluacion-celda"></td>
                     
                 </tr>
                 <tr>
@@ -1298,7 +1434,18 @@ tr[class="sub-header"] td {
                     <td contenteditable="true" colspan="8">Comité curricular posgrados</td>
                     <td contenteditable="true" data-sum1="true"></td>
                     <td contenteditable="true"></td>
-                    <td contenteditable="true" style= "display: none;" class="autoevaluacion-celda"></td>
+										
+										<!-- evidencia-->
+											<td contenteditable="true" style= "display: none;" class="autoevaluacion-celda">
+												<!-- Botón cuadrado para adjuntar archivos -->
+												<button class="square-button attachButton" onclick="openFileInput(this)">+</button>
+												<!-- Input de archivo oculto -->
+												<input type="file" class="fileInput" style="display: none;" />
+												<!-- Botón de texto para visualizar archivo -->
+												<button class="view-button" title="Descargar archivo">Ver</button>
+											</td>
+										<!-- Autoevaluación-->	
+											<td contenteditable="true" style= "display: none;" class="autoevaluacion-celda"></td>
                     
                 </tr>
                 <tr>
@@ -1306,7 +1453,18 @@ tr[class="sub-header"] td {
                     <td contenteditable="true" colspan="8">Coordinación de programas autofinanciados</td>
                     <td contenteditable="true" data-sum1="true"></td>
                     <td contenteditable="true"></td>
-                    <td contenteditable="true" style= "display: none;" class="autoevaluacion-celda"></td>
+										
+										<!-- evidencia-->
+											<td contenteditable="true" style= "display: none;" class="autoevaluacion-celda">
+												<!-- Botón cuadrado para adjuntar archivos -->
+												<button class="square-button attachButton" onclick="openFileInput(this)">+</button>
+												<!-- Input de archivo oculto -->
+												<input type="file" class="fileInput" style="display: none;" />
+												<!-- Botón de texto para visualizar archivo -->
+												<button class="view-button" title="Descargar archivo">Ver</button>
+											</td>
+										<!-- Autoevaluación-->	
+											<td contenteditable="true" style= "display: none;" class="autoevaluacion-celda"></td>
                     
                 </tr>
                 <tr>
@@ -1314,7 +1472,18 @@ tr[class="sub-header"] td {
                     <td contenteditable="true" colspan="8">Reforma académica de programa</td>
                     <td contenteditable="true" data-sum1="true"></td>
                     <td contenteditable="true"></td>
-                    <td contenteditable="true" style= "display: none;" class="autoevaluacion-celda"></td>
+										
+										<!-- evidencia-->
+											<td contenteditable="true" style= "display: none;" class="autoevaluacion-celda">
+												<!-- Botón cuadrado para adjuntar archivos -->
+												<button class="square-button attachButton" onclick="openFileInput(this)">+</button>
+												<!-- Input de archivo oculto -->
+												<input type="file" class="fileInput" style="display: none;" />
+												<!-- Botón de texto para visualizar archivo -->
+												<button class="view-button" title="Descargar archivo">Ver</button>
+											</td>
+										<!-- Autoevaluación-->	
+											<td contenteditable="true" style= "display: none;" class="autoevaluacion-celda"></td>
                     
                 </tr>
                 <tr>
@@ -1322,7 +1491,18 @@ tr[class="sub-header"] td {
                     <td contenteditable="true" colspan="8">Líder Proyecto Plan de mejoramiento del programa</td>
                     <td contenteditable="true" data-sum1="true"></td>
                     <td contenteditable="true"></td>
-                    <td contenteditable="true" style= "display: none;" class="autoevaluacion-celda"></td>
+										
+										<!-- evidencia-->
+											<td contenteditable="true" style= "display: none;" class="autoevaluacion-celda">
+												<!-- Botón cuadrado para adjuntar archivos -->
+												<button class="square-button attachButton" onclick="openFileInput(this)">+</button>
+												<!-- Input de archivo oculto -->
+												<input type="file" class="fileInput" style="display: none;" />
+												<!-- Botón de texto para visualizar archivo -->
+												<button class="view-button" title="Descargar archivo">Ver</button>
+											</td>
+										<!-- Autoevaluación-->	
+											<td contenteditable="true" style= "display: none;" class="autoevaluacion-celda"></td>
                     
                 </tr>
                 <tr>
@@ -1330,7 +1510,18 @@ tr[class="sub-header"] td {
                     <td contenteditable="true" colspan="8">Acreditación ABET</td>
                     <td contenteditable="true" data-sum1="true"></td>
                     <td contenteditable="true"></td>
-                    <td contenteditable="true" style= "display: none;" class="autoevaluacion-celda"></td>
+										
+										<!-- evidencia-->
+											<td contenteditable="true" style= "display: none;" class="autoevaluacion-celda">
+												<!-- Botón cuadrado para adjuntar archivos -->
+												<button class="square-button attachButton" onclick="openFileInput(this)">+</button>
+												<!-- Input de archivo oculto -->
+												<input type="file" class="fileInput" style="display: none;" />
+												<!-- Botón de texto para visualizar archivo -->
+												<button class="view-button" title="Descargar archivo">Ver</button>
+											</td>
+										<!-- Autoevaluación-->	
+											<td contenteditable="true" style= "display: none;" class="autoevaluacion-celda"></td>
                     
                 </tr>
                 <tr>
@@ -1338,7 +1529,18 @@ tr[class="sub-header"] td {
                     <td contenteditable="true" colspan="8">Nodo Proceso de autoevaluación del programa</td>
                     <td contenteditable="true" data-sum1="true"></td>
                     <td contenteditable="true"></td>
-                    <td contenteditable="true" style= "display: none;" class="autoevaluacion-celda"></td>
+										
+										<!-- evidencia-->
+											<td contenteditable="true" style= "display: none;" class="autoevaluacion-celda">
+												<!-- Botón cuadrado para adjuntar archivos -->
+												<button class="square-button attachButton" onclick="openFileInput(this)">+</button>
+												<!-- Input de archivo oculto -->
+												<input type="file" class="fileInput" style="display: none;" />
+												<!-- Botón de texto para visualizar archivo -->
+												<button class="view-button" title="Descargar archivo">Ver</button>
+											</td>
+										<!-- Autoevaluación-->	
+											<td contenteditable="true" style= "display: none;" class="autoevaluacion-celda"></td>
                     
                 </tr>
                 <tr>
@@ -1346,22 +1548,44 @@ tr[class="sub-header"] td {
                     <td contenteditable="true" colspan="8">Representante profesoral (Consejo de Escuela, Consejo de Facultad, CA, CS ...)</td>
                     <td contenteditable="true" data-sum1="true"></td>
                     <td contenteditable="true"></td>
-                    <td contenteditable="true" style= "display: none;" class="autoevaluacion-celda"></td>
+										
+										<!-- evidencia-->
+											<td contenteditable="true" style= "display: none;" class="autoevaluacion-celda">
+												<!-- Botón cuadrado para adjuntar archivos -->
+												<button class="square-button attachButton" onclick="openFileInput(this)">+</button>
+												<!-- Input de archivo oculto -->
+												<input type="file" class="fileInput" style="display: none;" />
+												<!-- Botón de texto para visualizar archivo -->
+												<button class="view-button" title="Descargar archivo">Ver</button>
+											</td>
+										<!-- Autoevaluación-->	
+											<td contenteditable="true" style= "display: none;" class="autoevaluacion-celda"></td>
                     
                 </tr>
                 <tr>
-                    <td style="background-color: #f2f2f2;" colspan="11">Otros</td>
+                    <td style="background-color: #f2f2f2;" colspan="12">Otros</td>
                 </tr>
                 <tr>
                     
                     <td contenteditable="true" colspan="8"></td>
                     <td contenteditable="true" data-sum1="true"></td>
                     <td contenteditable="true"></td>
-                    <td contenteditable="true" style= "display: none;" class="autoevaluacion-celda"></td>
+										
+										<!-- evidencia-->
+											<td contenteditable="true" style= "display: none;" class="autoevaluacion-celda">
+												<!-- Botón cuadrado para adjuntar archivos -->
+												<button class="square-button attachButton" onclick="openFileInput(this)">+</button>
+												<!-- Input de archivo oculto -->
+												<input type="file" class="fileInput" style="display: none;" />
+												<!-- Botón de texto para visualizar archivo -->
+												<button class="view-button" title="Descargar archivo">Ver</button>
+											</td>
+										<!-- Autoevaluación-->	
+											<td contenteditable="true" style= "display: none;" class="autoevaluacion-celda"></td>
                     
                 </tr>
                 <tr>
-                    <td colspan="11" style="text-align: right;">
+                    <td colspan="12" style="text-align: right;">
                         <button style="border: none;" onclick="insertarFila4(this)">Añadir Fila</button>
                     </td>
                 </tr>
@@ -1540,8 +1764,18 @@ function insertarFila(button) {
         <td contenteditable="true"></td>
         <td contenteditable="true" id="${cell3Id}"></td>
         <td id="${resultCellId}"></td>
-        <td contenteditable="true"></td>
-        <td contenteditable="true" style= "display: none;" class="autoevaluacion-celda"></td>
+		<td contenteditable="true"></td>
+        <!-- evidencia-->
+		<td contenteditable="true" style= "display: none;" class="autoevaluacion-celda">
+			<!-- Botón cuadrado para adjuntar archivos -->
+			<button class="square-button attachButton" onclick="openFileInput(this)">+</button>
+			<!-- Input de archivo oculto -->
+			<input type="file" class="fileInput" style="display: none;" />
+			<!-- Botón de texto para visualizar archivo -->
+			<button class="view-button" title="Descargar archivo">Ver</button>
+			</td>
+		<!-- Autoevaluación-->	
+		<td contenteditable="true" style= "display: none;" class="autoevaluacion-celda"></td>
     `;
 
     let filaActual = button.closest('tr');
@@ -1648,8 +1882,18 @@ function insertarFila2(button) {
         <td contenteditable="true"></td>
         <td contenteditable="true" id="${cell3Id}" oninput="calculateSum2('${cell3Id}')"></td>
 		<td id="${resultCellId}"></td>
-        <td contenteditable="true" ></td>
-        <td contenteditable="true" style= "display: none;" class="autoevaluacion-celda"></td>
+        <td contenteditable="true"></td>
+        <!-- evidencia-->
+		<td contenteditable="true" style= "display: none;" class="autoevaluacion-celda">
+			<!-- Botón cuadrado para adjuntar archivos -->
+			<button class="square-button attachButton" onclick="openFileInput(this)">+</button>
+			<!-- Input de archivo oculto -->
+			<input type="file" class="fileInput" style="display: none;" />
+			<!-- Botón de texto para visualizar archivo -->
+			<button class="view-button" title="Descargar archivo">Ver</button>
+			</td>
+		<!-- Autoevaluación-->	
+		<td contenteditable="true" style= "display: none;" class="autoevaluacion-celda"></td>
         
     `;
 
@@ -1684,8 +1928,17 @@ function insertarFila3(button) {
                 <td contenteditable="true" id="${cell3Id}" oninput="calculateSum2('${cell3Id}')"></td>
 				<td id="${resultCellId}"></td>
                 <td contenteditable="true"></td>
-                
-                <td contenteditable="true" style= "display: none;" class="autoevaluacion-celda"></td>
+        <!-- evidencia-->
+		<td contenteditable="true" style= "display: none;" class="autoevaluacion-celda">
+			<!-- Botón cuadrado para adjuntar archivos -->
+			<button class="square-button attachButton" onclick="openFileInput(this)">+</button>
+			<!-- Input de archivo oculto -->
+			<input type="file" class="fileInput" style="display: none;" />
+			<!-- Botón de texto para visualizar archivo -->
+			<button class="view-button" title="Descargar archivo">Ver</button>
+			</td>
+		<!-- Autoevaluación-->	
+		<td contenteditable="true" style= "display: none;" class="autoevaluacion-celda"></td>
                 
                 
             
@@ -1721,72 +1974,63 @@ function insertarFila4(button) {
     // Crear una nueva fila
     let nuevaFila = document.createElement('tr');
 
-    // Crear la primera celda (editable)
+    // Crear la primera celda con colspan="8" (editable)
     let celda1 = document.createElement('td');
     celda1.setAttribute('contenteditable', 'true');
+    celda1.setAttribute('colspan', '8');
     nuevaFila.appendChild(celda1);
 
-    // Crear la segunda celda con colspan="8" (editable)
+    // Crear la segunda celda (editable y con data-sum)
     let celda2 = document.createElement('td');
     celda2.setAttribute('contenteditable', 'true');
-    celda2.setAttribute('colspan', '8'); // Colspan de 8 columnas
+    celda2.setAttribute('data-sum', 'true');
     nuevaFila.appendChild(celda2);
 
-    // Crear las siguientes 3 celdas (todas editables)
-    for (let i = 0; i < 3; i++) {
-        let nuevaCelda = document.createElement('td');
-        nuevaCelda.setAttribute('contenteditable', 'true');
-        nuevaCelda.setAttribute('data-sum', 'true');  // Añadimos el atributo data-sum para las celdas que afectan la suma
+    // Crear la tercera celda (editable)
+    let celda3 = document.createElement('td');
+    celda3.setAttribute('contenteditable', 'true');
+    nuevaFila.appendChild(celda3);
 
-        // Verificar si es la última celda (i == 2)
-        if (i === 2) {
-            nuevaCelda.style.display = 'none';  // Ocultar la última celda
-        }
+    // Crear la celda de evidencia (oculta)
+    let celdaEvidencia = document.createElement('td');
+    celdaEvidencia.setAttribute('contenteditable', 'true');
+    celdaEvidencia.style.display = 'none';
+    celdaEvidencia.className = 'autoevaluacion-celda';
 
-        nuevaFila.appendChild(nuevaCelda);
-    }
+    // Crear botón cuadrado para adjuntar archivos
+    let btnAttach = document.createElement('button');
+    btnAttach.className = 'square-button attachButton';
+    btnAttach.textContent = '+';
+    btnAttach.setAttribute('onclick', 'openFileInput(this)');
+    celdaEvidencia.appendChild(btnAttach);
+
+    // Crear input de archivo oculto
+    let inputFile = document.createElement('input');
+    inputFile.type = 'file';
+    inputFile.className = 'fileInput';
+    inputFile.style.display = 'none';
+    celdaEvidencia.appendChild(inputFile);
+
+    // Crear botón de texto para visualizar archivo
+    let btnView = document.createElement('button');
+    btnView.className = 'view-button';
+    btnView.textContent = 'Ver';
+    btnView.title = 'Descargar archivo';
+    celdaEvidencia.appendChild(btnView);
+
+    nuevaFila.appendChild(celdaEvidencia);
+
+    // Crear la celda de autoevaluación (oculta)
+    let celdaAutoevaluacion = document.createElement('td');
+    celdaAutoevaluacion.setAttribute('contenteditable', 'true');
+    celdaAutoevaluacion.style.display = 'none';
+    celdaAutoevaluacion.className = 'autoevaluacion-celda';
+    nuevaFila.appendChild(celdaAutoevaluacion);
 
     // Añadir la nueva fila antes de la fila actual
     let filaActual = button.parentNode.parentNode;
     filaActual.parentNode.insertBefore(nuevaFila, filaActual);
 }
-
-// Función para actualizar la suma
-function actualizarSuma() {
-    let sumaTotal = 0;
-
-    // Obtener todas las celdas con el atributo data-sum
-    const celdasParaSumar = document.querySelectorAll('td[data-sum="true"]');
-
-    // Recorrer cada celda y sumar su valor
-    celdasParaSumar.forEach(function(celda) {
-        let valor = parseFloat(celda.innerText) || 0; // Convertir el texto a número
-        sumaTotal += valor;
-    });
-
-    // Actualizar la celda Totalhoras3 con el total
-    const celdaTotal = document.getElementById('Totalhoras3');
-    if (celdaTotal) {
-        celdaTotal.innerText = sumaTotal; // Mostrar la suma calculada
-    }
-}
-
-// Función para manejar el clic en el botón "Suma"
-function manejarBotonSuma() {
-    // Llamar a la función de actualizar la suma
-    actualizarSuma();
-}
-
-// Asociar el clic del botón "Suma" a la función manejarBotonSuma
-document.getElementById('btnSuma').addEventListener('click', manejarBotonSuma);
-
-// Escuchar los cambios en las celdas para actualizar la suma
-document.addEventListener('input', function(event) {
-    if (event.target.matches('td[data-sum="true"]')) {
-        // Si la celda tiene el atributo data-sum, no actualizamos la suma hasta que se haga clic en el botón "Suma"
-    }
-});
-
 
 
 
@@ -1836,7 +2080,8 @@ function insertarFila6(button) {
         <td contenteditable="true" id="${cell5Id}" oninput="calculateSum('${cell4Id}', '${cell5Id}', '${resultCellId}')"></td>
         <td id="${resultCellId}"></td>
         <td onclick="openModal(this)">Click para editar el horario</td>
-        <td>
+		<td contenteditable="true"></td>
+        <td contenteditable="true" style= "display: none;" class="autoevaluacion-celda">
             <!-- Botón cuadrado para adjuntar archivos -->
             <button class="square-button attachButton" onclick="openFileInput(this)">+</button>
             <!-- Input de archivo oculto -->
@@ -1844,7 +2089,7 @@ function insertarFila6(button) {
             <!-- Botón de texto para visualizar archivo -->
             <button class="view-button" title="Descargar archivo">Ver</button>
         </td>
-		<td contenteditable="true"></td>
+		<td contenteditable="true" style= "display: none;" class="autoevaluacion-celda"></td>
     `;
 
     // Localizar la fila de "Total horas año"
@@ -2509,7 +2754,12 @@ function duplicarPagina() {
     // Reinicializar las funcionalidades
     reinicializarFuncionalidades();
   };
+  
+  
+  
 }
+
+
 
 
 
