@@ -519,9 +519,10 @@ tr[class="sub-header"] td {
 <!-- Main Content -->
 	<div class="main-content" style="width: 500px; margin-left: 5px; background-color: #fff; padding: 20px;">
 	 
-
-
-					<div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+  
+		<div class="white-rectangle">
+		
+						<div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
 						<h2>Plan de Trabajo Anual</h2>
 						<div id="totalHorasGeneral" style="
 						  background-color: #eceff8;
@@ -559,32 +560,26 @@ tr[class="sub-header"] td {
 					<div id="tab1" class="tab-content" style="display: none;">
 							<div class="header-container" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
     	
-								<!-- Botón de agregar actividad -->
-								<button class="add-activity-btn" onclick="insertarFila6(this)" style="
-									font-size: 18px; /* Ajusta el tamaño del texto */
-									padding: 10px 20px; 
-									background-color: #1977e8; 
-									color: white; 
-									border: none; 
-									border-radius: 5px; 
-									cursor: pointer;">
-									Agregar actividad
-								</button>
 								
-								<!-- Rectángulo con bordes redondeados -->
-								<div id="totalHoras" style="
-									background-color: #eceff8;
-									border: 2px solid #1977e8;
-									border-radius: 15px;
-									padding: 10px 20px;
-									font-size: 20px;
-									font-weight: bold;
-									color: #1977e8;
-									text-align: center;
-									width: 200px;
-									display: none;">
-									Total Horas: 0
+								
+								<div style="display: flex; justify-content: flex-end; width: 100%;">
+									<div id="totalHoras" style="
+										background-color: #eceff8;
+										border: 2px solid #1977e8;
+										border-radius: 15px;
+										padding: 10px 20px;
+										font-size: 20px;
+										font-weight: bold;
+										color: #1977e8;
+										text-align: center;
+										width: 200px;
+										display: block;">
+										Total Horas:
+									</div>
 								</div>
+
+
+
 							</div>
 
 						<h3 style="text-align: left; color: #1977e8;">Docencia</h3>
@@ -683,8 +678,25 @@ tr[class="sub-header"] td {
 									</tbody>
 								</table>
 							
-						<button id="addThesisDirectionBtn" style="margin-top: 20px; background-color: #eceff8; border: none; border-radius: 10px; padding: 10px 20px; cursor: pointer;" onclick="showTable()">+ Agregar dirección de trabajos de grado</button>
+							<div style="text-align: right;">
+							<button class="add-activity-btn" onclick="insertarFila6(this)" style="
+								font-size: 13.3333px; 
+								font-family: Arial, sans-serif; 
+								padding: 1px 6px; 
+								background-color: #F0F0F0; 
+								color: #000000; 
+								border: 1px solid #ccc; 
+								border-radius: 0; 
+								cursor: pointer;">
+								Añadir Fila
+							</button>
+						</div>
 
+								
+								<br>
+							
+						<button id="addThesisDirectionBtn" style="margin-top: 20px; background-color: #eceff8; border: none; border-radius: 10px; padding: 10px 20px; cursor: pointer;" onclick="showTable()">+ Agregar dirección de trabajos de grado</button>
+<br>
 						<!-- Dirección de trabajos de grado-->
 							<div id="thesisDirectionTableContainer" style="display: none; margin-top: 20px;">
 								<table border="1" cellspacing="0" cellpadding="4">
@@ -752,6 +764,9 @@ tr[class="sub-header"] td {
 
 
 							</div>
+							
+							<br>
+							
 							
 								<button id="guardarDocenciaBtn" class="guardarDocencia" style="
 										font-size: 18px;
@@ -1066,7 +1081,9 @@ tr[class="sub-header"] td {
 										Guardar
 									</button>
 							</div>
-						</div>
+						
+					
+					
 					
 					
 					
@@ -1364,16 +1381,17 @@ tr[class="sub-header"] td {
 
 									
 								</div>
+								
+								
+								
 							</div>
-							
-							
 							
 							
 							<!-- ACT acad admin -->
 							
 							<div id="tab4" class="tab-content" style="display:none; position: relative;">
 							  
-<div class="header-container" style="
+							<div class="header-container" style="
 								display: flex;
 								justify-content: space-between;
 								align-items: flex-start;
@@ -1580,6 +1598,25 @@ tr[class="sub-header"] td {
 										<!-- Autoevaluación-->	
 											<td contenteditable="true" style= "display: none;" class="autoevaluacion-celda"></td>
                     
+                </tr>.
+				<tr>
+                    
+                    <td contenteditable="true" colspan="8">Claustro de profesores</td>
+                    <td contenteditable="true" data-sum1="true"></td>
+                    <td contenteditable="true"></td>
+										
+										<!-- evidencia-->
+											<td contenteditable="true" style= "display: none;" class="autoevaluacion-celda">
+												<!-- Botón cuadrado para adjuntar archivos -->
+												<button class="square-button attachButton" onclick="openFileInput(this)">+</button>
+												<!-- Input de archivo oculto -->
+												<input type="file" class="fileInput" style="display: none;" />
+												<!-- Botón de texto para visualizar archivo -->
+												<button class="view-button" title="Descargar archivo">Ver</button>
+											</td>
+										<!-- Autoevaluación-->	
+											<td contenteditable="true" style= "display: none;" class="autoevaluacion-celda"></td>
+                    
                 </tr>
                 <tr>
                     <td style="background-color: #f2f2f2;" colspan="12">Otros</td>
@@ -1611,37 +1648,41 @@ tr[class="sub-header"] td {
 				<tr>
 							
 							<td colspan="8" style="text-align: right;" hidden>
-    Total horas
-    <!-- Botón que llamará a la función de suma -->
-    <button id="btnSuma" onclick="actualizarSuma1()">Suma</button>
-</td>
-<td id="Totalhoras4" hidden></td>
+											Total horas
+											<!-- Botón que llamará a la función de suma -->
+											<button id="btnSuma" onclick="actualizarSuma1()">Suma</button>
+										</td>
+										<td id="Totalhoras4" hidden></td>
 
-							
+																	
 
-					</tr>
-            </tbody>
-        </table>
-		
-		<button id="guardarAcademicoBtn" class="guardarAcademico" style="
-    font-size: 18px;
-    padding: 10px 20px; 
-    background-color: #1977e8; 
-    color: white; 
-    border: none; 
-    border-radius: 5px; 
-    cursor: pointer;
-    margin-top: 20px;">
-    Guardar
-  </button>
+															</tr>
+													</tbody>
+												</table>
+												
+												<button id="guardarAcademicoBtn" class="guardarAcademico" style="
+											font-size: 18px;
+											padding: 10px 20px; 
+											background-color: #1977e8; 
+											color: white; 
+											border: none; 
+											border-radius: 5px; 
+											cursor: pointer;
+											margin-top: 20px;">
+											Guardar
+										  </button>
 							
 							
-							</div>
+							
+							
 					
 		</div>	
+							
+							
+							
 	</div>	
 			
-				
+				</div>
 				
 			  
 			  
