@@ -2864,53 +2864,56 @@ function mostrarCalendario(td) {
             input.showPicker(); // Abrir el calendario en navegadores compatibles
         }
 
-function descargarPagina() {
-    // Clonar el documento actual
+ function descargarPagina() {
+    // Guardar las pestañas activas antes de modificar la visibilidad
+    let pestañas = document.querySelectorAll(".tab-content");
+    let pestañaActiva = document.querySelector(".tab-content:not([style*='display: none'])");
+
+    // Mostrar temporalmente todas las pestañas
+    pestañas.forEach(tab => tab.style.display = "block");
+
+    // Clonar el documento con todas las pestañas visibles
     let nuevoDocumento = document.cloneNode(true);
 
-    // Obtener todos los <select> del documento original
-    let selectsOriginal = document.querySelectorAll("select");
+    // Restaurar la visibilidad original de las pestañas
+    pestañas.forEach(tab => tab.style.display = (tab !== pestañaActiva ? "none" : "block"));
 
-    // Obtener los mismos <select> en el documento clonado
+    // Reemplazar los <select> por su opción seleccionada
+    let selectsOriginal = document.querySelectorAll("select");
     let selectsClonados = nuevoDocumento.querySelectorAll("select");
 
-    // Reemplazar los <select> en el documento clonado con su opción seleccionada
     selectsOriginal.forEach((select, index) => {
         if (selectsClonados[index]) {
             let selectedText = select.options[select.selectedIndex]?.text || "";
-            let parentTd = selectsClonados[index].parentNode; // Obtener la celda contenedora
-            let span = document.createElement("span"); // Crear un nuevo elemento para el texto
-            span.textContent = selectedText; // Insertar el texto de la opción seleccionada
-            parentTd.replaceChild(span, selectsClonados[index]); // Reemplazar el <select> por el texto
+            let parentTd = selectsClonados[index].parentNode;
+            let span = document.createElement("span");
+            span.textContent = selectedText;
+            parentTd.replaceChild(span, selectsClonados[index]);
         }
     });
 
     // Obtener el nombre del usuario desde la celda "Nombre"
     let filas = nuevoDocumento.querySelectorAll("table.white-background tr");
-    let nombreUsuario = "sin_nombre"; // Valor por defecto
+    let nombreUsuario = "sin_nombre";
 
     filas.forEach(fila => {
       let celdas = fila.getElementsByTagName("td");
       if (celdas.length > 1 && celdas[0].innerText.trim() === "Nombre") {
-        nombreUsuario = celdas[1].innerText.trim(); // Obtener el contenido editable
+        nombreUsuario = celdas[1].innerText.trim();
       }
     });
 
-    // Si el usuario no ingresó nombre, usar "sin_nombre"
     if (!nombreUsuario) {
       nombreUsuario = "sin_nombre";
     }
 
-    // Eliminar caracteres no válidos para nombres de archivo
     nombreUsuario = nombreUsuario.replace(/[\/:*?"<>|]/g, '');
-
-    // Nombre del archivo final
     let nombreArchivo = `PTA_${nombreUsuario}.html`;
 
-    // Convertir el nuevo documento a string
+    // Convertir el documento a string
     let contenidoHTML = new XMLSerializer().serializeToString(nuevoDocumento);
 
-    // Crear un Blob con el contenido HTML modificado
+    // Crear un Blob con el contenido HTML
     let blob = new Blob([contenidoHTML], { type: "text/html" });
 
     // Crear un enlace de descarga
@@ -2918,22 +2921,25 @@ function descargarPagina() {
     enlace.href = URL.createObjectURL(blob);
     enlace.download = nombreArchivo;
 
-    // Agregar el enlace al DOM, simular clic y removerlo
+    // Simular el clic para descargar
     document.body.appendChild(enlace);
     enlace.click();
     document.body.removeChild(enlace);
   }
 
-  // Asegurar que el botón haga ambas funciones
+  // Modificar el botón para que haga ambas funciones
   document.addEventListener("DOMContentLoaded", function () {
     let boton = document.getElementById("autoevaluacionBtn");
     if (boton) {
       boton.onclick = function () {
         duplicarPagina();
-        descargarPagina(); // Ejecuta ambas funciones
+        descargarPagina();
       };
     }
   });
+
+
+	  
 	  
   </script>
 		
