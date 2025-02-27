@@ -2865,20 +2865,20 @@ function mostrarCalendario(td) {
         }
 
  function descargarPagina() {
-    // Guardar las pestañas activas antes de modificar la visibilidad
+    // Obtener todas las pestañas y guardar la pestaña activa
     let pestañas = document.querySelectorAll(".tab-content");
     let pestañaActiva = document.querySelector(".tab-content:not([style*='display: none'])");
 
-    // Mostrar temporalmente todas las pestañas
+    // Mostrar todas las pestañas temporalmente para capturar su contenido
     pestañas.forEach(tab => tab.style.display = "block");
 
-    // Clonar el documento con todas las pestañas visibles
+    // Clonar el documento con todo visible
     let nuevoDocumento = document.cloneNode(true);
 
     // Restaurar la visibilidad original de las pestañas
     pestañas.forEach(tab => tab.style.display = (tab !== pestañaActiva ? "none" : "block"));
 
-    // Reemplazar los <select> por su opción seleccionada
+    // Reemplazar los <select> en el documento clonado con el texto seleccionado
     let selectsOriginal = document.querySelectorAll("select");
     let selectsClonados = nuevoDocumento.querySelectorAll("select");
 
@@ -2889,6 +2889,16 @@ function mostrarCalendario(td) {
             let span = document.createElement("span");
             span.textContent = selectedText;
             parentTd.replaceChild(span, selectsClonados[index]);
+        }
+    });
+
+    // Guardar contenido editable en el documento clonado
+    let celdasOriginal = document.querySelectorAll("td[contenteditable='true']");
+    let celdasClonadas = nuevoDocumento.querySelectorAll("td[contenteditable='true']");
+
+    celdasOriginal.forEach((celda, index) => {
+        if (celdasClonadas[index]) {
+            celdasClonadas[index].textContent = celda.textContent;
         }
     });
 
@@ -2907,13 +2917,17 @@ function mostrarCalendario(td) {
       nombreUsuario = "sin_nombre";
     }
 
+    // Eliminar caracteres no válidos en nombres de archivo
     nombreUsuario = nombreUsuario.replace(/[\/:*?"<>|]/g, '');
     let nombreArchivo = `PTA_${nombreUsuario}.html`;
 
-    // Convertir el documento a string
+    // Convertir el nuevo documento a string
     let contenidoHTML = new XMLSerializer().serializeToString(nuevoDocumento);
 
-    // Crear un Blob con el contenido HTML
+    // Restaurar los scripts para que se ejecuten en el nuevo documento
+    contenidoHTML = contenidoHTML.replace(/<script[\s\S]*?<\/script>/gi, '');
+
+    // Crear un Blob con el contenido HTML modificado
     let blob = new Blob([contenidoHTML], { type: "text/html" });
 
     // Crear un enlace de descarga
@@ -2927,12 +2941,12 @@ function mostrarCalendario(td) {
     document.body.removeChild(enlace);
   }
 
-  // Modificar el botón para que haga ambas funciones
+  // Asegurar que el botón ejecute ambas funciones correctamente
   document.addEventListener("DOMContentLoaded", function () {
     let boton = document.getElementById("autoevaluacionBtn");
     if (boton) {
       boton.onclick = function () {
-        duplicarPagina();
+        duplicarPagina(); // Si esta función afecta el contenido, asegúrate de que se ejecuta correctamente
         descargarPagina();
       };
     }
