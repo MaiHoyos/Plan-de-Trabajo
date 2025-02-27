@@ -2745,91 +2745,79 @@ function duplicarPagina() {
     celdasAutoevaluacion[i].style.display = '';
   }
 
-// Reemplazar los <select> por su texto seleccionado
-var selectsOriginal = document.querySelectorAll("select");
-var selectsClonados = nuevoDocumento.querySelectorAll("select");
+  // Reemplazar los <select> por su texto seleccionado
+  var selectsOriginal = document.querySelectorAll("select");
+  var selectsClonados = nuevoDocumento.querySelectorAll("select");
 
-selectsOriginal.forEach((select, index) => {
+  selectsOriginal.forEach((select, index) => {
     if (selectsClonados[index]) {
-        var selectedText = select.options[select.selectedIndex]?.text || "";
-        var parentTd = selectsClonados[index].parentNode; // Obtener la celda que contiene el <select>
-        parentTd.innerHTML = selectedText; // Reemplazar el <select> con el texto seleccionado
+      var selectedText = select.options[select.selectedIndex]?.text || "";
+      var parentTd = selectsClonados[index].parentNode;
+      parentTd.innerHTML = selectedText;
     }
-});
-
+  });
 
   // Convertir el nuevo documento a string
   var contenidoHTML = new XMLSerializer().serializeToString(nuevoDocumento);
 
-  // Abrir una nueva ventana/pestaña con el contenido clonado
-  var nuevaVentana = window.open('', '_blank');
-  nuevaVentana.document.open();
-  nuevaVentana.document.write(contenidoHTML);
-  nuevaVentana.document.close();
+  // Recopilar los datos del formulario
+  var facultad = document.querySelector('.white-background tr:nth-child(1) td:nth-child(2)').innerText;
+  var escuela = document.querySelector('.white-background tr:nth-child(2) td:nth-child(2)').innerText;
+  var programa = document.querySelector('.white-background tr:nth-child(3) td:nth-child(2)').innerText;
+  var nombre = document.querySelector('.white-background tr:nth-child(4) td:nth-child(2)').innerText;
+  var identificacion = document.querySelector('.white-background tr:nth-child(5) td:nth-child(2)').innerText;
 
-  // Función para reinicializar los eventos y funcionalidades
-  function reinicializarFuncionalidades() {
-    // Reinicializar los event listeners para las pestañas
-    var tabButtons = nuevaVentana.document.getElementsByClassName('tab-btn');
-    for (var i = 0; i < tabButtons.length; i++) {
-      tabButtons[i].addEventListener('click', function(event) {
-        openTab(event, this.getAttribute('onclick').match(/'([^']+)'/)[1]);
-      });
-    }
-
-    // Reinicializar otras funcionalidades específicas
-    nuevaVentana.toggleSidebar = toggleSidebar;
-    nuevaVentana.openModal = openModal;
-    nuevaVentana.closeModal = closeModal;
-    nuevaVentana.saveHorario = saveHorario;
-    nuevaVentana.insertarFila = insertarFila;
-    nuevaVentana.calculateSum = calculateSum;
-    nuevaVentana.calculateTotalHoras = calculateTotalHoras;
-    nuevaVentana.openActivityModal = openActivityModal;
-    nuevaVentana.closeActivityModal = closeActivityModal;
-    nuevaVentana.showTable1 = showTable1;
-    nuevaVentana.openExtModal = openExtModal;
-    nuevaVentana.closeExtModal = closeExtModal;
-    nuevaVentana.displayActivityTable = displayActivityTable;
-
-    // Asegurarse de que los cambios permanezcan
-    var botonEnNuevaVentana = nuevaVentana.document.getElementById('autoevaluacionBtn');
-    if (botonEnNuevaVentana) {
-      botonEnNuevaVentana.style.display = 'none';
-    }
-
-    var instruccionesEnNuevaVentana = nuevaVentana.document.getElementById('instructions');
-    if (instruccionesEnNuevaVentana) {
-      instruccionesEnNuevaVentana.style.display = 'none';
-    }
-
-    var celdasAutoevaluacionEnNuevaVentana = nuevaVentana.document.getElementsByClassName('autoevaluacion-celda');
-    for (var i = 0; i < celdasAutoevaluacionEnNuevaVentana.length; i++) {
-      celdasAutoevaluacionEnNuevaVentana[i].style.display = '';
-    }
-  }
-
-  // Esperar a que la nueva ventana cargue completamente
-  nuevaVentana.onload = function() {
-    // Copiar los estilos
-    var estilos = document.getElementsByTagName('style');
-    for (var i = 0; i < estilos.length; i++) {
-      nuevaVentana.document.head.appendChild(estilos[i].cloneNode(true));
-    }
-
-    // Copiar los scripts
-    var scripts = document.getElementsByTagName('script');
-    for (var i = 0; i < scripts.length; i++) {
-      var nuevoScript = nuevaVentana.document.createElement('script');
-      nuevoScript.textContent = scripts[i].textContent;
-      nuevaVentana.document.body.appendChild(nuevoScript);
-    }
-
-    
+  // Crear objeto con los datos del formulario
+  var formData = {
+    facultad,
+    escuela,
+    programa,
+    nombre,
+    identificacion,
+    htmlContent: contenidoHTML
   };
-  
-  
-  
+
+  // Mostrar mensaje de carga
+  alert('Enviando datos para autoevaluación...');
+
+  // Enviar los datos al servidor
+  fetch('/api/save-form', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(formData),
+  })
+  .then(response => response.json())
+  .then(data => {
+    if (data.success) {
+      // Enviar el correo electrónico con el enlace
+      return fetch('/api/send-email', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          formData,
+          pageUrl: data.pageUrl
+        }),
+      });
+    } else {
+      throw new Error('Error al guardar el formulario');
+    }
+  })
+  .then(response => response.json())
+  .then(data => {
+    if (data.success) {
+      alert('Se ha enviado un correo electrónico con el enlace a la autoevaluación.');
+    } else {
+      throw new Error('Error al enviar el correo electrónico');
+    }
+  })
+  .catch(error => {
+    console.error('Error:', error);
+    alert('Ha ocurrido un error. Por favor, inténtelo de nuevo más tarde.');
+  });
 }
 
 
