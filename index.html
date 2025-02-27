@@ -2866,7 +2866,7 @@ function mostrarCalendario(td) {
 
  
 
-	function duplicarPagina() {
+function duplicarPagina() {
     // Clonar el documento actual
     let nuevoDocumento = document.cloneNode(true);
 
@@ -2877,22 +2877,23 @@ function mostrarCalendario(td) {
     selectsOriginal.forEach((select, index) => {
         if (selectsClonados[index]) {
             let selectedText = select.options[select.selectedIndex]?.text || "";
-            let parentTd = selectsClonados[index].parentNode; 
-            parentTd.innerHTML = selectedText; 
+            let parentTd = selectsClonados[index].parentNode;
+            parentTd.innerHTML = selectedText;
         }
     });
 
-    // 🔹 ELIMINAR BOTONES DE OTRAS SECCIONES Y CAMBIAR "DOCENCIA" POR "PTA"
-    let botonesAEliminar = ["Investigación", "Extensión", "Actividades académico administrativas"];
+    // 🔹 CAMBIAR COLOR DE TEXTO A BLANCO EN LOS BOTONES QUE NO QUEREMOS VER
+    let botonesOcultar = ["Investigación", "Extensión", "Actividades académico administrativas"];
     let botones = nuevoDocumento.querySelectorAll(".tab-btn");
 
     botones.forEach(boton => {
         let textoBoton = boton.innerText.trim();
-        if (botonesAEliminar.includes(textoBoton)) {
-            boton.remove(); // Eliminar el botón
+        if (botonesOcultar.includes(textoBoton)) {
+            boton.style.color = "#FFFFFF";  // Hace que el texto sea invisible
         }
     });
 
+    // 🔹 CAMBIAR "Docencia" POR "PTA"
     botones.forEach(boton => {
         if (boton.innerText.trim() === "Docencia") {
             boton.innerHTML = boton.innerHTML.replace("Docencia", "PTA");
@@ -2909,6 +2910,7 @@ function mostrarCalendario(td) {
     a.download = "PTA_Documento.html"; // Nombre del archivo
     a.click();
 }
+
 
 
 	  
