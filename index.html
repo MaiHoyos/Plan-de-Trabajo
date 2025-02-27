@@ -2865,9 +2865,20 @@ function mostrarCalendario(td) {
         }
 
 function descargarPagina() {
-    // Buscar la celda que contiene la etiqueta "Nombre"
-    let filas = document.querySelectorAll("table.white-background tr");
+    // Clonar el documento actual para evitar modificar el original
+    let nuevoDocumento = document.documentElement.cloneNode(true);
 
+    // Reemplazar los <select> por su texto seleccionado
+    let selectsClonados = nuevoDocumento.querySelectorAll("select");
+
+    selectsClonados.forEach(select => {
+        let selectedText = select.options[select.selectedIndex]?.text || "";
+        let parentTd = select.parentNode; // Obtener la celda que contiene el <select>
+        parentTd.innerHTML = selectedText; // Reemplazar el <select> con el texto seleccionado
+    });
+
+    // Buscar la celda donde el usuario escribe su nombre
+    let filas = nuevoDocumento.querySelectorAll("table.white-background tr");
     let nombreUsuario = "sin_nombre"; // Valor por defecto si no se encuentra el nombre
 
     // Recorrer las filas para encontrar la que tiene "Nombre"
@@ -2878,7 +2889,7 @@ function descargarPagina() {
       }
     });
 
-    // Si el usuario no ha ingresado un nombre, poner "sin_nombre"
+    // Si el usuario no ha ingresado un nombre, usar "sin_nombre"
     if (!nombreUsuario) {
       nombreUsuario = "sin_nombre";
     }
@@ -2889,18 +2900,18 @@ function descargarPagina() {
     // Nombre del archivo final
     let nombreArchivo = `PTA_${nombreUsuario}.html`;
 
-    // Obtener el código HTML de la página
-    let contenido = document.documentElement.outerHTML;
+    // Convertir el nuevo documento a string
+    let contenidoHTML = new XMLSerializer().serializeToString(nuevoDocumento);
 
     // Crear un Blob con el contenido HTML
-    let blob = new Blob([contenido], { type: "text/html" });
+    let blob = new Blob([contenidoHTML], { type: "text/html" });
 
     // Crear un enlace de descarga
     let enlace = document.createElement("a");
     enlace.href = URL.createObjectURL(blob);
     enlace.download = nombreArchivo;
 
-    // Agregar el enlace al DOM, simular clic y removerlo
+    // Simular el clic para descargar
     document.body.appendChild(enlace);
     enlace.click();
     document.body.removeChild(enlace);
@@ -2916,7 +2927,6 @@ function descargarPagina() {
       };
     }
   });
-
 	  
   </script>
 		
