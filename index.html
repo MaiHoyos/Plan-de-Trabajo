@@ -2865,12 +2865,19 @@ function mostrarCalendario(td) {
         }
 
 function descargarPagina() {
-    // Buscar la celda donde el usuario ingresa su nombre
-    let nombreCelda = document.querySelector('td[style*="font-weight: bold; width: 40px;"]:contains("Nombre")')
-                          .nextElementSibling.innerText.trim(); 
+    // Buscar la celda donde el usuario escribe su nombre
+    let nombreCelda = document.querySelector('td[style*="font-weight: bold; width: 40px;"]:contains("Nombre")');
 
-    // Si el usuario no ha escrito nada, poner un nombre por defecto
-    let nombreArchivo = nombreCelda ? `PTA_${nombreCelda}.html` : "PTA_sin_nombre.html";
+    if (!nombreCelda) {
+      console.error("No se encontró la celda con el nombre.");
+      return;
+    }
+
+    // Obtener el contenido de la celda editable (el <td> siguiente)
+    let nombreUsuario = nombreCelda.nextElementSibling.innerText.trim();
+
+    // Si no hay nombre, usar un nombre por defecto
+    let nombreArchivo = nombreUsuario ? `PTA_${nombreUsuario}.html` : "PTA_sin_nombre.html";
 
     // Remover caracteres inválidos para nombres de archivo
     nombreArchivo = nombreArchivo.replace(/[\/:*?"<>|]/g, '');
@@ -2886,12 +2893,13 @@ function descargarPagina() {
     enlace.href = URL.createObjectURL(blob);
     enlace.download = nombreArchivo; // Asignar el nombre del archivo
 
-    // Simular el clic para descargar
+    // Agregar el enlace temporalmente al DOM y simular el clic
     document.body.appendChild(enlace);
     enlace.click();
+
+    // Eliminar el enlace después de la descarga
     document.body.removeChild(enlace);
   }
-
 
 	  
   </script>
