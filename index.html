@@ -462,8 +462,6 @@ tr[class="sub-header"] td {
 }
 
   </style>
-
-	
 </head>
 
 <body>
@@ -502,7 +500,7 @@ tr[class="sub-header"] td {
 							</table>
 							
 
-						<button id="autoevaluacionBtn" onclick="duplicarPagina(); descargarPagina();" style="
+						<button id="autoevaluacionBtn" onclick="duplicarPagina()" style="
 						  margin-top: 20px;
 						  width: 100%;
 						  padding: 10px;
@@ -2864,13 +2862,22 @@ function mostrarCalendario(td) {
             input.showPicker(); // Abrir el calendario en navegadores compatibles
         }
 
- 
+	  <script>
+  function descargarPagina() {
+    // Obtener todas las pestañas y guardar la pestaña activa
+    let pestañas = document.querySelectorAll(".tab-content");
+    let pestañaActiva = document.querySelector(".tab-content:not([style*='display: none'])");
 
-function duplicarPagina() {
-    // Clonar el documento actual
+    // Mostrar todas las pestañas temporalmente para capturar su contenido
+    pestañas.forEach(tab => tab.style.display = "block");
+
+    // Clonar el documento con todo visible
     let nuevoDocumento = document.cloneNode(true);
 
-    // Reemplazar los <select> por su texto seleccionado
+    // Restaurar la visibilidad original de las pestañas
+    pestañas.forEach(tab => tab.style.display = (tab !== pestañaActiva ? "none" : "block"));
+
+    // Reemplazar los <select> en el documento clonado con el texto seleccionado
     let selectsOriginal = document.querySelectorAll("select");
     let selectsClonados = nuevoDocumento.querySelectorAll("select");
 
@@ -2878,44 +2885,76 @@ function duplicarPagina() {
         if (selectsClonados[index]) {
             let selectedText = select.options[select.selectedIndex]?.text || "";
             let parentTd = selectsClonados[index].parentNode;
-            parentTd.innerHTML = selectedText;
+            let span = document.createElement("span");
+            span.textContent = selectedText;
+            parentTd.replaceChild(span, selectsClonados[index]);
         }
     });
 
-    // 🔹 CAMBIAR COLOR DE TEXTO A BLANCO EN LOS BOTONES QUE NO QUEREMOS VER
-    let botonesOcultar = ["Investigación", "Extensión", "Actividades académico administrativas"];
-    let botones = nuevoDocumento.querySelectorAll(".tab-btn");
+    // Guardar contenido editable en el documento clonado
+    let celdasOriginal = document.querySelectorAll("td[contenteditable='true']");
+    let celdasClonadas = nuevoDocumento.querySelectorAll("td[contenteditable='true']");
 
-    botones.forEach(boton => {
-        let textoBoton = boton.innerText.trim();
-        if (botonesOcultar.includes(textoBoton)) {
-            boton.style.color = "#FFFFFF";  // Hace que el texto sea invisible
+    celdasOriginal.forEach((celda, index) => {
+        if (celdasClonadas[index]) {
+            celdasClonadas[index].textContent = celda.textContent;
         }
     });
 
-    // 🔹 CAMBIAR "Docencia" POR "PTA"
-    botones.forEach(boton => {
-        if (boton.innerText.trim() === "Docencia") {
-            boton.innerHTML = boton.innerHTML.replace("Docencia", "PTA");
-        }
+    // Obtener el nombre del usuario desde la celda "Nombre"
+    let filas = nuevoDocumento.querySelectorAll("table.white-background tr");
+    let nombreUsuario = "sin_nombre";
+
+    filas.forEach(fila => {
+      let celdas = fila.getElementsByTagName("td");
+      if (celdas.length > 1 && celdas[0].innerText.trim() === "Nombre") {
+        nombreUsuario = celdas[1].innerText.trim();
+      }
     });
+
+    if (!nombreUsuario) {
+      nombreUsuario = "sin_nombre";
+    }
+
+    // Eliminar caracteres no válidos en nombres de archivo
+    nombreUsuario = nombreUsuario.replace(/[\/:*?"<>|]/g, '');
+    let nombreArchivo = `PTA_${nombreUsuario}.html`;
 
     // Convertir el nuevo documento a string
     let contenidoHTML = new XMLSerializer().serializeToString(nuevoDocumento);
 
-    // Descargar el archivo
+    // Restaurar los scripts para que se ejecuten en el nuevo documento
+    contenidoHTML = contenidoHTML.replace(/<script[\s\S]*?<\/script>/gi, '');
+
+    // Crear un Blob con el contenido HTML modificado
     let blob = new Blob([contenidoHTML], { type: "text/html" });
-    let a = document.createElement("a");
-    a.href = URL.createObjectURL(blob);
-    a.download = "PTA_Documento.html"; // Nombre del archivo
-    a.click();
-}
+
+    // Crear un enlace de descarga
+    let enlace = document.createElement("a");
+    enlace.href = URL.createObjectURL(blob);
+    enlace.download = nombreArchivo;
+
+    // Simular el clic para descargar
+    document.body.appendChild(enlace);
+    enlace.click();
+    document.body.removeChild(enlace);
+  }
+
+  // Asegurar que el botón ejecute ambas funciones correctamente
+  document.addEventListener("DOMContentLoaded", function () {
+    let boton = document.getElementById("autoevaluacionBtn");
+    if (boton) {
+      boton.onclick = function () {
+        duplicarPagina(); // Si esta función afecta el contenido, asegúrate de que se ejecuta correctamente
+        descargarPagina();
+      };
+    }
+  });
+</script>
 
 
-
-	  
 	  
   </script>
-		
 </body>
 </html>
+
