@@ -1,3 +1,4 @@
+
 // Función para capturar todos los datos del formulario
 function capturarDatosFormulario() {
   // Información del profesor
