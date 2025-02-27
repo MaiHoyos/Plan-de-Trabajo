@@ -2866,115 +2866,49 @@ function mostrarCalendario(td) {
 
  
 
-	  function descargarPagina() {
-    // Obtener todas las pestañas y guardar la pestaña activa
-    let pestañas = document.querySelectorAll(".tab-content");
-    let pestañaActiva = document.querySelector(".tab-content:not([style*='display: none'])");
-
-    // Mostrar todas las pestañas temporalmente
-    pestañas.forEach(tab => tab.style.display = "block");
-
-    // Clonar el documento con todo visible
+	function duplicarPagina() {
+    // Clonar el documento actual
     let nuevoDocumento = document.cloneNode(true);
 
-    // Restaurar la visibilidad original de las pestañas
-    pestañas.forEach(tab => tab.style.display = (tab !== pestañaActiva ? "none" : "block"));
-
-    // 🔹 **Ocultar los títulos no deseados y agregar "RESUMEN Plan de Trabajo Anual"**
-    let titulosAEliminar = ["Docencia", "Investigación", "Extensión", "Actividades académico administrativas"];
-    let elementos = nuevoDocumento.querySelectorAll("h3, h2");
-
-    elementos.forEach(elemento => {
-        if (titulosAEliminar.includes(elemento.innerText.trim())) {
-            elemento.style.display = "none"; // Ocultar los títulos originales
-        }
-    });
-
-    // Crear un nuevo encabezado "RESUMEN Plan de Trabajo Anual"
-    let resumenTitulo = document.createElement("h2");
-    resumenTitulo.textContent = "RESUMEN Plan de Trabajo Anual";
-    resumenTitulo.style.textAlign = "center";
-    resumenTitulo.style.fontSize = "24px";
-    resumenTitulo.style.fontWeight = "bold";
-
-    // Insertar el nuevo título en la parte superior del contenido principal
-    let mainContent = nuevoDocumento.querySelector(".main-content");
-    if (mainContent) {
-        mainContent.prepend(resumenTitulo);
-    }
-
-    // Reemplazar los <select> con su opción seleccionada
+    // Reemplazar los <select> por su texto seleccionado
     let selectsOriginal = document.querySelectorAll("select");
     let selectsClonados = nuevoDocumento.querySelectorAll("select");
 
     selectsOriginal.forEach((select, index) => {
         if (selectsClonados[index]) {
             let selectedText = select.options[select.selectedIndex]?.text || "";
-            let parentTd = selectsClonados[index].parentNode;
-            let span = document.createElement("span");
-            span.textContent = selectedText;
-            parentTd.replaceChild(span, selectsClonados[index]);
+            let parentTd = selectsClonados[index].parentNode; 
+            parentTd.innerHTML = selectedText; 
         }
     });
 
-    // Guardar contenido editable en el documento clonado
-    let celdasOriginal = document.querySelectorAll("td[contenteditable='true']");
-    let celdasClonadas = nuevoDocumento.querySelectorAll("td[contenteditable='true']");
+    // 🔹 ELIMINAR BOTONES DE OTRAS SECCIONES Y CAMBIAR "DOCENCIA" POR "PTA"
+    let botonesAEliminar = ["Investigación", "Extensión", "Actividades académico administrativas"];
+    let botones = nuevoDocumento.querySelectorAll(".tab-btn");
 
-    celdasOriginal.forEach((celda, index) => {
-        if (celdasClonadas[index]) {
-            celdasClonadas[index].textContent = celda.textContent;
+    botones.forEach(boton => {
+        let textoBoton = boton.innerText.trim();
+        if (botonesAEliminar.includes(textoBoton)) {
+            boton.remove(); // Eliminar el botón
         }
     });
 
-    // Obtener el nombre del usuario desde la celda "Nombre"
-    let filas = nuevoDocumento.querySelectorAll("table.white-background tr");
-    let nombreUsuario = "sin_nombre";
-
-    filas.forEach(fila => {
-      let celdas = fila.getElementsByTagName("td");
-      if (celdas.length > 1 && celdas[0].innerText.trim() === "Nombre") {
-        nombreUsuario = celdas[1].innerText.trim();
-      }
+    botones.forEach(boton => {
+        if (boton.innerText.trim() === "Docencia") {
+            boton.innerHTML = boton.innerHTML.replace("Docencia", "PTA");
+        }
     });
 
-    if (!nombreUsuario) {
-      nombreUsuario = "sin_nombre";
-    }
-
-    nombreUsuario = nombreUsuario.replace(/[\/:*?"<>|]/g, '');
-    let nombreArchivo = `PTA_${nombreUsuario}.html`;
-
-    // Convertir el documento a string
+    // Convertir el nuevo documento a string
     let contenidoHTML = new XMLSerializer().serializeToString(nuevoDocumento);
 
-    // Restaurar los scripts para evitar problemas en el archivo descargado
-    contenidoHTML = contenidoHTML.replace(/<script[\s\S]*?<\/script>/gi, '');
-
-    // Crear un Blob con el contenido HTML modificado
+    // Descargar el archivo
     let blob = new Blob([contenidoHTML], { type: "text/html" });
-
-    // Crear un enlace de descarga
-    let enlace = document.createElement("a");
-    enlace.href = URL.createObjectURL(blob);
-    enlace.download = nombreArchivo;
-
-    // Simular el clic para descargar
-    document.body.appendChild(enlace);
-    enlace.click();
-    document.body.removeChild(enlace);
-  }
-
-  // Asegurar que el botón ejecute ambas funciones correctamente
-  document.addEventListener("DOMContentLoaded", function () {
-    let boton = document.getElementById("autoevaluacionBtn");
-    if (boton) {
-      boton.onclick = function () {
-        duplicarPagina();
-        descargarPagina();
-      };
-    }
-  });
+    let a = document.createElement("a");
+    a.href = URL.createObjectURL(blob);
+    a.download = "PTA_Documento.html"; // Nombre del archivo
+    a.click();
+}
 
 
 	  
