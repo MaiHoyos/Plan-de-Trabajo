@@ -2864,12 +2864,14 @@ function mostrarCalendario(td) {
             input.showPicker(); // Abrir el calendario en navegadores compatibles
         }
 
- function descargarPagina() {
+ 
+
+	  function descargarPagina() {
     // Obtener todas las pestañas y guardar la pestaña activa
     let pestañas = document.querySelectorAll(".tab-content");
     let pestañaActiva = document.querySelector(".tab-content:not([style*='display: none'])");
 
-    // Mostrar todas las pestañas temporalmente para capturar su contenido
+    // Mostrar todas las pestañas temporalmente
     pestañas.forEach(tab => tab.style.display = "block");
 
     // Clonar el documento con todo visible
@@ -2878,7 +2880,30 @@ function mostrarCalendario(td) {
     // Restaurar la visibilidad original de las pestañas
     pestañas.forEach(tab => tab.style.display = (tab !== pestañaActiva ? "none" : "block"));
 
-    // Reemplazar los <select> en el documento clonado con el texto seleccionado
+    // 🔹 **Ocultar los títulos no deseados y agregar "RESUMEN Plan de Trabajo Anual"**
+    let titulosAEliminar = ["Docencia", "Investigación", "Extensión", "Actividades académico administrativas"];
+    let elementos = nuevoDocumento.querySelectorAll("h3, h2");
+
+    elementos.forEach(elemento => {
+        if (titulosAEliminar.includes(elemento.innerText.trim())) {
+            elemento.style.display = "none"; // Ocultar los títulos originales
+        }
+    });
+
+    // Crear un nuevo encabezado "RESUMEN Plan de Trabajo Anual"
+    let resumenTitulo = document.createElement("h2");
+    resumenTitulo.textContent = "RESUMEN Plan de Trabajo Anual";
+    resumenTitulo.style.textAlign = "center";
+    resumenTitulo.style.fontSize = "24px";
+    resumenTitulo.style.fontWeight = "bold";
+
+    // Insertar el nuevo título en la parte superior del contenido principal
+    let mainContent = nuevoDocumento.querySelector(".main-content");
+    if (mainContent) {
+        mainContent.prepend(resumenTitulo);
+    }
+
+    // Reemplazar los <select> con su opción seleccionada
     let selectsOriginal = document.querySelectorAll("select");
     let selectsClonados = nuevoDocumento.querySelectorAll("select");
 
@@ -2917,14 +2942,13 @@ function mostrarCalendario(td) {
       nombreUsuario = "sin_nombre";
     }
 
-    // Eliminar caracteres no válidos en nombres de archivo
     nombreUsuario = nombreUsuario.replace(/[\/:*?"<>|]/g, '');
     let nombreArchivo = `PTA_${nombreUsuario}.html`;
 
-    // Convertir el nuevo documento a string
+    // Convertir el documento a string
     let contenidoHTML = new XMLSerializer().serializeToString(nuevoDocumento);
 
-    // Restaurar los scripts para que se ejecuten en el nuevo documento
+    // Restaurar los scripts para evitar problemas en el archivo descargado
     contenidoHTML = contenidoHTML.replace(/<script[\s\S]*?<\/script>/gi, '');
 
     // Crear un Blob con el contenido HTML modificado
@@ -2946,7 +2970,7 @@ function mostrarCalendario(td) {
     let boton = document.getElementById("autoevaluacionBtn");
     if (boton) {
       boton.onclick = function () {
-        duplicarPagina(); // Si esta función afecta el contenido, asegúrate de que se ejecuta correctamente
+        duplicarPagina();
         descargarPagina();
       };
     }
