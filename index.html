@@ -2865,23 +2865,30 @@ function mostrarCalendario(td) {
         }
 
 function descargarPagina() {
-    // Clonar el documento actual para evitar modificar el original
-    let nuevoDocumento = document.documentElement.cloneNode(true);
+    // Clonar el documento actual
+    let nuevoDocumento = document.cloneNode(true);
 
-    // Reemplazar los <select> por su texto seleccionado
+    // Obtener todos los <select> del documento original
+    let selectsOriginal = document.querySelectorAll("select");
+
+    // Obtener los mismos <select> en el documento clonado
     let selectsClonados = nuevoDocumento.querySelectorAll("select");
 
-    selectsClonados.forEach(select => {
-        let selectedText = select.options[select.selectedIndex]?.text || "";
-        let parentTd = select.parentNode; // Obtener la celda que contiene el <select>
-        parentTd.innerHTML = selectedText; // Reemplazar el <select> con el texto seleccionado
+    // Reemplazar los <select> en el documento clonado con su opción seleccionada
+    selectsOriginal.forEach((select, index) => {
+        if (selectsClonados[index]) {
+            let selectedText = select.options[select.selectedIndex]?.text || "";
+            let parentTd = selectsClonados[index].parentNode; // Obtener la celda contenedora
+            let span = document.createElement("span"); // Crear un nuevo elemento para el texto
+            span.textContent = selectedText; // Insertar el texto de la opción seleccionada
+            parentTd.replaceChild(span, selectsClonados[index]); // Reemplazar el <select> por el texto
+        }
     });
 
-    // Buscar la celda donde el usuario escribe su nombre
+    // Obtener el nombre del usuario desde la celda "Nombre"
     let filas = nuevoDocumento.querySelectorAll("table.white-background tr");
-    let nombreUsuario = "sin_nombre"; // Valor por defecto si no se encuentra el nombre
+    let nombreUsuario = "sin_nombre"; // Valor por defecto
 
-    // Recorrer las filas para encontrar la que tiene "Nombre"
     filas.forEach(fila => {
       let celdas = fila.getElementsByTagName("td");
       if (celdas.length > 1 && celdas[0].innerText.trim() === "Nombre") {
@@ -2889,12 +2896,12 @@ function descargarPagina() {
       }
     });
 
-    // Si el usuario no ha ingresado un nombre, usar "sin_nombre"
+    // Si el usuario no ingresó nombre, usar "sin_nombre"
     if (!nombreUsuario) {
       nombreUsuario = "sin_nombre";
     }
 
-    // Remover caracteres no permitidos en nombres de archivo
+    // Eliminar caracteres no válidos para nombres de archivo
     nombreUsuario = nombreUsuario.replace(/[\/:*?"<>|]/g, '');
 
     // Nombre del archivo final
@@ -2903,7 +2910,7 @@ function descargarPagina() {
     // Convertir el nuevo documento a string
     let contenidoHTML = new XMLSerializer().serializeToString(nuevoDocumento);
 
-    // Crear un Blob con el contenido HTML
+    // Crear un Blob con el contenido HTML modificado
     let blob = new Blob([contenidoHTML], { type: "text/html" });
 
     // Crear un enlace de descarga
@@ -2911,19 +2918,19 @@ function descargarPagina() {
     enlace.href = URL.createObjectURL(blob);
     enlace.download = nombreArchivo;
 
-    // Simular el clic para descargar
+    // Agregar el enlace al DOM, simular clic y removerlo
     document.body.appendChild(enlace);
     enlace.click();
     document.body.removeChild(enlace);
   }
 
-  // Modificar el botón para que haga ambas funciones
+  // Asegurar que el botón haga ambas funciones
   document.addEventListener("DOMContentLoaded", function () {
     let boton = document.getElementById("autoevaluacionBtn");
     if (boton) {
       boton.onclick = function () {
-        duplicarPagina(); 
-        descargarPagina(); // Ahora ejecuta ambas funciones
+        duplicarPagina();
+        descargarPagina(); // Ejecuta ambas funciones
       };
     }
   });
