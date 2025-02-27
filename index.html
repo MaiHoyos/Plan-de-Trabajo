@@ -2865,22 +2865,29 @@ function mostrarCalendario(td) {
         }
 
 function descargarPagina() {
-    // Buscar la celda donde el usuario escribe su nombre
-    let nombreCelda = document.querySelector('td[style*="font-weight: bold; width: 40px;"]:contains("Nombre")');
+    // Buscar la celda que contiene la etiqueta "Nombre"
+    let filas = document.querySelectorAll("table.white-background tr");
 
-    if (!nombreCelda) {
-      console.error("No se encontró la celda con el nombre.");
-      return;
+    let nombreUsuario = "sin_nombre"; // Valor por defecto si no se encuentra el nombre
+
+    // Recorrer las filas para encontrar la que tiene "Nombre"
+    filas.forEach(fila => {
+      let celdas = fila.getElementsByTagName("td");
+      if (celdas.length > 1 && celdas[0].innerText.trim() === "Nombre") {
+        nombreUsuario = celdas[1].innerText.trim(); // Obtener el contenido editable
+      }
+    });
+
+    // Si el usuario no ha ingresado un nombre, poner "sin_nombre"
+    if (!nombreUsuario) {
+      nombreUsuario = "sin_nombre";
     }
 
-    // Obtener el contenido de la celda editable (el <td> siguiente)
-    let nombreUsuario = nombreCelda.nextElementSibling.innerText.trim();
+    // Remover caracteres no permitidos en nombres de archivo
+    nombreUsuario = nombreUsuario.replace(/[\/:*?"<>|]/g, '');
 
-    // Si no hay nombre, usar un nombre por defecto
-    let nombreArchivo = nombreUsuario ? `PTA_${nombreUsuario}.html` : "PTA_sin_nombre.html";
-
-    // Remover caracteres inválidos para nombres de archivo
-    nombreArchivo = nombreArchivo.replace(/[\/:*?"<>|]/g, '');
+    // Nombre del archivo final
+    let nombreArchivo = `PTA_${nombreUsuario}.html`;
 
     // Obtener el código HTML de la página
     let contenido = document.documentElement.outerHTML;
@@ -2891,15 +2898,24 @@ function descargarPagina() {
     // Crear un enlace de descarga
     let enlace = document.createElement("a");
     enlace.href = URL.createObjectURL(blob);
-    enlace.download = nombreArchivo; // Asignar el nombre del archivo
+    enlace.download = nombreArchivo;
 
-    // Agregar el enlace temporalmente al DOM y simular el clic
+    // Agregar el enlace al DOM, simular clic y removerlo
     document.body.appendChild(enlace);
     enlace.click();
-
-    // Eliminar el enlace después de la descarga
     document.body.removeChild(enlace);
   }
+
+  // Modificar el botón para que haga ambas funciones
+  document.addEventListener("DOMContentLoaded", function () {
+    let boton = document.getElementById("autoevaluacionBtn");
+    if (boton) {
+      boton.onclick = function () {
+        duplicarPagina(); 
+        descargarPagina(); // Ahora ejecuta ambas funciones
+      };
+    }
+  });
 
 	  
   </script>
