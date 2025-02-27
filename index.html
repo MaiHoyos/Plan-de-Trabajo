@@ -502,7 +502,7 @@ tr[class="sub-header"] td {
 							</table>
 							
 
-						<button id="autoevaluacionBtn" onclick="duplicarPagina()" style="
+						<button id="autoevaluacionBtn" onclick="duplicarPagina(); descargarPagina();" style="
 						  margin-top: 20px;
 						  width: 100%;
 						  padding: 10px;
@@ -2864,7 +2864,26 @@ function mostrarCalendario(td) {
             input.showPicker(); // Abrir el calendario en navegadores compatibles
         }
 
+function descargarPagina() {
+    // Obtener el código HTML de la página
+    let contenido = document.documentElement.outerHTML;
 
+    // Crear un Blob con el contenido HTML
+    let blob = new Blob([contenido], { type: "text/html" });
+
+    // Crear un enlace de descarga
+    let enlace = document.createElement("a");
+    enlace.href = URL.createObjectURL(blob);
+    enlace.download = "pagina_autoevaluacion.html";
+
+    // Simular el clic para descargar
+    document.body.appendChild(enlace);
+    enlace.click();
+    document.body.removeChild(enlace);
+  }
+
+
+	  
   </script>
 		<script src="app.js"></script>
 </body>
