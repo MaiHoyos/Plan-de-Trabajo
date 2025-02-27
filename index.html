@@ -2,6 +2,9 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+  <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>PTA</title>
   <link rel="icon" href="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Logotipo_UIS.png/858px-Logotipo_UIS.png?20131230031906" type="image/png">
@@ -16,7 +19,7 @@ body {
 }
 
 
-
+	  
 .container {
   display: flex;
   height: 100vh;
@@ -472,7 +475,7 @@ tr[class="sub-header"] td {
 					</div>
 						<div class="table-container">
 							<br>
-
+							
 							<table class="white-background">
 							  <tr>
 								<td style="font-weight: bold; width: 40px;">Facultad / Instituto</td>
@@ -495,7 +498,7 @@ tr[class="sub-header"] td {
 								<td contenteditable="true" style="font-size: 14px; width: 80px; min-width: 120px; max-width: 80px; overflow: hidden;"></td>
 							  </tr>
 							</table>
-
+							
 
 						<button id="autoevaluacionBtn" onclick="duplicarPagina()" style="
 						  margin-top: 20px;
@@ -512,17 +515,17 @@ tr[class="sub-header"] td {
 						</button>
 
 						</div>
-
-
+						
+						
 			</div>
 
 <!-- Main Content -->
 	<div class="main-content" style="width: 500px; margin-left: 5px; background-color: #fff; padding: 20px;">
-
-
-
-					<div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
-
+	 
+  
+		<div class="white-rectangle">
+		
+						<div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
 						<h2>Plan de Trabajo Anual</h2>
 						<div id="totalHorasGeneral" style="
 						  background-color: #eceff8;
@@ -559,34 +562,23 @@ tr[class="sub-header"] td {
 
 					<div id="tab1" class="tab-content" style="display: none;">
 							<div class="header-container" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
-
-								<!-- Botón de agregar actividad -->
-								<button class="add-activity-btn" onclick="insertarFila6(this)" style="
-									font-size: 18px; /* Ajusta el tamaño del texto */
-									padding: 10px 20px; 
-									background-color: #1977e8; 
-									color: white; 
-									border: none; 
-									border-radius: 5px; 
-									cursor: pointer;">
-									Agregar actividad
-								</button>
-
-								<!-- Rectángulo con bordes redondeados -->
-								<div id="totalHoras" style="
-									background-color: #eceff8;
-									border: 2px solid #1977e8;
-									border-radius: 15px;
-									padding: 10px 20px;
-									font-size: 20px;
-									font-weight: bold;
-									color: #1977e8;
-									text-align: center;
-									width: 200px;
-									display: none;">
-									Total Horas: 0
-
-
+    	
+								
+								
+								<div style="display: flex; justify-content: flex-end; width: 100%;">
+									<div id="totalHoras" style="
+										background-color: #eceff8;
+										border: 2px solid #1977e8;
+										border-radius: 15px;
+										padding: 10px 20px;
+										font-size: 20px;
+										font-weight: bold;
+										color: #1977e8;
+										text-align: center;
+										width: 200px;
+										display: block;">
+										Total Horas:0
+									</div>
 								</div>
 
 
@@ -597,7 +589,7 @@ tr[class="sub-header"] td {
 
 							<div id="docencia">
 								<table border="1" cellspacing="0" cellpadding="4">
-
+									
 									<thead>
 										<!-- Encabezado tabla-->
 										<tr>
@@ -619,7 +611,7 @@ tr[class="sub-header"] td {
 											<th style="width: 100px;">Horario</th>
 										</tr>
 									</thead>
-
+									
 									<!-- Datos a llenar-->
 									<tbody>
 										<tr>
@@ -664,7 +656,7 @@ tr[class="sub-header"] td {
 											<td onclick="openModal(this)">Click para editar el horario</td>
 										<!-- Indicador-->
 										<td contenteditable="true"></td>
-
+										
 										<!-- evidencia-->
 											<td contenteditable="true" style= "display: none;" class="autoevaluacion-celda">
 												<!-- Botón cuadrado para adjuntar archivos -->
@@ -676,7 +668,7 @@ tr[class="sub-header"] td {
 											</td>
 										<!-- Autoevaluación-->	
 											<td contenteditable="true" style= "display: none;" class="autoevaluacion-celda"></td>
-
+										
 										<!-- contador horas - fila oculta siempre-->
 										</tr>
 										<tr style="display: none;">
@@ -685,11 +677,1501 @@ tr[class="sub-header"] td {
 											<td contenteditable="true"></td>
 											<td contenteditable="true"></td>
 										</tr>
-
+										
 									</tbody>
 								</table>
+							
+							<div style="text-align: right;">
+							<button class="add-activity-btn" onclick="insertarFila6(this)" style="
+								font-size: 13.3333px; 
+								font-family: Arial, sans-serif; 
+								padding: 1px 6px; 
+								background-color: #F0F0F0; 
+								color: #000000; 
+								border: 1px solid #ccc; 
+								border-radius: 0; 
+								cursor: pointer;">
+								Añadir Fila
+							</button>
+						</div>
 
+								
+								<br>
+							
 						<button id="addThesisDirectionBtn" style="margin-top: 20px; background-color: #eceff8; border: none; border-radius: 10px; padding: 10px 20px; cursor: pointer;" onclick="showTable()">+ Agregar dirección de trabajos de grado</button>
+<br>
+						<!-- Dirección de trabajos de grado-->
+							<div id="thesisDirectionTableContainer" style="display: none; margin-top: 20px;">
+								<table border="1" cellspacing="0" cellpadding="4">
+									<thead>
+										<tr>
+											<th colspan="11">DESCRIPCIÓN DE LA ACTIVIDAD</th>
+										</tr>
+										<tr>
+											<th>Código</th>
+											<th>Título</th>
+											<th>Proyecto</th>
+											<th>Autor</th>
+											<th>Nivel</th>
+											<th>Fecha de inicio</th>
+											<th>Horas semanales</th>
+											<th>Horas semestre</th>
+											<th>Indicador de desempeño</th>
+											<th style="color:red; display: none;" rowspan="2" class="autoevaluacion-celda">EVIDENCIA (si lo requiere)</th>
+											<th style="color:red; display: none;" rowspan="2" class="autoevaluacion-celda">Autoevaluación / Porcentaje de avance</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<td contenteditable="true"></td>
+											<td contenteditable="true"></td>
+											<td contenteditable="true"></td>
+											<td contenteditable="true"></td>
+											<td>
+											<select style="appearance: none; border: none; background-color: transparent; padding-right: 20px; font-size: inherit; float: right; background-image: url('data:image/svg+xml;utf8,<svg xmlns=&quot;http://www.w3.org/2000/svg&quot; viewBox=&quot;0 0 10 10&quot;><path fill=&quot;none&quot; stroke=&quot;gray&quot; stroke-width=&quot;1&quot; d=&quot;M1 3l3 3 3-3&quot;/></svg>'); background-repeat: no-repeat; background-position: right 5px center; background-size: 10px;">
+													<option value=" "> </option>
+													<option value="2024">Pregrado</option>
+													<option value="2025">Posgrado</option>
+													
+												</select>
+											</td>
+											<td onclick="mostrarCalendario(this)">Seleccionar fecha</td>
+											<td contenteditable="true" id="cell3_original" oninput="calculateSum2('cell3_original')"></td>
+											<td id="resultCell2_original"></td>
+											<td contenteditable="true"></td>
+											<!-- evidencia-->
+											<td contenteditable="true" style= "display: none;" class="autoevaluacion-celda">
+												<!-- Botón cuadrado para adjuntar archivos -->
+												<button class="square-button attachButton" onclick="openFileInput(this)">+</button>
+												<!-- Input de archivo oculto -->
+												<input type="file" class="fileInput" style="display: none;" />
+												<!-- Botón de texto para visualizar archivo -->
+												<button class="view-button" title="Descargar archivo">Ver</button>
+											</td>
+										<!-- Autoevaluación-->	
+											<td contenteditable="true" style= "display: none;" class="autoevaluacion-celda"></td>
+										</tr>
+										<tr>
+											<td colspan="10" style="text-align: right;">
+												<button style="border: none;" onclick="insertarFila(this)">Añadir Fila</button>
+											</td>
+										</tr>
+										<tr style="display: none;">
+											<td colspan="7" style="text-align: right;">Total horas</td>
+											<td id="totalHorasTesis" contenteditable="true"></td>
+											<td contenteditable="true"></td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+
+
+							</div>
+							
+							<br>
+							
+							
+								<button id="guardarDocenciaBtn" class="guardarDocencia" style="
+										font-size: 18px;
+										padding: 10px 20px; 
+										background-color: #1977e8; 
+										color: white; 
+										border: none; 
+										border-radius: 5px; 
+										cursor: pointer;">
+										Guardar
+									</button>
+							
+					</div>
+					
+					
+					
+					
+					
+				   <!-- Sección Investigación (oculta inicialmente) -->
+					<div id="tab2" class="tab-content" style="display:none;">
+						<div class="header-container" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+							<button class="add-activity-btn" onclick="openActivityModal()">Agregar actividad</button>
+							<div id="totalHorasInvestigacion" style="
+								background-color: #eceff8;
+								border: 2px solid #1977e8;
+								border-radius: 15px;
+								padding: 10px 20px;
+								font-size: 16px;
+								font-weight: bold;
+								color: #1977e8;
+								text-align: center;
+								min-width: 150px;
+								display: none;">
+								Total Horas: 0
+							</div>
+						</div>
+						<h3 style="text-align: left; color: #1977e8;">Investigación</h3>
+						<div id="Investigación">
+								<table border="1" cellspacing="0" cellpadding="4">
+									<thead>
+										
+										<tr></tr>
+									</thead>
+									<tbody id="activityTableBody">
+										<!-- Aquí se añadiran las tablas seleccionadas por el modal una debajo de otra -->
+														<!-- Tablas ocultas -->
+										<div id="tables-container">		
+
+														<table id="Gestion de proyectos" class="tabla-oculta" border="1">
+															<tr class="sub-header">
+																<td colspan="11" style="background-color: #f2f2f2;">Gestión de proyectos de investigación</td>
+															</tr>
+															<tr>
+																<th colspan="2">Título</th>
+																<th>Rol</th>
+																<th>Fase</th>
+																<th>Fecha inicio</th>
+																<th>Fecha finalización</th>
+																<th>Horas semanales</th>
+																<th>Horas semestre</th>
+																<th style="color:red" class="autoevaluacion-celda">Indicador de cumplimiento</th>
+																<th style="color:red; display: none;" class="autoevaluacion-celda">EVIDENCIA (si lo requiere)</th>
+																<th style="color:red; display: none;" class="autoevaluacion-celda">Autoevaluación / Porcentaje de avance</th>
+															</tr>
+															<tr>
+																<td colspan="11" style="text-align: right;">
+																	<button style="border: none;" onclick="insertarFila2(this)">Añadir Fila</button>
+																</td>
+															</tr>
+														</table>
+
+
+										
+														<table id="Escritura de Artículos Científicos" class="tabla-oculta" border="1">
+															<tr class="sub-header">
+																<td colspan="11" style="background-color: #f2f2f2;">Escritura de Artículos Científicos</td>
+															</tr>
+															<tr>
+																<th>Título</th>
+																<th>Autores</th>
+																<th>Filiación</th>
+																<th>Revista</th>
+																<th>Fecha inicio</th>
+																<th>Fecha finalización</th>
+																<th>Horas semanales</th>
+																<th>Horas semestre</th>
+																<th style="color:red" class="autoevaluacion-celda">Indicador de cumplimiento</th>
+																<th style="color:red; display: none;" class="autoevaluacion-celda">EVIDENCIA (si lo requiere)</th>
+																<th style="color:red; display: none;" class="autoevaluacion-celda">Autoevaluación / Porcentaje de avance</th>
+															</tr>
+															<tr>
+																<td colspan="11" style="text-align: right;">
+																	<button style="border: none;" onclick="insertarFila(this)">Añadir Fila</button>
+																</td>
+															</tr>
+														</table>
+
+														<table id="Participación en Eventos Científicos" class="tabla-oculta" border="1">
+															<tr class="sub-header">
+																<td colspan="11" style="background-color: #f2f2f2;">Participación en Eventos Científicos</td>
+															</tr>
+															<tr>
+																<th colspan="2">Nombre del evento</th>
+																<th>Rol</th>
+																<th>Filiación</th>
+																<th>Fecha inicio</th>
+																<th>Fecha finalización</th>
+																<th>Horas semanales</th>
+																<th>Horas semestre</th>
+																<th style="color:red" class="autoevaluacion-celda">Indicador de cumplimiento</th>
+																<th style="color:red; display: none;" class="autoevaluacion-celda">EVIDENCIA (si lo requiere)</th>
+																<th style="color:red; display: none;" class="autoevaluacion-celda">Autoevaluación / Porcentaje de avance</th>
+															</tr>
+															<tr>
+																<td colspan="11" style="text-align: right;">
+																	<button style="border: none;" onclick="insertarFila2(this)">Añadir Fila</button>
+																</td>
+															</tr>
+														</table>
+
+														<table id="Participación en comités editoriales de revistas científicas" class="tabla-oculta" border="1">
+															<tr class="sub-header">
+																<td colspan="11" style="background-color: #f2f2f2;">Participación en Comités Editoriales de Revistas Científicas</td>
+															</tr>
+															<tr>
+																<th colspan="3">Nombre de la revista</th>
+																<th>Rol</th>
+																<th>Fecha inicio</th>
+																<th>Fecha finalización</th>
+																<th>Horas semanales</th>
+																<th>Horas semestre</th>
+																<th style="color:red" class="autoevaluacion-celda">Indicador de cumplimiento</th>
+																<th style="color:red; display: none;" class="autoevaluacion-celda">EVIDENCIA (si lo requiere)</th>
+																<th style="color:red; display: none;" class="autoevaluacion-celda">Autoevaluación / Porcentaje de a
+															</tr>
+															<tr>
+																<td colspan="11" style="text-align: right;">
+																	<button style="border: none;" onclick="insertarFila3(this)">Añadir Fila</button>
+																</td>
+															</tr>
+														</table>
+
+														<table id="Participación en asociaciones científicas" class="tabla-oculta" border="1">
+															<tr class="sub-header">
+																<td colspan="11" style="background-color: #f2f2f2;">Participación en Asociaciones Científicas</td>
+															</tr>
+															<tr>
+																 <th colspan="3">Nombre de la asociación</th>
+																<th>Rol</th>
+																<th>Fecha inicio</th>
+																<th>Fecha finalización</th>
+																<th>Horas semanales</th>
+																<th>Horas semestre</th>
+																<th style="color:red" class="autoevaluacion-celda">Indicador de cumplimiento</th>
+																<th style="color:red; display: none;" class="autoevaluacion-celda">EVIDENCIA (si lo requiere)</th>
+																<th style="color:red; display: none;" class="autoevaluacion-celda">Autoevaluación / Porcentaje de a
+															</tr>
+															<tr>
+																<td colspan="11" style="text-align: right;">
+																	<button style="border: none;" onclick="insertarFila3(this)">Añadir Fila</button>
+																</td>
+															</tr>
+														</table>
+
+														<table id="Reconocimiento como investigador" class="tabla-oculta" border="1">
+															<tr class="sub-header">
+																<td colspan="11" style="background-color: #f2f2f2;">Reconocimiento como Investigador por el Ministerio de Ciencia y Tecnología</td>
+															</tr>
+															<tr>
+																<th colspan="3">Grupo de Investigación</th>
+																<th>Categoría</th>
+																<th>Fecha inicio</th>
+																<th>Fecha finalización</th>
+																<th>Horas semanales</th>
+																<th>Horas semestre</th>
+																<th style="color:red" class="autoevaluacion-celda">Indicador de cumplimiento</th>
+																<th style="color:red; display: none;" class="autoevaluacion-celda">EVIDENCIA (si lo requiere)</th>
+																<th style="color:red; display: none;" class="autoevaluacion-celda">Autoevaluación / Porcentaje de a
+															</tr>
+															<tr>
+																<td colspan="10" style="text-align: right;">
+																	<button style="border: none;" onclick="insertarFila3(this)">Añadir Fila</button>
+																</td>
+															</tr>
+														</table>
+
+														<table id="Creación y participación en semilleros" class="tabla-oculta" border="1">
+															<tr class="sub-header">
+																<td colspan="11" style="background-color: #f2f2f2;">Creación y Participación en Semilleros de Investigación Reconocidos por la VIE</td>
+															</tr>
+															<tr>
+																<th colspan="3">Nombre del semillero</th>
+																<th>Rol</th>
+																<th>Fecha inicio</th>
+																<th>Fecha finalización</th>
+																<th>Horas semanales</th>
+																<th>Horas semestre</th>
+																<th style="color:red" class="autoevaluacion-celda">Indicador de cumplimiento</th>
+																<th style="color:red; display: none;" class="autoevaluacion-celda">EVIDENCIA (si lo requiere)</th>
+																<th style="color:red; display: none;" class="autoevaluacion-celda">Autoevaluación / Porcentaje de a
+															</tr>
+															<tr>
+																<td colspan="11" style="text-align: right;">
+																	<button style="border: none;" onclick="insertarFila3(this)">Añadir Fila</button>
+																</td>
+															</tr>
+														</table>
+
+														<table id="Gestión de proyectos internacionales" class="tabla-oculta" border="1">
+															<tr class="sub-header">
+																<td colspan="11" style="background-color: #f2f2f2;">Gestión de Proyectos de Investigación en Convocatorias Internacionales</td>
+															</tr>
+															<tr>
+																<th colspan="3">Proyecto</th>
+																<th>Rol</th>
+																<th>Fecha inicio</th>
+																<th>Fecha finalización</th>
+																<th>Horas semanales</th>
+																<th>Horas semestre</th>
+																<th style="color:red" class="autoevaluacion-celda">Indicador de cumplimiento</th>
+																<th style="color:red; display: none;" class="autoevaluacion-celda">EVIDENCIA (si lo requiere)</th>
+																<th style="color:red; display: none;" class="autoevaluacion-celda">Autoevaluación / Porcentaje de a
+															</tr>
+															<tr>
+																<td colspan="11" style="text-align: right;">
+																	<button style="border: none;" onclick="insertarFila3(this)">Añadir Fila</button>
+																</td>
+															</tr>
+														</table>
+
+														<table id="Obtención de patentes" class="tabla-oculta" border="1">
+															<tr class="sub-header">
+																<td colspan="11" style="background-color: #f2f2f2;">Obtención de Patentes</td>
+															</tr>
+															<tr>
+																<th colspan="3">Producto</th>
+																<th>Inventores</th>
+																<th>Fecha solicitud</th>
+																<th>Fecha concesión</th>
+																<th>Horas semanales</th>
+																<th>Horas semestre</th>
+																<th style="color:red" class="autoevaluacion-celda">Indicador de cumplimiento</th>
+																<th style="color:red; display: none;" class="autoevaluacion-celda">EVIDENCIA (si lo requiere)</th>
+																<th style="color:red; display: none;" class="autoevaluacion-celda">Autoevaluación / Porcentaje de a
+															</tr>
+															<tr>
+																<td colspan="11" style="text-align: right;">
+																	<button style="border: none;" onclick="insertarFila3(this)">Añadir Fila</button>
+																</td>
+															</tr>
+														</table>
+
+														<table id="Generación y mantenimiento de Spin-OFF" class="tabla-oculta" border="1">
+															<tr class="sub-header">
+																<td colspan="11" style="background-color: #f2f2f2;">Generación y Mantenimiento de Spin-OFF</td>
+															</tr>
+															<tr>
+																<th colspan="2">Nombre de empresa</th>
+																<th>Rol</th>
+																<th>Fase</th>
+																<th>Fecha inicio</th>
+																<th>Fecha mantenimiento</th>
+																<th>Horas semanales</th>
+																<th>Horas semestre</th>
+																<th style="color:red" class="autoevaluacion-celda">Indicador de cumplimiento</th>
+																<th style="color:red; display: none;" class="autoevaluacion-celda">EVIDENCIA (si lo requiere)</th>
+																<th style="color:red; display: none;" class="autoevaluacion-celda">Autoevaluación / Porcentaje de a
+															</tr>
+															<tr>
+																<td colspan="11" style="text-align: right;">
+																	<button style="border: none;" onclick="insertarFila2(this)">Añadir Fila</button>
+																</td>
+															</tr>
+														</table>
+
+														<table id="Otros" class="tabla-oculta" border="1">
+															<tr class="sub-header">
+																<td colspan="11" style="background-color: #f2f2f2;">Otros</td>
+															</tr>
+															<tr>
+																<th colspan="3">Descripción</th>
+																<th>Proyecto asociado</th>
+																<th>Fecha inicio</th>
+																<th>Fecha finalización</th>
+																<th>Horas semanales</th>
+																<th>Horas semestre</th>
+																<th style="color:red" class="autoevaluacion-celda">Indicador de cumplimiento</th>
+																<th style="color:red; display: none;" class="autoevaluacion-celda">EVIDENCIA (si lo requiere)</th>
+																<th style="color:red; display: none;" class="autoevaluacion-celda">Autoevaluación / Porcentaje de a
+															</tr>
+															<tr>
+																<td colspan="10" style="text-align: right;">
+																	<button style="border: none;" onclick="insertarFila3(this)">Añadir Fila</button>
+																</td>
+															</tr>
+														</table>
+										</div>
+
+										
+									</tbody>
+								</table>
+								
+								<button id="guardarInvestigacionBtn" class="guardarInvestigacion" style="
+										font-size: 18px;
+										padding: 10px 20px; 
+										background-color: #1977e8; 
+										color: white; 
+										border: none; 
+										border-radius: 5px; 
+										cursor: pointer;
+										margin-top: 20px;">
+										Guardar
+									</button>
+							</div>
+						
+					
+					
+					
+					
+					
+						<!-- Sección Extensión (oculta inicialmente) -->
+						<div id="tab3" class="tab-content" style="display:none;">
+							<div class="header-container">
+							
+								<div class="header-container" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+								  <button class="add-activity-btn" onclick="openExtModal()">Agregar actividad</button>
+								  <div id="totalHorasExtension" style="
+									background-color: #eceff8;
+									border: 2px solid #1977e8;
+									border-radius: 15px;
+									padding: 10px 20px;
+									font-size: 16px;
+									font-weight: bold;
+									color: #1977e8;
+									text-align: center;
+									min-width: 150px;
+									display: none;">
+									Total Horas: 0
+								  </div>
+								</div>
+
+
+								
+								<h3 style="text-align: left; color: #1977e8;">Extensión</h3>
+								<div id="Extensión">
+									<table border="1" cellspacing="0" cellpadding="4">
+										<thead>
+										<tr></tr>
+										</thead>
+										<tbody>
+													<div id="activitiesContainer">									
+													
+																		<table id="tabla-autofinanciados" border="1" cellspacing="0" cellpadding="4" class="tabla-oculta">
+												<thead>
+													<tr>
+														<th colspan="8">DESCRIPCIÓN DE LA ACTIVIDAD</th>
+														<th>HORAS PLANEADAS</th>
+														<th style="color:red" class="autoevaluacion-celda">Indicador de cumplimiento</th>
+														<th style="color:red; display: none;" class="autoevaluacion-celda">EVIDENCIA (si lo requiere)</th>
+														<th style="color:red; display: none;" class="autoevaluacion-celda">Autoevaluación / Porcentaje de avance</th>
+													</tr>
+												</thead>
+												
+												<tbody>
+													<tr>
+														<td colspan="12" style="background-color: #f2f2f2;">Coordinación de programas autofinanciados</td>
+													</tr>
+													<tr>
+														<td colspan="8" contenteditable="true"></td>
+														<td contenteditable="true" data-sum="true"></td>
+														<td contenteditable="true"></td>
+										
+										<!-- evidencia-->
+											<td contenteditable="true" style= "display: none;" class="autoevaluacion-celda">
+												<!-- Botón cuadrado para adjuntar archivos -->
+												<button class="square-button attachButton" onclick="openFileInput(this)">+</button>
+												<!-- Input de archivo oculto -->
+												<input type="file" class="fileInput" style="display: none;" />
+												<!-- Botón de texto para visualizar archivo -->
+												<button class="view-button" title="Descargar archivo">Ver</button>
+											</td>
+										<!-- Autoevaluación-->	
+											<td contenteditable="true" style= "display: none;" class="autoevaluacion-celda"></td>
+													</tr>
+													<tr>
+														<td colspan="12" style="text-align: right;">
+															<button style="border: none;" onclick="insertarFila4(this)">Añadir Fila</button>
+														</td>
+													</tr>
+												</tbody>
+											</table>
+
+											<!-- Desarrollo de Proyecto de extensión solidaria -->
+											<table id="tabla-solidaria" border="1" cellspacing="0" cellpadding="4" class="tabla-oculta">
+												<thead>
+													<tr>
+														<th colspan="8">DESCRIPCIÓN DE LA ACTIVIDAD</th>
+														<th>HORAS PLANEADAS</th>
+														<th style="color:red" class="autoevaluacion-celda">Indicador de cumplimiento</th>
+														<th style="color:red; display: none;" class="autoevaluacion-celda">EVIDENCIA (si lo requiere)</th>
+														<th style="color:red; display: none;" class="autoevaluacion-celda">Autoevaluación / Porcentaje de avance</th>
+													</tr>
+												</thead>
+												<tbody>
+													<tr>
+														<td colspan="12" style="background-color: #f2f2f2;">Desarrollo de Proyecto de extensión solidaria</td>
+													</tr>
+													<tr>
+														<td colspan="8" contenteditable="true"></td>
+														<td contenteditable="true" data-sum="true"></td>
+														<td contenteditable="true"></td>
+										
+										<!-- evidencia-->
+											<td contenteditable="true" style= "display: none;" class="autoevaluacion-celda">
+												<!-- Botón cuadrado para adjuntar archivos -->
+												<button class="square-button attachButton" onclick="openFileInput(this)">+</button>
+												<!-- Input de archivo oculto -->
+												<input type="file" class="fileInput" style="display: none;" />
+												<!-- Botón de texto para visualizar archivo -->
+												<button class="view-button" title="Descargar archivo">Ver</button>
+											</td>
+										<!-- Autoevaluación-->	
+											<td contenteditable="true" style= "display: none;" class="autoevaluacion-celda"></td>
+													</tr>
+													<tr>
+														<td colspan="12" style="text-align: right;">
+															<button style="border: none;" onclick="insertarFila4(this)">Añadir Fila</button>
+														</td>
+													</tr>
+												</tbody>
+											</table>
+
+											<!-- Desarrollo de Proyecto de extensión no solidaria -->
+											<table id="tabla-no-solidaria" border="1" cellspacing="0" cellpadding="4" class="tabla-oculta">
+												<thead>
+													<tr>
+														<th colspan="8">DESCRIPCIÓN DE LA ACTIVIDAD</th>
+														<th>HORAS PLANEADAS</th>
+														<th style="color:red" class="autoevaluacion-celda">Indicador de cumplimiento</th>
+														<th style="color:red; display: none;" class="autoevaluacion-celda">EVIDENCIA (si lo requiere)</th>
+														<th style="color:red; display: none;" class="autoevaluacion-celda">Autoevaluación / Porcentaje de avance</th>
+													</tr>
+												</thead>
+												<tbody>
+													<tr>
+														<td colspan="12" style="background-color: #f2f2f2;">Desarrollo de Proyecto de extensión no solidaria</td>
+													</tr>
+													<tr>
+														<td colspan="8" contenteditable="true"></td>
+														<td contenteditable="true" data-sum="true"></td>
+														<td contenteditable="true"></td>
+										
+										<!-- evidencia-->
+											<td contenteditable="true" style= "display: none;" class="autoevaluacion-celda">
+												<!-- Botón cuadrado para adjuntar archivos -->
+												<button class="square-button attachButton" onclick="openFileInput(this)">+</button>
+												<!-- Input de archivo oculto -->
+												<input type="file" class="fileInput" style="display: none;" />
+												<!-- Botón de texto para visualizar archivo -->
+												<button class="view-button" title="Descargar archivo">Ver</button>
+											</td>
+										<!-- Autoevaluación-->	
+											<td contenteditable="true" style= "display: none;" class="autoevaluacion-celda"></td>
+													</tr>
+													<tr>
+														<td colspan="12" style="text-align: right;">
+															<button style="border: none;" onclick="insertarFila4(this)">Añadir Fila</button>
+														</td>
+													</tr>
+												</tbody>
+											</table>
+
+											<!-- Coordinación de laboratorios -->
+											<table id="tabla-laboratorios" border="1" cellspacing="0" cellpadding="4" class="tabla-oculta">
+												<thead>
+													<tr>
+														<th colspan="8">DESCRIPCIÓN DE LA ACTIVIDAD</th>
+														<th>HORAS PLANEADAS</th>
+														<th style="color:red" class="autoevaluacion-celda">Indicador de cumplimiento</th>
+														<th style="color:red; display: none;" class="autoevaluacion-celda">EVIDENCIA (si lo requiere)</th>
+														<th style="color:red; display: none;" class="autoevaluacion-celda">Autoevaluación / Porcentaje de avance</th>
+													</tr>
+												</thead>
+												<tbody>
+													<tr>
+														<td colspan="12" style="background-color: #f2f2f2;">Coordinación de laboratorios</td>
+													</tr>
+													<tr>
+														<td colspan="8" contenteditable="true"></td>
+														<td contenteditable="true" data-sum="true"></td>
+														<td contenteditable="true"></td>
+										
+										<!-- evidencia-->
+											<td contenteditable="true" style= "display: none;" class="autoevaluacion-celda">
+												<!-- Botón cuadrado para adjuntar archivos -->
+												<button class="square-button attachButton" onclick="openFileInput(this)">+</button>
+												<!-- Input de archivo oculto -->
+												<input type="file" class="fileInput" style="display: none;" />
+												<!-- Botón de texto para visualizar archivo -->
+												<button class="view-button" title="Descargar archivo">Ver</button>
+											</td>
+										<!-- Autoevaluación-->	
+											<td contenteditable="true" style= "display: none;" class="autoevaluacion-celda"></td>
+													</tr>
+													<tr>
+														<td colspan="12" style="text-align: right;">
+															<button style="border: none;" onclick="insertarFila4(this)">Añadir Fila</button>
+														</td>
+													</tr>
+												</tbody>
+											</table>
+
+											<!-- Consultoría especializada -->
+											<table id="tabla-consultoria" border="1" cellspacing="0" cellpadding="4" class="tabla-oculta"">
+												<thead>
+													<tr>
+														<th colspan="8">DESCRIPCIÓN DE LA ACTIVIDAD</th>
+														<th>HORAS PLANEADAS</th>
+														<th style="color:red" class="autoevaluacion-celda">Indicador de cumplimiento</th>
+														<th style="color:red; display: none;" class="autoevaluacion-celda">EVIDENCIA (si lo requiere)</th>
+														<th style="color:red; display: none;" class="autoevaluacion-celda">Autoevaluación / Porcentaje de avance</th>
+													</tr>
+												</thead>
+												<tbody>
+													<tr>
+														<td colspan="12" style="background-color: #f2f2f2;">Consultoría especializada</td>
+													</tr>
+													<tr>
+														<td colspan="8" contenteditable="true"></td>
+														<td contenteditable="true" data-sum="true"></td>
+														<td contenteditable="true"></td>
+										
+										<!-- evidencia-->
+											<td contenteditable="true" style= "display: none;" class="autoevaluacion-celda">
+												<!-- Botón cuadrado para adjuntar archivos -->
+												<button class="square-button attachButton" onclick="openFileInput(this)">+</button>
+												<!-- Input de archivo oculto -->
+												<input type="file" class="fileInput" style="display: none;" />
+												<!-- Botón de texto para visualizar archivo -->
+												<button class="view-button" title="Descargar archivo">Ver</button>
+											</td>
+										<!-- Autoevaluación-->	
+											<td contenteditable="true" style= "display: none;" class="autoevaluacion-celda"></td>
+													</tr>
+													<tr>
+														<td colspan="12" style="text-align: right;">
+															<button style="border: none;" onclick="insertarFila4(this)">Añadir Fila</button>
+														</td>
+													</tr>
+												</tbody>
+											</table>
+
+											<!-- Otros -->
+											<table id="tabla-otros" border="1" cellspacing="0" cellpadding="4" class="tabla-oculta">
+												<thead>
+													<tr>
+														<th colspan="8">DESCRIPCIÓN DE LA ACTIVIDAD</th>
+														<th>HORAS PLANEADAS</th>
+														<th style="color:red" class="autoevaluacion-celda">Indicador de cumplimiento</th>
+														<th style="color:red; display: none;" class="autoevaluacion-celda">EVIDENCIA (si lo requiere)</th>
+														<th style="color:red; display: none;" class="autoevaluacion-celda">Autoevaluación / Porcentaje de avance</th>
+													</tr>
+												</thead>
+												<tbody>
+													<tr>
+														<td colspan="12" style="background-color: #f2f2f2;">Otros</td>
+													</tr>
+													<tr>
+														<td colspan="8" contenteditable="true"></td>
+														<td contenteditable="true" data-sum="true"></td>
+														<td contenteditable="true"></td>
+										
+										<!-- evidencia-->
+											<td contenteditable="true" style= "display: none;" class="autoevaluacion-celda">
+												<!-- Botón cuadrado para adjuntar archivos -->
+												<button class="square-button attachButton" onclick="openFileInput(this)">+</button>
+												<!-- Input de archivo oculto -->
+												<input type="file" class="fileInput" style="display: none;" />
+												<!-- Botón de texto para visualizar archivo -->
+												<button class="view-button" title="Descargar archivo">Ver</button>
+											</td>
+										<!-- Autoevaluación-->	
+											<td contenteditable="true" style= "display: none;" class="autoevaluacion-celda"></td>
+													</tr>
+													<tr>
+														<td colspan="12" style="text-align: right;">
+															<button style="border: none;" onclick="insertarFila4(this)">Añadir Fila</button>
+														</td>
+													</tr>
+												</tbody>
+											</table>
+
+														
+														
+													</div>
+
+											
+										</tbody>
+									</table>
+									
+									<button id="guardarExtensionBtn" class="guardarExtension" style="
+  font-size: 18px;
+  padding: 10px 20px; 
+  background-color: #1977e8; 
+  color: white; 
+  border: none; 
+  border-radius: 5px; 
+  cursor: pointer;
+  margin-top: 20px;">
+  Guardar
+</button>
+
+									
+								</div>
+								
+								
+								
+							</div>
+							
+							
+							<!-- ACT acad admin -->
+							
+							<div id="tab4" class="tab-content" style="display:none; position: relative;">
+							  
+							<div class="header-container" style="
+								display: flex;
+								justify-content: space-between;
+								align-items: flex-start;
+								margin-bottom: 20px;
+								position: relative;">
+										<h3 style="text-align: left; color: #1977e8;">Actividades Académico Administrativas</h3>
+											<div id="totalHorasAcademico" style="
+											  position: absolute;
+											  top: 0;
+											  right: 0;
+											  background-color: #eceff8;
+											  border: 2px solid #1977e8;
+											  border-radius: 15px;
+											  padding: 10px 20px;
+											  font-size: 16px;
+											  font-weight: bold;
+											  color: #1977e8;
+											  text-align: center;
+											  min-width: 150px;
+											  display: none;">
+											  Total Horas: 0
+											</div>
+							  </div>
+							<!-- Tabla para Actividades Académico Administrativas -->
+        <table border="1" style="width: 100%; border-collapse: collapse;">
+            <thead>
+                <tr>
+                    
+                    <th rowspan="2" colspan="8">DESCRIPCIÓN DE LA ACTIVIDAD</th>
+                    <th rowspan="2">HORAS PLANEADAS</th>
+                    <th style="color:red" class="autoevaluacion-celda">Indicador de cumplimiento</th>
+														<th style="color:red; display: none;" class="autoevaluacion-celda">EVIDENCIA (si lo requiere)</th>
+														<th style="color:red; display: none;" class="autoevaluacion-celda">Autoevaluación / Porcentaje de avance</th>
+                </tr>
+                
+            </thead>
+            <tbody>
+                <tr>
+                    
+                    <td contenteditable="true" colspan="8">Dirección de Unidad Académico Administrativa</td>
+                    <td contenteditable="true" data-sum1="true"></td>
+                    <td contenteditable="true"></td>
+										
+										<!-- evidencia-->
+											<td contenteditable="true" style= "display: none;" class="autoevaluacion-celda">
+												<!-- Botón cuadrado para adjuntar archivos -->
+												<button class="square-button attachButton" onclick="openFileInput(this)">+</button>
+												<!-- Input de archivo oculto -->
+												<input type="file" class="fileInput" style="display: none;" />
+												<!-- Botón de texto para visualizar archivo -->
+												<button class="view-button" title="Descargar archivo">Ver</button>
+											</td>
+										<!-- Autoevaluación-->	
+											<td contenteditable="true" style= "display: none;" class="autoevaluacion-celda"></td>
+                </tr>
+                <tr>
+                    
+                    <td contenteditable="true" colspan="8">Comité curricular pregrado</td>
+                    <td contenteditable="true" data-sum1="true"></td>
+                    <td contenteditable="true"></td>
+										
+										<!-- evidencia-->
+											<td contenteditable="true" style= "display: none;" class="autoevaluacion-celda">
+												<!-- Botón cuadrado para adjuntar archivos -->
+												<button class="square-button attachButton" onclick="openFileInput(this)">+</button>
+												<!-- Input de archivo oculto -->
+												<input type="file" class="fileInput" style="display: none;" />
+												<!-- Botón de texto para visualizar archivo -->
+												<button class="view-button" title="Descargar archivo">Ver</button>
+											</td>
+										<!-- Autoevaluación-->	
+											<td contenteditable="true" style= "display: none;" class="autoevaluacion-celda"></td>
+                    
+                </tr>
+                <tr>
+                    
+                    <td contenteditable="true" colspan="8">Comité curricular posgrados</td>
+                    <td contenteditable="true" data-sum1="true"></td>
+                    <td contenteditable="true"></td>
+										
+										<!-- evidencia-->
+											<td contenteditable="true" style= "display: none;" class="autoevaluacion-celda">
+												<!-- Botón cuadrado para adjuntar archivos -->
+												<button class="square-button attachButton" onclick="openFileInput(this)">+</button>
+												<!-- Input de archivo oculto -->
+												<input type="file" class="fileInput" style="display: none;" />
+												<!-- Botón de texto para visualizar archivo -->
+												<button class="view-button" title="Descargar archivo">Ver</button>
+											</td>
+										<!-- Autoevaluación-->	
+											<td contenteditable="true" style= "display: none;" class="autoevaluacion-celda"></td>
+                    
+                </tr>
+                <tr>
+                    
+                    <td contenteditable="true" colspan="8">Coordinación de programas autofinanciados</td>
+                    <td contenteditable="true" data-sum1="true"></td>
+                    <td contenteditable="true"></td>
+										
+										<!-- evidencia-->
+											<td contenteditable="true" style= "display: none;" class="autoevaluacion-celda">
+												<!-- Botón cuadrado para adjuntar archivos -->
+												<button class="square-button attachButton" onclick="openFileInput(this)">+</button>
+												<!-- Input de archivo oculto -->
+												<input type="file" class="fileInput" style="display: none;" />
+												<!-- Botón de texto para visualizar archivo -->
+												<button class="view-button" title="Descargar archivo">Ver</button>
+											</td>
+										<!-- Autoevaluación-->	
+											<td contenteditable="true" style= "display: none;" class="autoevaluacion-celda"></td>
+                    
+                </tr>
+                <tr>
+                    
+                    <td contenteditable="true" colspan="8">Reforma académica de programa</td>
+                    <td contenteditable="true" data-sum1="true"></td>
+                    <td contenteditable="true"></td>
+										
+										<!-- evidencia-->
+											<td contenteditable="true" style= "display: none;" class="autoevaluacion-celda">
+												<!-- Botón cuadrado para adjuntar archivos -->
+												<button class="square-button attachButton" onclick="openFileInput(this)">+</button>
+												<!-- Input de archivo oculto -->
+												<input type="file" class="fileInput" style="display: none;" />
+												<!-- Botón de texto para visualizar archivo -->
+												<button class="view-button" title="Descargar archivo">Ver</button>
+											</td>
+										<!-- Autoevaluación-->	
+											<td contenteditable="true" style= "display: none;" class="autoevaluacion-celda"></td>
+                    
+                </tr>
+                <tr>
+                    
+                    <td contenteditable="true" colspan="8">Líder Proyecto Plan de mejoramiento del programa</td>
+                    <td contenteditable="true" data-sum1="true"></td>
+                    <td contenteditable="true"></td>
+										
+										<!-- evidencia-->
+											<td contenteditable="true" style= "display: none;" class="autoevaluacion-celda">
+												<!-- Botón cuadrado para adjuntar archivos -->
+												<button class="square-button attachButton" onclick="openFileInput(this)">+</button>
+												<!-- Input de archivo oculto -->
+												<input type="file" class="fileInput" style="display: none;" />
+												<!-- Botón de texto para visualizar archivo -->
+												<button class="view-button" title="Descargar archivo">Ver</button>
+											</td>
+										<!-- Autoevaluación-->	
+											<td contenteditable="true" style= "display: none;" class="autoevaluacion-celda"></td>
+                    
+                </tr>
+                <tr>
+                    
+                    <td contenteditable="true" colspan="8">Acreditación ABET</td>
+                    <td contenteditable="true" data-sum1="true"></td>
+                    <td contenteditable="true"></td>
+										
+										<!-- evidencia-->
+											<td contenteditable="true" style= "display: none;" class="autoevaluacion-celda">
+												<!-- Botón cuadrado para adjuntar archivos -->
+												<button class="square-button attachButton" onclick="openFileInput(this)">+</button>
+												<!-- Input de archivo oculto -->
+												<input type="file" class="fileInput" style="display: none;" />
+												<!-- Botón de texto para visualizar archivo -->
+												<button class="view-button" title="Descargar archivo">Ver</button>
+											</td>
+										<!-- Autoevaluación-->	
+											<td contenteditable="true" style= "display: none;" class="autoevaluacion-celda"></td>
+                    
+                </tr>
+                <tr>
+                    
+                    <td contenteditable="true" colspan="8">Nodo Proceso de autoevaluación del programa</td>
+                    <td contenteditable="true" data-sum1="true"></td>
+                    <td contenteditable="true"></td>
+										
+										<!-- evidencia-->
+											<td contenteditable="true" style= "display: none;" class="autoevaluacion-celda">
+												<!-- Botón cuadrado para adjuntar archivos -->
+												<button class="square-button attachButton" onclick="openFileInput(this)">+</button>
+												<!-- Input de archivo oculto -->
+												<input type="file" class="fileInput" style="display: none;" />
+												<!-- Botón de texto para visualizar archivo -->
+												<button class="view-button" title="Descargar archivo">Ver</button>
+											</td>
+										<!-- Autoevaluación-->	
+											<td contenteditable="true" style= "display: none;" class="autoevaluacion-celda"></td>
+                    
+                </tr>
+                <tr>
+                    
+                    <td contenteditable="true" colspan="8">Representante profesoral (Consejo de Escuela, Consejo de Facultad, CA, CS ...)</td>
+                    <td contenteditable="true" data-sum1="true"></td>
+                    <td contenteditable="true"></td>
+										
+										<!-- evidencia-->
+											<td contenteditable="true" style= "display: none;" class="autoevaluacion-celda">
+												<!-- Botón cuadrado para adjuntar archivos -->
+												<button class="square-button attachButton" onclick="openFileInput(this)">+</button>
+												<!-- Input de archivo oculto -->
+												<input type="file" class="fileInput" style="display: none;" />
+												<!-- Botón de texto para visualizar archivo -->
+												<button class="view-button" title="Descargar archivo">Ver</button>
+											</td>
+										<!-- Autoevaluación-->	
+											<td contenteditable="true" style= "display: none;" class="autoevaluacion-celda"></td>
+                    
+                </tr>.
+				<tr>
+                    
+                    <td contenteditable="true" colspan="8">Claustro de profesores</td>
+                    <td contenteditable="true" data-sum1="true"></td>
+                    <td contenteditable="true"></td>
+										
+										<!-- evidencia-->
+											<td contenteditable="true" style= "display: none;" class="autoevaluacion-celda">
+												<!-- Botón cuadrado para adjuntar archivos -->
+												<button class="square-button attachButton" onclick="openFileInput(this)">+</button>
+												<!-- Input de archivo oculto -->
+												<input type="file" class="fileInput" style="display: none;" />
+												<!-- Botón de texto para visualizar archivo -->
+												<button class="view-button" title="Descargar archivo">Ver</button>
+											</td>
+										<!-- Autoevaluación-->	
+											<td contenteditable="true" style= "display: none;" class="autoevaluacion-celda"></td>
+                    
+                </tr>
+                <tr>
+                    <td style="background-color: #f2f2f2;" colspan="12">Otros</td>
+                </tr>
+                <tr>
+                    
+                    <td contenteditable="true" colspan="8"></td>
+                    <td contenteditable="true" data-sum1="true"></td>
+                    <td contenteditable="true"></td>
+										
+										<!-- evidencia-->
+											<td contenteditable="true" style= "display: none;" class="autoevaluacion-celda">
+												<!-- Botón cuadrado para adjuntar archivos -->
+												<button class="square-button attachButton" onclick="openFileInput(this)">+</button>
+												<!-- Input de archivo oculto -->
+												<input type="file" class="fileInput" style="display: none;" />
+												<!-- Botón de texto para visualizar archivo -->
+												<button class="view-button" title="Descargar archivo">Ver</button>
+											</td>
+										<!-- Autoevaluación-->	
+											<td contenteditable="true" style= "display: none;" class="autoevaluacion-celda"></td>
+                    
+                </tr>
+                <tr>
+                    <td colspan="12" style="text-align: right;">
+                        <button style="border: none;" onclick="insertarFila4(this)">Añadir Fila</button>
+                    </td>
+                </tr>
+				<tr>
+							
+							<td colspan="8" style="text-align: right;" hidden>
+											Total horas
+											<!-- Botón que llamará a la función de suma -->
+											<button id="btnSuma" onclick="actualizarSuma1()">Suma</button>
+										</td>
+										<td id="Totalhoras4" hidden></td>
+
+																	
+
+															</tr>
+													</tbody>
+												</table>
+												
+												<button id="guardarAcademicoBtn" class="guardarAcademico" style="
+											font-size: 18px;
+											padding: 10px 20px; 
+											background-color: #1977e8; 
+											color: white; 
+											border: none; 
+											border-radius: 5px; 
+											cursor: pointer;
+											margin-top: 20px;">
+											Guardar
+										  </button>
+							
+							
+							
+							
+					
+		</div>	
+							
+							
+							
+	</div>	
+			
+				</div>
+				
+			  
+			  
+
+
+			<!-- Modal oculto que contiene la tabla -->
+			<div id="myModal" class="modal">
+			  <div class="modal-content">
+				<span class="close" onclick="closeModal()">&times;</span>
+				<table border="1" style="border-collapse: collapse; width: 100%;">
+				  <thead>
+					<tr>
+					  <th>Día</th>
+					  <th>Hora</th>
+					</tr>
+				  </thead>
+				  <tbody>
+					<tr>
+					  <td contenteditable="true">Lunes</td>
+					  <td contenteditable="true">08:00 - 10:00</td>
+					</tr>
+					<tr>
+					  <td contenteditable="true">Martes</td>
+					  <td contenteditable="true"></td>
+					</tr>
+					<tr>
+					  <td contenteditable="true">Miércoles</td>
+					  <td contenteditable="true"></td>
+					</tr>
+					<tr>
+					  <td contenteditable="true">Jueves</td>
+					  <td contenteditable="true"></td>
+					</tr>
+					<tr>
+					  <td contenteditable="true">Viernes</td>
+					  <td contenteditable="true"></td>
+					</tr>
+				  </tbody>
+				</table>
+				<button onclick="saveHorario()">Guardar</button>
+			  </div>
+			</div>
+			  
+			<!-- Modal de Actividad (oculto inicialmente) -->
+			<div id="activityModal" class="modal">
+				<div class="modal-content">
+					<span class="close" onclick="closeActivityModal()">&times;</span>
+					<h3>Selecciona una actividad</h3>
+					<div class="modal-buttons">
+						<button onclick="showTable1('Gestion de proyectos')">Gestión de proyectos de investigación</button>
+						<button onclick="showTable1('Escritura de Artículos Científicos')">Escritura de Artículos Científicos</button>
+						<button onclick="showTable1('Participación en Eventos Científicos')">Participación en Eventos Científicos</button>
+						<button onclick="showTable1('Participación en comités editoriales de revistas científicas')">Participación en Comités Editoriales</button>
+						<button onclick="showTable1('Participación en asociaciones científicas')">Participación en Asociaciones Científicas</button>
+						<button onclick="showTable1('Reconocimiento como investigador')">Reconocimiento como Investigador</button>
+						<button onclick="showTable1('Creación y participación en semilleros')">Creación y participación en Semilleros</button>
+						<button onclick="showTable1('Gestión de proyectos internacionales')">Gestión de Proyectos Internacionales</button>
+						<button onclick="showTable1('Obtención de patentes')">Obtención de Patentes</button>
+						<button onclick="showTable1('Generación y mantenimiento de Spin-OFF')">Generación y mantenimiento de Spin-Off</button>
+						<button onclick="showTable1('Otros')">Otros</button>
+					</div>
+				</div>
+			</div>
+
+			<!-- Modal de Extensión (oculto inicialmente) -->
+			<div id="extModal" class="modal">
+				<div class="modal-content">
+					<span class="close" onclick="closeExtModal()">&times;</span>
+					<h3>Seleccionar Actividad</h3>
+					<div class="modal-buttons">
+						<button onclick="displayActivityTable('tabla-autofinanciados')">Coordinación de programas autofinanciados</button>
+						<button onclick="displayActivityTable('tabla-solidaria')">Desarrollo de Proyecto de extensión solidaria</button>
+						<button onclick="displayActivityTable('tabla-no-solidaria')">Desarrollo de Proyecto no solidaria</button>
+						<button onclick="displayActivityTable('tabla-laboratorios')">Coordinación de laboratorios</button>
+						<button onclick="displayActivityTable('tabla-consultoria')">Consultoría especializada</button>
+						<button onclick="displayActivityTable('tabla-otros')">Otros</button>
+					</div>
+				</div>
+			</div>
+
+	
+		</div>
+
+
+
+  
+  
+  <script>
+    function toggleSidebar() {
+  var sidebar = document.getElementById('sidebar');
+  var menuBtn = document.getElementById('menu-btn');
+  
+  // Toggle la clase 'closed' en el sidebar
+  sidebar.classList.toggle('closed');
+  
+  // Cambiar el texto del botón
+  if (sidebar.classList.contains('closed')) {
+    menuBtn.textContent = '>';
+  } else {
+    menuBtn.textContent = '<';
+  }
+}
+
+
+    function openTab(event, tabId) {
+      const tabContents = document.getElementsByClassName('tab-content');
+      const tabButtons = document.getElementsByClassName('tab-btn');
+
+      // Hide all tab contents
+      for (const tabContent of tabContents) {
+        tabContent.style.display = 'none';
+      }
+
+      // Remove active class from all buttons
+      for (const tabButton of tabButtons) {
+        tabButton.classList.remove('active');
+      }
+
+      // Show the selected tab and highlight the button
+      document.getElementById(tabId).style.display = 'block';
+      event.currentTarget.classList.add('active');
+    }
+	
+	
+		
+		 
+
+function insertarFila(button) {
+    let contadorFilas = document.querySelectorAll('#thesisDirectionTableContainer tbody tr').length;
+    let nuevaFila = document.createElement('tr');
+    let cell3Id = 'cell3_' + contadorFilas;
+    let resultCellId = 'resultCell2_' + contadorFilas;
+
+    nuevaFila.innerHTML = `
+        <td contenteditable="true"></td>
+        <td contenteditable="true"></td>
+        <td contenteditable="true"></td>
+        <td contenteditable="true"></td>
+        <td contenteditable="true"></td>
+        <td contenteditable="true"></td>
+        <td contenteditable="true" id="${cell3Id}"></td>
+        <td id="${resultCellId}"></td>
+		<td contenteditable="true"></td>
+        <!-- evidencia-->
+		<td contenteditable="true" style= "display: none;" class="autoevaluacion-celda">
+			<!-- Botón cuadrado para adjuntar archivos -->
+			<button class="square-button attachButton" onclick="openFileInput(this)">+</button>
+			<!-- Input de archivo oculto -->
+			<input type="file" class="fileInput" style="display: none;" />
+			<!-- Botón de texto para visualizar archivo -->
+			<button class="view-button" title="Descargar archivo">Ver</button>
+			</td>
+		<!-- Autoevaluación-->	
+		<td contenteditable="true" style= "display: none;" class="autoevaluacion-celda"></td>
+    `;
+
+    let filaActual = button.closest('tr');
+    filaActual.parentNode.insertBefore(nuevaFila, filaActual);
+
+    // Agregar event listener a la nueva celda de horas
+    document.getElementById(cell3Id).addEventListener('input', () => calculateSum2(cell3Id));
+    updateThesisDirectionTotal();
+}
+	
+function calculateSum2(cellId) {
+    let cellValue = parseFloat(document.getElementById(cellId).innerText) || 0;
+    let result = cellValue * 22;
+    let resultCellId = cellId.replace('cell3', 'resultCell2');
+    document.getElementById(resultCellId).innerText = result;
+    updateThesisDirectionTotal();
+	updateTotalHorasInvestigacion();
+}
+
+function updateTotalHorasInvestigacion() {
+    let total = 0;
+    const resultCells = document.querySelectorAll('#tab2 [id^="resultCell2_"]');
+    resultCells.forEach(cell => {
+        total += parseFloat(cell.innerText) || 0;
+    });
+
+    const totalHorasDiv = document.getElementById('totalHorasInvestigacion');
+    if (totalHorasDiv) {
+        totalHorasDiv.innerText = `Total Horas: ${total}`;
+        totalHorasDiv.style.display = 'block';
+    }
+}
+
+function guardarInvestigacion() {
+    updateTotalHorasInvestigacion();
+    // Aquí puedes añadir cualquier otra lógica necesaria para guardar los datos
+    console.log('Datos de investigación guardados');
+	updateTotalHorasGeneral();
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+    var guardarInvestigacionBtn = document.getElementById('guardarInvestigacionBtn');
+    
+    if (guardarInvestigacionBtn) {
+        guardarInvestigacionBtn.addEventListener('click', guardarInvestigacion);
+    } else {
+        console.error('Botón "Guardar Investigación" no encontrado.');
+    }
+});
+
+function updateThesisDirectionTotal() {
+    let total = 0;
+    const resultCells = document.querySelectorAll('[id^="resultCell2_"]');
+    resultCells.forEach(cell => {
+        total += parseFloat(cell.innerText) || 0;
+    });
+    document.getElementById('totalHorasTesis').innerText = total;
+    updateTotalHoras();
+}
+
+function addEventListenersToEditableCells() {
+    // Para la sección de docencia
+    document.getElementById('cell4').addEventListener('input', calculateSum3);
+    document.getElementById('cell5').addEventListener('input', calculateSum3);
+
+    // Para la sección de tesis
+    const thesisHoursCells = document.querySelectorAll('[id^="cell3_"]');
+    thesisHoursCells.forEach(cell => {
+        cell.addEventListener('input', () => calculateSum2(cell.id));
+    });
+}
+
+function updateTotalHoras() {
+    const totalHorasDocencia = parseFloat(document.getElementById('totalHoras').innerText) || 0;
+    const totalHorasTesis = parseFloat(document.getElementById('totalHorasTesis').innerText) || 0;
+    const totalGeneral = totalHorasDocencia + totalHorasTesis;
+    
+    const totalHorasRectangulo = document.getElementById('totalHorasRectangulo');
+    if (totalHorasRectangulo) {
+        totalHorasRectangulo.innerText = `Total Horas: ${totalGeneral}`;
+    }
+}
+
+
+function insertarFila2(button) {
+    // Contar las filas actuales para asignar IDs únicos
+    let contadorFilas = document.querySelectorAll('tr').length; 
+
+    // Crear una nueva fila
+    let nuevaFila = document.createElement('tr');
+
+    // Asignar nuevos IDs únicos para las celdas
+    let cell3Id = 'cell3_' + contadorFilas; // ID único para la celda que calcula
+    let resultCellId = 'resultCell2_' + contadorFilas; // ID único para la celda de resultado
+
+    // Definir la estructura de la nueva fila con IDs únicos
+    nuevaFila.innerHTML = `
+        
+        
+        <td contenteditable="true" colspan="2"></td>
+        <td contenteditable="true"></td>
+        <td contenteditable="true"></td>
+        <td contenteditable="true"></td>
+        <td contenteditable="true"></td>
+        <td contenteditable="true" id="${cell3Id}" oninput="calculateSum2('${cell3Id}')"></td>
+		<td id="${resultCellId}"></td>
+        <td contenteditable="true"></td>
+        <!-- evidencia-->
+		<td contenteditable="true" style= "display: none;" class="autoevaluacion-celda">
+			<!-- Botón cuadrado para adjuntar archivos -->
+			<button class="square-button attachButton" onclick="openFileInput(this)">+</button>
+			<!-- Input de archivo oculto -->
+			<input type="file" class="fileInput" style="display: none;" />
+			<!-- Botón de texto para visualizar archivo -->
+			<button class="view-button" title="Descargar archivo">Ver</button>
+			</td>
+		<!-- Autoevaluación-->	
+		<td contenteditable="true" style= "display: none;" class="autoevaluacion-celda"></td>
+        
+    `;
+
+     // Navegar correctamente al tbody que contiene la fila actual
+    let filaActual = button.closest('tr');
+    filaActual.parentNode.insertBefore(nuevaFila, filaActual);
+	
+}
+	
+
+
+function insertarFila3(button) {
+    // Crear una nueva fila
+    // Contar las filas actuales para asignar IDs únicos
+    let contadorFilas = document.querySelectorAll('tr').length; 
+
+    // Crear una nueva fila
+    let nuevaFila = document.createElement('tr');
+
+    // Asignar nuevos IDs únicos para las celdas
+    let cell3Id = 'cell3_' + contadorFilas; // ID único para la celda que calcula
+    let resultCellId = 'resultCell2_' + contadorFilas; // ID único para la celda de resultado
+
+    // Definir la estructura de la nueva fila con IDs únicos
+    nuevaFila.innerHTML = `
+				
+                
+                <td colspan="3" contenteditable="true"></td>
+                <td contenteditable="true"></td>
+                <td contenteditable="true"></td>
+                <td contenteditable="true"></td>
+                <td contenteditable="true" id="${cell3Id}" oninput="calculateSum2('${cell3Id}')"></td>
+				<td id="${resultCellId}"></td>
+                <td contenteditable="true"></td>
+        <!-- evidencia-->
+		<td contenteditable="true" style= "display: none;" class="autoevaluacion-celda">
+			<!-- Botón cuadrado para adjuntar archivos -->
+			<button class="square-button attachButton" onclick="openFileInput(this)">+</button>
+			<!-- Input de archivo oculto -->
+			<input type="file" class="fileInput" style="display: none;" />
+			<!-- Botón de texto para visualizar archivo -->
+			<button class="view-button" title="Descargar archivo">Ver</button>
+			</td>
+		<!-- Autoevaluación-->	
+		<td contenteditable="true" style= "display: none;" class="autoevaluacion-celda"></td>
+                
+                
+            
+    `;
+
+    // Obtener la fila actual (donde está el botón)
+    let filaActual = button.parentNode.parentNode;
+
+    // Insertar la nueva fila antes de la fila actual
+    filaActual.parentNode.insertBefore(nuevaFila, filaActual);
+	
+}
+
+function calculateSum2(cellId) {
+    // Obtiene el valor de la celda específica basada en el ID proporcionado
+    let cellValue = parseFloat(document.getElementById(cellId).innerText) || 0;
+
+    // Suma el valor y lo multiplica por 22
+    let result = cellValue * 22;
+
+    // Determina el ID de la celda de resultado
+    let resultCellId = cellId.replace('cell3', 'resultCell2'); // Cambia el ID de la celda de resultados para nuevas filas
+
+    // Muestra el resultado en la celda correspondiente
+    document.getElementById(resultCellId).innerText = result;
+	// Recalcular el total
+    sumarResultadosInvestigacion();
+	
+}
+
+// Función para insertar una nueva fila
+function insertarFila4(button) {
+    // Crear una nueva fila
+    let nuevaFila = document.createElement('tr');
+
+    // Crear la primera celda con colspan="8" (editable)
+    let celda1 = document.createElement('td');
+    celda1.setAttribute('contenteditable', 'true');
+    celda1.setAttribute('colspan', '8');
+    nuevaFila.appendChild(celda1);
+
+    // Crear la segunda celda (editable y con data-sum)
+    let celda2 = document.createElement('td');
+    celda2.setAttribute('contenteditable', 'true');
+    celda2.setAttribute('data-sum', 'true');
+    nuevaFila.appendChild(celda2);
+
+    // Crear la tercera celda (editable)
+    let celda3 = document.createElement('td');
+    celda3.setAttribute('contenteditable', 'true');
+    nuevaFila.appendChild(celda3);
+
+    // Crear la celda de evidencia (oculta)
+    let celdaEvidencia = document.createElement('td');
+    celdaEvidencia.setAttribute('contenteditable', 'true');
+    celdaEvidencia.style.display = 'none';
+    celdaEvidencia.className = 'autoevaluacion-celda';
+
+    // Crear botón cuadrado para adjuntar archivos
+    let btnAttach = document.createElement('button');
+    btnAttach.className = 'square-button attachButton';
+    btnAttach.textContent = '+';
+    btnAttach.setAttribute('onclick', 'openFileInput(this)');
+    celdaEvidencia.appendChild(btnAttach);
+
+    // Crear input de archivo oculto
+    let inputFile = document.createElement('input');
+    inputFile.type = 'file';
+    inputFile.className = 'fileInput';
+    inputFile.style.display = 'none';
+    celdaEvidencia.appendChild(inputFile);
+
+    // Crear botón de texto para visualizar archivo
+    let btnView = document.createElement('button');
+    btnView.className = 'view-button';
+    btnView.textContent = 'Ver';
+    btnView.title = 'Descargar archivo';
+    celdaEvidencia.appendChild(btnView);
+
+    nuevaFila.appendChild(celdaEvidencia);
+
+    // Crear la celda de autoevaluación (oculta)
+    let celdaAutoevaluacion = document.createElement('td');
+    celdaAutoevaluacion.setAttribute('contenteditable', 'true');
+    celdaAutoevaluacion.style.display = 'none';
+    celdaAutoevaluacion.className = 'autoevaluacion-celda';
+    nuevaFila.appendChild(celdaAutoevaluacion);
+
+    // Añadir la nueva fila antes de la fila actual
+    let filaActual = button.parentNode.parentNode;
+    filaActual.parentNode.insertBefore(nuevaFila, filaActual);
+}
+
+
+
+
+
+function insertarFila6(button) {
+    let contadorFilas = document.querySelectorAll('tr').length; // Contar las filas actuales
+
+    // Crear una nueva fila
+    let nuevaFila = document.createElement('tr');
+
+    // Asignar nuevos IDs únicos para las celdas
+    let cell4Id = 'cell4_' + contadorFilas;
+    let cell5Id = 'cell5_' + contadorFilas;
+    let resultCellId = 'resultCell_' + contadorFilas;
+
+    // Definir la estructura de la fila con IDs únicos
+    nuevaFila.innerHTML = `
+        
+        <td>
+            <select style="appearance: none; border: none; background-color: transparent; padding-right: 20px; font-size: inherit; float: right; background-image: url('data:image/svg+xml;utf8,<svg xmlns=&quot;http://www.w3.org/2000/svg&quot; viewBox=&quot;0 0 10 10&quot;><path fill=&quot;none&quot; stroke=&quot;gray&quot; stroke-width=&quot;1&quot; d=&quot;M1 3l3 3 3-3&quot;/></svg>'); background-repeat: no-repeat; background-position: right 5px center; background-size: 10px;">
+                <option value=" "> </option>
+                <option value="2024">2024</option>
+                <option value="2025">2025</option>
+                <option value="2026">2026</option>
+            </select>
+        </td>
+        <td>
+            <select style="appearance: none; border: none; background-color: transparent; padding-right: 20px; font-size: inherit; float: right; background-image: url('data:image/svg+xml;utf8,<svg xmlns=&quot;http://www.w3.org/2000/svg&quot; viewBox=&quot;0 0 10 10&quot;><path fill=&quot;none&quot; stroke=&quot;gray&quot; stroke-width=&quot;1&quot; d=&quot;M1 3l3 3 3-3&quot;/></svg>'); background-repeat: no-repeat; background-position: right 5px center; background-size: 10px;">
+                <option value=" "> </option>
+                <option value="2024">1</option>
+                <option value="2025">2</option>
+            </select>
+        </td>
+        <td contenteditable="true"></td>
+        <td contenteditable="true"></td>
+		<td> 
+												<select style="appearance: none; border: none; background-color: transparent; padding-right: 20px; font-size: inherit; float: right; background-image: url('data:image/svg+xml;utf8,<svg xmlns=&quot;http://www.w3.org/2000/svg&quot; viewBox=&quot;0 0 10 10&quot;><path fill=&quot;none&quot; stroke=&quot;gray&quot; stroke-width=&quot;1&quot; d=&quot;M1 3l3 3 3-3&quot;/></svg>'); background-repeat: no-repeat; background-position: right 5px center; background-size: 10px;">
+													<option value=" "> </option>
+													<option value="2024">Asignatura 1</option>
+													<option value="2025">Asignatura 2</option>
+													<option value="2026">Asignatura 3</option>
+													<option value="2026">Asignatura 4</option>
+												</select>
+											</td>
+        <td contenteditable="true" id="${cell4Id}" oninput="calculateSum('${cell4Id}', '${cell5Id}', '${resultCellId}')"></td>
+        <td contenteditable="true" id="${cell5Id}" oninput="calculateSum('${cell4Id}', '${cell5Id}', '${resultCellId}')"></td>
+        <td id="${resultCellId}"></td>
+        <td onclick="openModal(this)">Click para editar el horario</td>
+		<td contenteditable="true"></td>
+        <td contenteditable="true" style= "display: none;" class="autoevaluacion-celda">
+            <!-- Botón cuadrado para adjuntar archivos -->
+            <button class="square-button attachButton" onclick="openFileInput(this)">+</button>
+            <!-- Input de archivo oculto -->
+            <input type="file" class="fileInput" style="display: none;" />
+            <!-- Botón de texto para visualizar archivo -->
+            <button class="view-button" title="Descargar archivo">Ver</button>
+        </td>
+		<td contenteditable="true" style= "display: none;" class="autoevaluacion-celda"></td>
+    `;
+
+    // Localizar la fila de "Total horas año"
+    let filaTotalHoras = document.querySelector('tr td[colspan="7"]');
+    if (filaTotalHoras) {
+        // Insertar la nueva fila justo antes de la fila de "Total horas año"
+        filaTotalHoras.closest('tr').parentNode.insertBefore(nuevaFila, filaTotalHoras.closest('tr'));
+    }
+
+    // Actualizar el total de horas
+    calculateTotalHoras();
+	
+	// Actualizar el total de horas
+    calculateTotalHoras();
+    
+    // Actualizar el total general
+    updateTotalHoras();
+}
 
 
 
@@ -697,8 +2179,690 @@ tr[class="sub-header"] td {
 
 
 
+// Abre el modal para la fila nueva
+function openModal(cell) {
+    activeHorarioCell = cell; // Guarda la referencia de la celda que abrió el modal
+    document.getElementById('myModal').style.display = 'block';
+}
+
+function closeModal() {
+    document.getElementById('myModal').style.display = 'none';
+}
+
+function saveHorario() {
+    let horario = '';
+
+    // Obtener las filas de la tabla del modal
+    const rows = document.querySelectorAll('.modal-content tbody tr');
+    rows.forEach((row) => {
+        const dia = row.cells[0].innerText;
+        const hora = row.cells[1].innerText;
+
+        if (hora.trim() !== '') {
+            horario += `${dia}: ${hora}\n`;
+        }
+    });
+
+    // Inserta el horario en la celda original (la celda activa que abrió el modal)
+    if (activeHorarioCell) {
+        activeHorarioCell.innerText = horario.trim();
+    }
+
+    // Cierra el modal
+    closeModal();
+}
+
+function printPage() {
+    // Obtener el contenido del div donde se encuentra la tabla
+    var contenido = document.querySelector('.rectangular-section').outerHTML;
+    
+    // Obtener los estilos de la página original
+    var estilos = obtenerEstilos();
+
+    // Abrir una nueva ventana
+    var nuevaVentana = window.open();
+    
+    // Insertar el contenido en la nueva ventana
+    nuevaVentana.document.write('<html><head><title>Autoevaluación</title>');
+    
+    // Insertar los estilos CSS en la nueva ventana
+    nuevaVentana.document.write(estilos);
+    
+    nuevaVentana.document.write('</head><body>');
+    
+    // Agregar los títulos en la parte superior de la nueva ventana
+    nuevaVentana.document.write('<h1 style="text-align: center;">UNIVERSIDAD INDUSTRIAL DE SANTANDER</h1>');
+    nuevaVentana.document.write('<h1 style="text-align: center;">AUTOEVALUACIÓN</h1>');
+    
+    // Insertar el contenido de la tabla debajo de los títulos
+    nuevaVentana.document.write(contenido);
+    nuevaVentana.document.write('</body></html>');
+    
+    // Cerrar el documento para que se renderice el contenido
+    nuevaVentana.document.close();
+}
+
+// Función para obtener los estilos CSS de la página original
+function obtenerEstilos() {
+    var estilos = '';
+    
+    // Obtener todas las etiquetas <style> de la página
+    var styleTags = document.querySelectorAll('style');
+    styleTags.forEach(function(style) {
+        estilos += style.outerHTML;
+    });
+    
+    // Obtener todas las etiquetas <link> de tipo "stylesheet" que apuntan a archivos CSS
+    var linkTags = document.querySelectorAll('link[rel="stylesheet"]');
+    linkTags.forEach(function(link) {
+        estilos += '<link rel="stylesheet" href="' + link.href + '">';
+    });
+    
+    return estilos;
+}
+
+ 
+let fileUrl = null; // Variable para almacenar la URL del archivo
+
+// Función para abrir el selector de archivos
+function openFileInput(button) {
+    const parentCell = button.parentElement; // Obtener la celda padre
+    const fileInput = parentCell.querySelector('.fileInput');
+    if (fileInput) {
+        fileInput.click(); // Abrir el input de archivo
+    } else {
+        console.error("No se encontró el elemento <input type='file'>");
+    }
+}
+
+document.addEventListener('change', function (event) {
+    const fileInput = event.target;
+    if (fileInput.classList.contains('fileInput')) {
+        const file = fileInput.files[0];
+        if (file) {
+            console.log(`Archivo seleccionado: ${file.name}`); // Depuración
+
+            // Crear una URL temporal para el archivo
+            fileUrl = URL.createObjectURL(file);
+            console.log(`URL del archivo generado: ${fileUrl}`); // Depuración
+
+            // Asignar la función para descargar el archivo al hacer clic en "Ver"
+            const parentCell = fileInput.parentElement;
+            const viewButton = parentCell.querySelector('.view-button');
+            
+            if (viewButton) {
+                // Iniciar la descarga al hacer clic en "Ver"
+                viewButton.onclick = function () {
+                    const link = document.createElement('a');
+                    link.href = fileUrl;  // La URL temporal del archivo
+                    link.download = file.name;  // Nombre del archivo al descargar
+                    link.click();  // Inicia la descarga
+                    console.log("Archivo descargado: " + file.name); // Depuración
+                };
+            } else {
+                console.error('No se encontró el botón "Ver".');
+            }
+        } else {
+            alert("No se seleccionó archivo.");
+            console.log("No se seleccionó archivo."); // Depuración
+        }
+    }
+});
+function calculateSum3() {
+    let cell4Value = parseFloat(document.getElementById('cell4').innerText) || 0;
+    let cell5Value = parseFloat(document.getElementById('cell5').innerText) || 0;
+    let result = (cell4Value + cell5Value) * 22;
+    document.getElementById('resultCell').innerText = result;
+    document.getElementById('totalHoras').innerText = result;
+    updateTotalHoras();
+}
+  
+function calculateSum(cell4Id, cell5Id, resultCellId) {
+    let cell4Value = parseFloat(document.getElementById(cell4Id).innerText) || 0;
+    let cell5Value = parseFloat(document.getElementById(cell5Id).innerText) || 0;
+    let result = (cell4Value + cell5Value) * 22;
+    document.getElementById(resultCellId).innerText = result;
+
+    // Actualizar el total de horas
+    calculateTotalHoras();
+	
+}
+
+function calculateTotalHoras() {
+    let total = 0;
+
+    // Seleccionar todas las celdas con IDs que empiezan con 'resultCell' o que sean exactamente 'resultCell'
+    document.querySelectorAll('[id^="resultCell"], #resultCell').forEach(cell => {
+        let value = parseFloat(cell.innerText) || 0;
+        total += value;
+    });
+
+    // Actualizar el total en el rectángulo
+    let totalHorasDiv = document.getElementById('totalHoras');
+    if (totalHorasDiv) {
+        totalHorasDiv.innerText = `Total Horas: ${total}`;
+        totalHorasDiv.style.display = 'block'; // Hacer visible el rectángulo
+    } else {
+        console.error('Elemento con id="totalHoras" no encontrado.');
+    }
+}
+
+function sumarResultadosInvestigacion() {
+    // Seleccionar todas las celdas de resultados relevantes (IDs que comienzan con 'resultCell')
+    let celdasResultados = document.querySelectorAll('[id^="resultCell"]');
+    let sumaTotal = 0;
+
+    // Recorrer las celdas y sumar los valores numéricos
+    celdasResultados.forEach(celda => {
+        let valor = parseFloat(celda.innerText) || 0; // Manejar valores no numéricos
+        sumaTotal += valor;
+    });
+
+    // Mostrar el total en la celda específica
+    let celdaResumen = document.getElementById('Totalhoras2');
+    if (celdaResumen) {
+        celdaResumen.innerText = sumaTotal;
+    } else {
+        console.warn('No se encontró la celda con ID "Totalhoras2" para mostrar la suma.');
+    }
+}
+
+
+// Función para actualizar la suma
+function actualizarSuma1() {
+    let sumaTotal = 0;
+
+    // Obtener todas las celdas con el atributo data-sum1
+    const celdasParaSumar = document.querySelectorAll('td[data-sum1="true"]');
+
+    // Recorrer cada celda y sumar su valor
+    celdasParaSumar.forEach(function(celda) {
+        let valor = parseFloat(celda.innerText) || 0; // Convertir el texto a número
+        sumaTotal += valor;
+    });
+
+    // Actualizar la celda Totalhoras4 con el total
+    const celdaTotal = document.getElementById('Totalhoras4');
+    if (celdaTotal) {
+        celdaTotal.innerText = sumaTotal; // Mostrar la suma calculada
+    }
+}
+
+function showTable() {
+        // Mostrar la tabla debajo del botón
+        document.getElementById('thesisDirectionTableContainer').style.display = 'block';
+    document.getElementById('thesisDirectionTableContainer').style.display = 'block';
+    updateThesisDirectionTotal();
+    addEventListenersToEditableCells();
+	}
+
+window.addEventListener('load', () => {
+    addEventListenersToEditableCells();
+    updateTotalHoras();
+});
+
+
+// Función para manejar el clic en el botón "Suma"
+function manejarBotonSuma() {
+    // Llamar a la función de actualizar la suma
+    actualizarSuma1();
+}
+
+// Asociar el clic del botón "Suma" a la función manejarBotonSuma
+document.getElementById('btnSuma').addEventListener('click', manejarBotonSuma);
+
+// Escuchar los cambios en las celdas para actualizar la suma
+document.addEventListener('input', function(event) {
+    if (event.target.matches('td[data-sum1="true"]')) {
+        // No actualizamos la suma automáticamente, solo cuando se haga clic en el botón "Suma"
+    }
+});
 
 
 
 
 
+function openActivityModal() {
+    // Mostrar el modal de actividad cambiando el display a 'block'
+    document.getElementById('activityModal').style.display = 'block';
+}
+function closeActivityModal() {
+    document.getElementById('activityModal').style.display = 'none';
+}
+
+
+// Función para mostrar la tabla correspondiente y apilarla debajo de la anterior
+function showTable1(tableId) {
+    // Cerrar el modal si está abierto (suponiendo que el modal tiene el id 'modal')
+    const modal = document.getElementById('modal');
+    if (modal) {
+        modal.style.display = 'none'; // Ocultar el modal
+		if (table.style.display === 'none' || table.style.display === '') {
+        table.style.display = 'table';
+        const container = document.getElementById('tables-container');
+        if (!container.contains(table)) {
+            container.appendChild(table);
+        }
+        updateTotalHorasInvestigacion(); // Actualizar total después de mostrar la tabla
+    } else {
+        table.style.display = 'none';
+        updateTotalHorasInvestigacion(); // Actualizar total después de ocultar la tabla
+    }
+    }
+
+    // Seleccionar la tabla que corresponde al id
+    const table = document.getElementById(tableId);
+
+    // Verificar si la tabla ya está visible, si no, mostrarla
+    if (table.style.display === 'none' || table.style.display === '') {
+        // Mostrar la tabla
+        table.style.display = 'table';
+        
+        // Insertarla dentro del contenedor, si no está ya allí
+        const container = document.getElementById('tables-container');
+        if (!container.contains(table)) {
+            container.appendChild(table);
+        }
+    } else {
+        // Si la tabla ya está visible, ocultarla
+        table.style.display = 'none';
+    }
+}
+	 
+
+
+function calculateTotalHoras() {
+    let total = 0;
+
+    // Seleccionar todas las celdas con IDs que empiezan con 'resultCell' o que sean exactamente 'resultCell'
+    document.querySelectorAll('[id^="resultCell"], #resultCell').forEach(cell => {
+        // Extraer el número después de "Total Horas:"
+        let text = cell.innerText;
+        let value = parseFloat(text.replace("Total Horas:", "").trim()) || 0;
+        total += value;
+
+        // Asegurarse de que cada celda conserve el formato "Total Horas: <valor>"
+        cell.innerText = `Total Horas: ${value}`;
+    });
+
+    // Actualizar el total en el rectángulo
+    let totalHorasCell = document.getElementById('totalHoras');
+    if (totalHorasCell) {
+        totalHorasCell.innerText = `Total Horas: ${total}`; // Mostrar el total calculado
+    } else {
+        console.error('Celda de total horas no encontrada. Asegúrate de que exista un elemento con id="totalHoras".');
+    }
+}
+
+ 
+      // Función para abrir el modal
+    function openExtModal() {
+        document.getElementById("extModal").style.display = "block";
+    }
+
+    // Función para cerrar el modal
+    function closeExtModal() {
+        document.getElementById("extModal").style.display = "none";
+    }
+
+    // Función para mostrar una tabla específica al seleccionar una actividad
+    function displayActivityTable(tableId) {
+        // Obtener la tabla seleccionada
+        let table = document.getElementById(tableId);
+
+        // Crear un nuevo contenedor para la actividad seleccionada
+        let activityContainer = document.createElement("div");
+        activityContainer.classList.add("activity-container");
+
+        // Clonar la tabla seleccionada y agregarla al contenedor
+        let tableClone = table.cloneNode(true);
+        tableClone.classList.remove("tabla-oculta"); // Asegurarse de que la clase "tabla-oculta" se remueva
+        activityContainer.appendChild(tableClone);
+
+        // Agregar el contenedor de actividad al contenedor principal
+        document.getElementById("activitiesContainer").appendChild(activityContainer);
+
+        // Cerrar el modal
+        closeExtModal();
+    }
+
+// Mostrar contenido de pestañas y ocultar instrucciones
+  function openTab(event, tabId) {
+    // Ocultar todas las pestañas
+    const tabs = document.querySelectorAll('.tab-content');
+    tabs.forEach(tab => tab.style.display = 'none');
+    
+   // Mostrar la pestaña seleccionada
+    document.getElementById(tabId).style.display = 'block';
+    
+    // Ocultar cuadro de instrucciones
+    document.getElementById('instructions').style.display = 'none';
+  }
+
+  function openTab(event, tabId) {
+    // Ocultar todas las pestañas
+    const tabs = document.querySelectorAll('.tab-content');
+    tabs.forEach(tab => tab.style.display = 'none');
+
+    // Mostrar la pestaña seleccionada
+    document.getElementById(tabId).style.display = 'block';
+
+    // Ocultar el cuadro de instrucciones si existe
+    const instructions = document.getElementById('instructions');
+    if (instructions) {
+      instructions.style.display = 'none';
+    }
+  }
+  
+  
+  document.addEventListener('DOMContentLoaded', function() {
+    var guardarBtn = document.getElementById('guardarDocenciaBtn');
+    var totalHorasDiv = document.getElementById('totalHoras');
+
+    guardarBtn.addEventListener('click', function() {
+        // Aquí puedes añadir cualquier lógica adicional que necesites ejecutar al guardar
+
+        // Hacer visible el rectángulo de total de horas
+        totalHorasDiv.style.display = 'block';
+
+        // Actualizar el total de horas (asumiendo que tienes una función para esto)
+        actualizarTotalHoras();
+    });
+});
+
+function actualizarTotalHoras() {
+    // Aquí debes poner la lógica para calcular el total de horas
+    // Por ahora, solo actualizaremos el texto como ejemplo
+    var totalHorasDiv = document.getElementById('totalHoras');
+    totalHorasDiv.textContent = 'Total Horas: ' + calcularTotalHoras();
+}
+
+function calcularTotalHoras() {
+    // Implementa aquí la lógica para calcular el total de horas
+    // Este es solo un ejemplo, deberás adaptarlo a tu lógica específica
+    return 40; // Retorna un número fijo como ejemplo
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+    var guardarBtn = document.getElementById('guardarDocenciaBtn');
+    
+    if (guardarBtn) {
+        guardarBtn.addEventListener('click', function() {
+            calculateTotalHoras();
+        });
+    } else {
+        console.error('Botón "Guardar" no encontrado.');
+    }
+});
+
+function guardarExtension() {
+  updateTotalHorasExtension();
+  const totalHorasDiv = document.getElementById('totalHorasExtension');
+  if (totalHorasDiv) {
+    totalHorasDiv.style.display = 'block';
+  } else {
+    console.error('Elemento totalHorasExtension no encontrado');
+  }
+  console.log('Datos de extensión guardados');
+  updateTotalHorasGeneral();
+}
+
+function updateTotalHorasExtension() {
+  let total = 0;
+  const horasCells = document.querySelectorAll('#tab3 td[data-sum="true"]');
+  horasCells.forEach(cell => {
+    const value = parseFloat(cell.innerText) || 0;
+    total += value;
+  });
+
+  const totalHorasDiv = document.getElementById('totalHorasExtension');
+  if (totalHorasDiv) {
+    totalHorasDiv.innerText = `Total Horas: ${total}`;
+    // No cambiamos el display aquí para mantenerlo oculto hasta que se guarde
+  } else {
+    console.error('Elemento totalHorasExtension no encontrado');
+  }
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+  const guardarExtensionBtn = document.getElementById('guardarExtensionBtn');
+  if (guardarExtensionBtn) {
+    guardarExtensionBtn.addEventListener('click', guardarExtension);
+  } else {
+    console.error('Botón "Guardar Extensión" no encontrado.');
+  }
+
+  // Añadir listener para actualizar en tiempo real, pero sin mostrar el total
+  const extensionTab = document.getElementById('tab3');
+  if (extensionTab) {
+    extensionTab.addEventListener('input', function(event) {
+      if (event.target.matches('td[data-sum="true"]')) {
+        updateTotalHorasExtension();
+      }
+    });
+  }
+});
+
+function guardarAcademico() {
+  updateTotalHorasAcademico();
+  const totalHorasDiv = document.getElementById('totalHorasAcademico');
+  if (totalHorasDiv) {
+    totalHorasDiv.style.display = 'block';
+    console.log('Rectángulo de total de horas mostrado');
+  } else {
+    console.error('Elemento totalHorasAcademico no encontrado');
+  }
+  console.log('Datos de actividades académico administrativas guardados');
+  updateTotalHorasGeneral();
+}
+
+function updateTotalHorasAcademico() {
+  let total = 0;
+  const horasCells = document.querySelectorAll('#tab4 td[data-sum1="true"]');
+  horasCells.forEach(cell => {
+    const value = parseFloat(cell.textContent) || 0;
+    total += value;
+  });
+
+  const totalHorasDiv = document.getElementById('totalHorasAcademico');
+  if (totalHorasDiv) {
+    totalHorasDiv.textContent = `Total Horas: ${total}`;
+    console.log(`Total de horas actualizado: ${total}`);
+  } else {
+    console.error('Elemento totalHorasAcademico no encontrado');
+  }
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+  const guardarAcademicoBtn = document.getElementById('guardarAcademicoBtn');
+  if (guardarAcademicoBtn) {
+    guardarAcademicoBtn.addEventListener('click', guardarAcademico);
+    console.log('Event listener añadido al botón guardarAcademico');
+  } else {
+    console.error('Botón "Guardar Actividades Académico Administrativas" no encontrado.');
+  }
+
+  const academicoTab = document.getElementById('tab4');
+  if (academicoTab) {
+    academicoTab.addEventListener('input', function(event) {
+      if (event.target.matches('td[data-sum1="true"]')) {
+        updateTotalHorasAcademico();
+      }
+    });
+    console.log('Event listener añadido a las celdas editables');
+  }
+});
+
+function updateTotalHorasGeneral() {
+  const totalDocencia = parseFloat(document.getElementById('totalHoras').textContent.split(':')[1]) || 0;
+  const totalInvestigacion = parseFloat(document.getElementById('totalHorasInvestigacion').textContent.split(':')[1]) || 0;
+  const totalExtension = parseFloat(document.getElementById('totalHorasExtension').textContent.split(':')[1]) || 0;
+  const totalAcademico = parseFloat(document.getElementById('totalHorasAcademico').textContent.split(':')[1]) || 0;
+
+  const totalGeneral = totalDocencia + totalInvestigacion + totalExtension + totalAcademico;
+
+  const totalHorasGeneralDiv = document.getElementById('totalHorasGeneral');
+  if (totalHorasGeneralDiv) {
+    totalHorasGeneralDiv.textContent = `Total Horas General: ${totalGeneral}`;
+  }
+}
+
+
+document.addEventListener('DOMContentLoaded', function() {
+  // Event listeners existentes
+
+  // Añadir event listeners para actualizar el total general
+  const guardarBotones = document.querySelectorAll('.guardarDocencia, .guardarInvestigacion, .guardarExtension, .guardarAcademico');
+  guardarBotones.forEach(boton => {
+    boton.addEventListener('click', updateTotalHorasGeneral);
+  });
+});
+
+
+
+function duplicarPagina() {
+  // Clonar el contenido actual
+  var contenidoClonado = document.documentElement.cloneNode(true);
+
+  // Crear un nuevo documento HTML
+  var nuevoDocumento = document.implementation.createHTMLDocument('Autoevaluación');
+
+  // Reemplazar el contenido del nuevo documento con el contenido clonado
+  nuevoDocumento.documentElement.replaceWith(contenidoClonado);
+
+  // Ocultar el botón de autoevaluación en el contenido clonado
+  var botonAutoevaluacion = nuevoDocumento.getElementById('autoevaluacionBtn');
+  if (botonAutoevaluacion) {
+    botonAutoevaluacion.style.display = 'none';
+  }
+
+  // Ocultar el div de instrucciones en el contenido clonado
+  var divInstrucciones = nuevoDocumento.getElementById('instructions');
+  if (divInstrucciones) {
+    divInstrucciones.style.display = 'none';
+  }
+
+  // Hacer visibles todas las celdas de autoevaluación
+  var celdasAutoevaluacion = nuevoDocumento.getElementsByClassName('autoevaluacion-celda');
+  for (var i = 0; i < celdasAutoevaluacion.length; i++) {
+    celdasAutoevaluacion[i].style.display = '';
+  }
+
+// Reemplazar los <select> por su texto seleccionado
+var selectsOriginal = document.querySelectorAll("select");
+var selectsClonados = nuevoDocumento.querySelectorAll("select");
+
+selectsOriginal.forEach((select, index) => {
+    if (selectsClonados[index]) {
+        var selectedText = select.options[select.selectedIndex]?.text || "";
+        var parentTd = selectsClonados[index].parentNode; // Obtener la celda que contiene el <select>
+        parentTd.innerHTML = selectedText; // Reemplazar el <select> con el texto seleccionado
+    }
+});
+
+
+  // Convertir el nuevo documento a string
+  var contenidoHTML = new XMLSerializer().serializeToString(nuevoDocumento);
+
+  // Abrir una nueva ventana/pestaña con el contenido clonado
+  var nuevaVentana = window.open('', '_blank');
+  nuevaVentana.document.open();
+  nuevaVentana.document.write(contenidoHTML);
+  nuevaVentana.document.close();
+
+  // Función para reinicializar los eventos y funcionalidades
+  function reinicializarFuncionalidades() {
+    // Reinicializar los event listeners para las pestañas
+    var tabButtons = nuevaVentana.document.getElementsByClassName('tab-btn');
+    for (var i = 0; i < tabButtons.length; i++) {
+      tabButtons[i].addEventListener('click', function(event) {
+        openTab(event, this.getAttribute('onclick').match(/'([^']+)'/)[1]);
+      });
+    }
+
+    // Reinicializar otras funcionalidades específicas
+    nuevaVentana.toggleSidebar = toggleSidebar;
+    nuevaVentana.openModal = openModal;
+    nuevaVentana.closeModal = closeModal;
+    nuevaVentana.saveHorario = saveHorario;
+    nuevaVentana.insertarFila = insertarFila;
+    nuevaVentana.calculateSum = calculateSum;
+    nuevaVentana.calculateTotalHoras = calculateTotalHoras;
+    nuevaVentana.openActivityModal = openActivityModal;
+    nuevaVentana.closeActivityModal = closeActivityModal;
+    nuevaVentana.showTable1 = showTable1;
+    nuevaVentana.openExtModal = openExtModal;
+    nuevaVentana.closeExtModal = closeExtModal;
+    nuevaVentana.displayActivityTable = displayActivityTable;
+
+    // Asegurarse de que los cambios permanezcan
+    var botonEnNuevaVentana = nuevaVentana.document.getElementById('autoevaluacionBtn');
+    if (botonEnNuevaVentana) {
+      botonEnNuevaVentana.style.display = 'none';
+    }
+
+    var instruccionesEnNuevaVentana = nuevaVentana.document.getElementById('instructions');
+    if (instruccionesEnNuevaVentana) {
+      instruccionesEnNuevaVentana.style.display = 'none';
+    }
+
+    var celdasAutoevaluacionEnNuevaVentana = nuevaVentana.document.getElementsByClassName('autoevaluacion-celda');
+    for (var i = 0; i < celdasAutoevaluacionEnNuevaVentana.length; i++) {
+      celdasAutoevaluacionEnNuevaVentana[i].style.display = '';
+    }
+  }
+
+  // Esperar a que la nueva ventana cargue completamente
+  nuevaVentana.onload = function() {
+    // Copiar los estilos
+    var estilos = document.getElementsByTagName('style');
+    for (var i = 0; i < estilos.length; i++) {
+      nuevaVentana.document.head.appendChild(estilos[i].cloneNode(true));
+    }
+
+    // Copiar los scripts
+    var scripts = document.getElementsByTagName('script');
+    for (var i = 0; i < scripts.length; i++) {
+      var nuevoScript = nuevaVentana.document.createElement('script');
+      nuevoScript.textContent = scripts[i].textContent;
+      nuevaVentana.document.body.appendChild(nuevoScript);
+    }
+
+    
+  };
+  
+  
+  
+}
+
+
+function mostrarCalendario(td) {
+            let input = document.createElement("input");
+            input.type = "date";
+            input.value = td.dataset.fecha || ""; // Mantiene la fecha seleccionada
+            input.style.width = "100%";
+            input.style.border = "none";
+            input.style.textAlign = "center";
+
+            input.addEventListener("change", function() {
+                td.innerText = input.value || "Seleccionar fecha"; 
+                td.dataset.fecha = input.value;
+                td.onclick = function() { mostrarCalendario(td); };
+            });
+
+            input.addEventListener("blur", function() {
+                td.innerText = input.value || "Seleccionar fecha";
+                td.dataset.fecha = input.value;
+                td.onclick = function() { mostrarCalendario(td); };
+            });
+
+            td.innerText = "";
+            td.appendChild(input);
+            input.focus(); // Forzar el foco en el input
+            input.showPicker(); // Abrir el calendario en navegadores compatibles
+        }
+
+
+  </script>
+</body>
+</html>
