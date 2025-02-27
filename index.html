@@ -2865,6 +2865,16 @@ function mostrarCalendario(td) {
         }
 
 function descargarPagina() {
+    // Buscar la celda donde el usuario ingresa su nombre
+    let nombreCelda = document.querySelector('td[style*="font-weight: bold; width: 40px;"]:contains("Nombre")')
+                          .nextElementSibling.innerText.trim(); 
+
+    // Si el usuario no ha escrito nada, poner un nombre por defecto
+    let nombreArchivo = nombreCelda ? `PTA_${nombreCelda}.html` : "PTA_sin_nombre.html";
+
+    // Remover caracteres inválidos para nombres de archivo
+    nombreArchivo = nombreArchivo.replace(/[\/:*?"<>|]/g, '');
+
     // Obtener el código HTML de la página
     let contenido = document.documentElement.outerHTML;
 
@@ -2874,7 +2884,7 @@ function descargarPagina() {
     // Crear un enlace de descarga
     let enlace = document.createElement("a");
     enlace.href = URL.createObjectURL(blob);
-    enlace.download = "pagina_autoevaluacion.html";
+    enlace.download = nombreArchivo; // Asignar el nombre del archivo
 
     // Simular el clic para descargar
     document.body.appendChild(enlace);
